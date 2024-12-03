@@ -100,7 +100,7 @@ const Header = styled.h2`
 `;
 const SubHeader = styled.h4`
   color: #ffffffb2;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-family: "Mona Sans";
   font-weight: 400;
   line-height: 2rem;

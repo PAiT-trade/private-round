@@ -16,10 +16,16 @@ export const Link = styled.a``;
 
 export const Paragraph = styled.p`
   font-size: 14px;
-  color: #000;
+  color: #87939e;
   font-family: ${({ theme }) => theme.fonts.main};
   font-weight: 400;
   line-height: 1.5;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  span {
+  }
 `;
 
 const headingStyles = css`

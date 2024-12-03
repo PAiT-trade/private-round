@@ -25,7 +25,7 @@ export const NavItemLink = styled.a`
 `;
 export const NavActions = styled.div``;
 export const ConnectWalletButton = styled.div`
-  height: 55px;
+  height: 3.4375rem;
   width: 196px;
   background-color: #8cd2cf;
   padding: 18px 31px;

@@ -1,5 +1,6 @@
 "use client";
 import { BuyCard } from "@/components/Cards/Buy";
+import PreSale from "@/components/Cards/PreSale";
 import { NavSection } from "@/components/navbar";
 import { AppState } from "@/types/app";
 import { useState } from "react";
@@ -16,7 +17,10 @@ export default function Home() {
   return (
     <HeaderWrapper>
       <NavSection />
-      <BuyCard state={state} />
+      <FlexContainer>
+        <PreSale />
+        <BuyCard state={state} />
+      </FlexContainer>
     </HeaderWrapper>
   );
 }
@@ -26,15 +30,19 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   color: white;
+  background-image: "/header-cover.png";
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 1rem 12rem;
   display: flex;
   align-items: center;
   flex-direction: column;
 `;
 
-const HeadingSection = styled.div``;
-const HeaderCardSection = styled.div``;
-
-const PageHeader = styled.h1``;
-const headerSpanPait = styled.span``;
-const headerSpanText = styled.span``;
+const FlexContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12.5rem 0;
+  gap: 4rem;
+`;
