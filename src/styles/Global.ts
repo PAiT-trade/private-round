@@ -31,6 +31,7 @@ export const GlobalStyle = createGlobalStyle`
     body {
         font-family: ${({ theme }) => theme.fonts.main};
         font-weight: 400;
+        letter-spacing: 0cap.5 !important;
         line-height: 1.6;
         color: ${({ theme }) => theme.colors.text};
         background-color: ${({ theme }) => theme.colors.primary};

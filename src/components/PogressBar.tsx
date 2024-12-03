@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 interface ProgressBarProps {
-  progress: number;
+  $progress: number;
 }
 
-export const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
+export const ProgressBar: React.FC<ProgressBarProps> = ({ $progress }) => {
   return (
     <ProgressBarContainer>
-      <Progress progress={progress} />
+      <Progress $progress={$progress} />
     </ProgressBarContainer>
   );
 };
@@ -22,14 +22,14 @@ const ProgressBarContainer = styled.div`
   overflow: hidden;
 `;
 
-const Progress = styled.div<{ progress: number }>`
+const Progress = styled.div<{ $progress: number }>`
   background-color: #4daa90;
   height: 100%;
-  width: ${({ progress }) => progress}%;
+  width: ${({ $progress }) => $progress}%;
   transition: width 0.3s ease-in-out;
   position: absolute;
   left: 0;
   top: 0;
-  border-radius: ${({ progress }) =>
-    progress === 100 ? "10px" : "10px 0 0 10px"};
+  border-radius: ${({ $progress }) =>
+    $progress === 100 ? "10px" : "10px 0 0 10px"};
 `;

@@ -8,8 +8,11 @@ export const Container = styled.div`
 `;
 
 export const SectionWrapper = styled.div`
-  padding: 0 20px;
   margin: ${({ theme }) => `${theme.padding.small} ${theme.padding.large}`};
+  padding: 1rem 12rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 `;
 
 export const Link = styled.a``;

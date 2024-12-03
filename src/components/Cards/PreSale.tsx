@@ -4,6 +4,8 @@ import { CirclePlayIcon, MoveUpRightIcon } from "lucide-react";
 
 const Wrapper = styled.div`
   background-color: #070b15;
+  backdrop-filter: blur(60%);
+  -webkit-backdrop-filter: blur(60%);
   color: #fff;
   padding: 2rem;
   text-align: center;
@@ -42,7 +44,7 @@ const Title = styled.h1`
     }
   }
 `;
-const Subtitle = styled.p`
+const Subtitle = styled.h4`
   font-size: 1rem;
   margin: 1rem 0 2rem;
   line-height: 1.5;
@@ -55,9 +57,9 @@ const ButtonContainer = styled.div`
   gap: 1rem;
   margin-bottom: 2rem;
 `;
-const Button = styled.button<{ bgcolor?: string }>`
+const Button = styled.button<{ $bgcolor?: string }>`
   background-color: #8cd2cf;
-  background-color: ${(props) => (props.bgcolor ? props.bgcolor : "##8cd2cf")};
+  background-color: ${({ $bgcolor }) => ($bgcolor ? $bgcolor : "##8cd2cf")};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,13 +86,22 @@ const Countdown = styled.div`
   font-weight: bold;
   margin-top: 2rem;
   display: flex;
+  gap: 0.3rem;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-
   span {
-    font-size: 1.25rem;
-    color: #bbb;
+    color: #87939e;
+    font-size: 14px;
+  }
+  div {
+    display: flex;
+    gap: 1rem;
+    span {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+    }
   }
 `;
 
@@ -117,14 +128,14 @@ const PreSale = () => {
         </Paragraph>
       </Subtitle>
       <ButtonContainer>
-        <Button bgcolor="#7F7BBE">
+        <Button $bgcolor="#7F7BBE">
           <ButtonWallet>
             <span>Contact</span>
             <MoveUpRightIcon size={12} />
           </ButtonWallet>
         </Button>
 
-        <Button bgcolor="#fff">
+        <Button style={{ height: "3.75rem" }} $bgcolor="#fff">
           <ButtonWallet>
             <CirclePlayIcon size={16} />
             <span>How to buy ?</span>
@@ -133,9 +144,11 @@ const PreSale = () => {
       </ButtonContainer>
       <Countdown>
         <span>First stage ending soon.</span>
-        <span>
-          02 Days <span>14 Hours</span> <span>45 Minutes</span>
-        </span>
+        <div>
+          <span>02 Days</span>
+          <span>14 Hours</span>
+          <span>45 Minutes</span>
+        </div>
       </Countdown>
     </Wrapper>
   );

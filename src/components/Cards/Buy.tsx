@@ -5,10 +5,10 @@ import { AppState } from "@/types/app";
 import { ProgressBar } from "../PogressBar";
 import { MoveUpRightIcon } from "lucide-react";
 interface BuyCardProps {
-  state: AppState;
-  setPaits?: () => void;
+  $state: AppState;
+  $setPaits?: () => void;
 }
-export const BuyCard: React.FC<BuyCardProps> = ({ state }) => {
+export const BuyCard: React.FC<BuyCardProps> = ({ $state }) => {
   return (
     <Card>
       <Header>
@@ -31,7 +31,9 @@ export const BuyCard: React.FC<BuyCardProps> = ({ state }) => {
         </BuyCardHeaderAllocationHeader>
 
         <ProgressBar
-          progress={(state.allocation.remaining / state.allocation.total) * 100}
+          $progress={
+            ($state.allocation.remaining / $state.allocation.total) * 100
+          }
         />
 
         <BText color="#4daa90">1 $PAiT = {0.16} USDC</BText>

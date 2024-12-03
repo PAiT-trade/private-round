@@ -1,7 +1,10 @@
 "use client";
 import { BuyCard } from "@/components/Cards/Buy";
 import PreSale from "@/components/Cards/PreSale";
+import HeadingWithBar from "@/components/HeadingWIthLeftBar";
+import { HowToBuy } from "@/components/HowToBuy";
 import { NavSection } from "@/components/navbar";
+import { SectionWrapper } from "@/styles/app-common-styled";
 import { AppState } from "@/types/app";
 import { useState } from "react";
 import styled from "styled-components";
@@ -15,13 +18,25 @@ export default function Home() {
     paitPrice: "0.16",
   });
   return (
-    <HeaderWrapper>
-      <NavSection />
-      <FlexContainer>
-        <PreSale />
-        <BuyCard state={state} />
-      </FlexContainer>
-    </HeaderWrapper>
+    <>
+      <HeaderWrapper>
+        <NavSection />
+        <FlexContainer>
+          <PreSale />
+          <BuyCard $state={state} />
+        </FlexContainer>
+      </HeaderWrapper>
+
+      {/* Instructions Section */}
+      <SectionWrapper>
+        <HeadingWithBar
+          $title="INSTRUCTION"
+          $color="#ADA5D1"
+          $subtitle="How to acquire tokens in the private round?"
+        />
+        <HowToBuy />
+      </SectionWrapper>
+    </>
   );
 }
 
@@ -30,7 +45,8 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   color: white;
-  background-image: "/header-cover.png";
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)),
+    url("/header-cover.png");
   background-size: cover;
   background-repeat: no-repeat;
   padding: 1rem 12rem;
