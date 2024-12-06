@@ -37,7 +37,7 @@ const HeadingContent = styled.div<{ $subtitlewidth?: string }>`
 `;
 
 const HeadingText = styled.h1<{ $color: string }>`
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
   color: ${({ $color }) => $color};
   margin: 0;
@@ -47,6 +47,7 @@ const SubHeading = styled.h2`
   color: #fff;
   font-size: 3.5rem;
   font-weight: bold;
+  font-family: "Mona Sans";
   margin: 0;
   line-height: 1.2;
 

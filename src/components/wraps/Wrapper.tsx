@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const AppWrapper = styled.div``;
+export const AppWrapper = styled.div`
+  max-width: 1512px;
+  margin: 0 auto;
+`;
 
 interface WrapperProps {
   children: React.ReactNode;

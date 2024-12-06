@@ -30,7 +30,7 @@ export const Paragraph = styled.p`
   flex-direction: column;
   align-items: flex-start;
   span {
-    font-size: 12px;
+    font-size: 16px;
   }
 `;
 

@@ -39,6 +39,7 @@ export const ConnectWalletButton = styled.div`
 `;
 export const ConnectWalletButtonLabel = styled.span`
   color: #000;
+  font-size: 14px;
 `;
 
 export const NavSection = () => {

@@ -71,7 +71,7 @@ interface BuyCardsTextProps {
 }
 
 export const BText = styled.div<BuyCardsTextProps>`
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
 
@@ -80,9 +80,9 @@ export const BText = styled.div<BuyCardsTextProps>`
 `;
 
 const Card = styled.div`
-  min-width: 32.4375rem;
+  min-width: 519px;
   color: #fff;
-  /* height: 33.375rem; */
+  /* width: 100%; */
   padding: 2rem 1.5rem;
   background-color: #dde1e514;
   backdrop-filter: blur(8%);
@@ -102,7 +102,7 @@ const Header = styled.h2`
 `;
 const SubHeader = styled.h4`
   color: #ffffffb2;
-  font-size: 1.2rem;
+  font-size: 14px;
   font-family: "Mona Sans";
   font-weight: 400;
   line-height: 2rem;
@@ -127,7 +127,7 @@ const BuyCardHeaderAllocationHeader = styled.div`
 `;
 const BuyCardHeaderAllocationLabel = styled.div``;
 const BuyCardHeaderAllocationValue = styled.span`
-  font-size: 1rem;
+  font-size: 14px;
 `;
 const FormWrapper = styled.div`
   display: flex;
@@ -143,7 +143,9 @@ const FromGroup = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-const FromLabel = styled.div``;
+const FromLabel = styled.div`
+  font-size: 14px;
+`;
 const FromControl = styled.div`
   height: 3.5rem;
   background-color: #fff;
@@ -159,6 +161,7 @@ const FromControlInput = styled.input`
   padding: 0.4rem;
   border: none;
   color: #070b154d;
+  font-size: 14px;
   outline-width: 0;
 `;
 const FromControlIcon = styled.img`
@@ -181,6 +184,10 @@ const BuyNow = styled.button`
 const BuyNowWallet = styled.span`
   display: flex;
   gap: 0.3rem;
+
+  span {
+    font-size: 14px;
+  }
 `;
 const BuyNowAction = styled.span`
   display: flex;

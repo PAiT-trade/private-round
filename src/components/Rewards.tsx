@@ -79,11 +79,12 @@ const CardImg = styled.img`
 const CardTitle = styled.h3`
   padding-top: 2.8rem;
   padding-bottom: 8px;
+  font-size: 16px;
 `;
 const CardContent = styled.div`
   width: 100%;
 `;
 const CardContentParagraph = styled.p`
   color: #7d8893;
-  font-size: 12px;
+  font-size: 14px;
 `;

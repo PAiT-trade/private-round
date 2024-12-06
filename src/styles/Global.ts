@@ -26,12 +26,13 @@ export const GlobalStyle = createGlobalStyle`
     input,
     textarea,
     select{
-        font-size: 16px;
+        font-size: 14px;
     }
     body {
         font-family: ${({ theme }) => theme.fonts.main};
         font-weight: 400;
-        letter-spacing: 0cap.5 !important;
+        letter-spacing: 0.5 !important;
+        font-size: 14px;
         line-height: 1.6;
         color: ${({ theme }) => theme.colors.text};
         background-color: ${({ theme }) => theme.colors.primary};

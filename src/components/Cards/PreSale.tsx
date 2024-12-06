@@ -5,8 +5,8 @@ import styled from "styled-components";
 import { CirclePlayIcon, MoveUpRightIcon } from "lucide-react";
 
 const Wrapper = styled.div`
-  background-color: #070b15;
-  min-width: 46.0625rem;
+  /* background-color: #1c1b1f; */
+  min-width: 737px;
   backdrop-filter: blur(60%);
   -webkit-backdrop-filter: blur(60%);
   color: #fff;
@@ -27,7 +27,7 @@ const LiveBadge = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 24px;
   margin: 0.5rem 0;
   font-size: "Mona Sans";
   display: flex;
@@ -72,6 +72,7 @@ const Button = styled.button<{ $bgcolor?: string }>`
   cursor: pointer;
   border-radius: 4px;
   height: 3.4375rem;
+  font-size: 14px;
 `;
 
 const ButtonWallet = styled.span`
@@ -86,7 +87,7 @@ const ButtonAction = styled.span`
 `;
 
 const Countdown = styled.div`
-  font-size: 1.5rem;
+  font-size: 16px;
   font-weight: bold;
   margin-top: 2rem;
   display: flex;
@@ -96,13 +97,13 @@ const Countdown = styled.div`
   justify-content: flex-start;
   span {
     color: #87939e;
-    font-size: 14px;
+    font-size: 16px;
   }
   div {
     display: flex;
     gap: 1rem;
     span {
-      font-size: 1.5rem;
+      font-size: 16px;
       font-weight: bold;
       color: #fff;
     }

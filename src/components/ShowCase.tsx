@@ -4,9 +4,26 @@ import { Paragraph } from "@/styles/app-common-styled";
 import styled from "styled-components";
 import { CirclePlayIcon, MoveUpRightIcon } from "lucide-react";
 
+const ContentWrap = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+const ShowCaseImgWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 40%;
+`;
+const ShowCaseImg = styled.img`
+  align-self: center;
+`;
+
 const Wrapper = styled.div`
   background-color: #070b15;
   /* min-width: 46.0625rem; */
+  width: 60%;
   backdrop-filter: blur(60%);
   -webkit-backdrop-filter: blur(60%);
   color: #fff;
@@ -71,6 +88,7 @@ const Button = styled.button<{ $bgcolor?: string }>`
   padding: 0.7rem 1.6rem;
   cursor: pointer;
   border-radius: 4px;
+  font-size: 14px;
   height: 3.4375rem;
 `;
 
@@ -79,87 +97,55 @@ const ButtonSection = styled.span`
   gap: 0.3rem;
   justify-content: space-between;
   align-items: center;
+  font-size: 14px;
+  color: #070b15;
 `;
-const Countdown = styled.div`
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-top: 2rem;
-  display: flex;
-  gap: 0.3rem;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  span {
-    color: #87939e;
-    font-size: 14px;
-  }
-  div {
-    display: flex;
-    gap: 1rem;
-    span {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #fff;
-    }
-  }
-`;
-
-// pass Date time in numbers
-const getTimeRemaining = (targetTime: number) => {
-  const now = new Date().getTime();
-  const difference = targetTime - now;
-
-  const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((difference / (1000 * 60)) % 60);
-
-  return {
-    days: days > 0 ? days : 0,
-    hours: hours > 0 ? hours : 0,
-    minutes: minutes > 0 ? minutes : 0,
-  };
-};
 
 interface ShowCaseProps {}
 
 const ShowCase: React.FC<ShowCaseProps> = () => {
   return (
-    <Wrapper>
-      <Title>
-        <b>
-          What is <span>PAiT</span>?
-        </b>
-        <b>Save & one-click investing into DeFi</b>
-      </Title>
-      <Subtitle>
-        <Paragraph>
-          <span>
-            PAiT is a multi-functional DeFi platform offering secure, one-click
-            investing through
-          </span>
-          <span>
-            features like auto-investing, copy trading, and stablecoin staking
-            for consistent
-          </span>
-          <span>
-            returns. With $PAiT tokens, users can earn rewards, participate in
-            governance, and{" "}
-          </span>
-          <span>
-            access cutting-edge tools for crypto-backed loans and dollar-cost
-            averaging.{" "}
-          </span>
-        </Paragraph>
-      </Subtitle>
-      <ButtonContainer>
-        <Button $bgcolor="#7F7BBE">
-          <ButtonSection>
-            <span>Learn more</span>
-            <MoveUpRightIcon size={12} />
-          </ButtonSection>
-        </Button>
-      </ButtonContainer>
-    </Wrapper>
+    <ContentWrap>
+      <Wrapper>
+        <Title>
+          <b>
+            What is <span>PAiT</span>?
+          </b>
+          <b>Save & one-click investing into DeFi</b>
+        </Title>
+        <Subtitle>
+          <Paragraph>
+            <span>
+              PAiT is a multi-functional DeFi platform offering secure,
+              one-click investing through
+            </span>
+            <span>
+              features like auto-investing, copy trading, and stablecoin staking
+              for consistent
+            </span>
+            <span>
+              returns. With $PAiT tokens, users can earn rewards, participate in
+              governance, and{" "}
+            </span>
+            <span>
+              access cutting-edge tools for crypto-backed loans and dollar-cost
+              averaging.{" "}
+            </span>
+          </Paragraph>
+        </Subtitle>
+        <ButtonContainer>
+          <Button $bgcolor="#7F7BBE">
+            <ButtonSection>
+              <span>Learn more</span>
+              <MoveUpRightIcon size={12} />
+            </ButtonSection>
+          </Button>
+        </ButtonContainer>
+      </Wrapper>
+      <ShowCaseImgWrapper>
+        <ShowCaseImg src="/pait-app.png" />
+      </ShowCaseImgWrapper>
+    </ContentWrap>
   );
 };
 

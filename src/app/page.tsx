@@ -2,6 +2,7 @@
 import { Allocations } from "@/components/Allocations";
 import { BuyCard } from "@/components/Cards/Buy";
 import PreSale from "@/components/Cards/PreSale";
+import { FAQSection } from "@/components/FAQSection";
 import HeadingWithBar from "@/components/HeadingWIthLeftBar";
 import { HowToBuy } from "@/components/HowToBuy";
 import { NavSection } from "@/components/navbar";
@@ -65,6 +66,16 @@ export default function Home() {
       <SectionWrapper>
         <ShowCase />
       </SectionWrapper>
+
+      <SectionWrapper>
+        <HeadingWithBar
+          $title="FAQ"
+          $color="#ADA5D1"
+          $subtitlewidth="30rem"
+          $subtitle="Everything you need to know."
+        />
+        <FAQSection />
+      </SectionWrapper>
     </>
   );
 }
@@ -90,4 +101,5 @@ const FlexContainer = styled.div`
   align-items: flex-start;
   padding: 12.5rem 0;
   gap: 4rem;
+  width: 100%;
 `;

@@ -123,7 +123,7 @@ const ListContent = styled.div`
 `;
 
 const ListContentItem = styled.p`
-  font-size: 12px;
+  font-size: 14px;
   color: #7d8893;
 
   span {
@@ -135,4 +135,5 @@ const ListContentItemHeader = styled.p`
   font-weight: bold;
   color: #fff;
   margin-bottom: 0.6rem;
+  font-size: 16px;
 `;

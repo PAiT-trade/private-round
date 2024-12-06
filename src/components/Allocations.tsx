@@ -43,7 +43,7 @@ const Card = styled.div`
   background-color: #070b15;
   border: 1px solid #454546;
   border-radius: 8px;
-  padding: 1.2rem;
+  padding: 24px 12px;
   max-width: 627px;
   display: flex;
   align-items: center;
@@ -64,11 +64,12 @@ const CardImg = styled.img`
 `;
 const CardTitle = styled.h3`
   padding-bottom: 8px;
+  font-size: 16px;
 `;
 const CardContent = styled.div`
   width: 100%;
 `;
 const CardContentParagraph = styled.p`
   color: #7d8893;
-  font-size: 12px;
+  font-size: 14px;
 `;
