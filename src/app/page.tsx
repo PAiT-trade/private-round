@@ -1,4 +1,5 @@
 "use client";
+import styled from "styled-components";
 import { Allocations } from "@/components/Allocations";
 import { BuyCard } from "@/components/Cards/Buy";
 import PreSale from "@/components/Cards/PreSale";
@@ -8,10 +9,10 @@ import { HowToBuy } from "@/components/HowToBuy";
 import { NavSection } from "@/components/navbar";
 import { Rewards } from "@/components/Rewards";
 import ShowCase from "@/components/ShowCase";
+import { Footer } from "@/components/Footer";
 import { SectionWrapper } from "@/styles/app-common-styled";
 import { AppState } from "@/types/app";
 import { useState } from "react";
-import styled from "styled-components";
 
 export default function Home() {
   const [state, setState] = useState<AppState>({
@@ -75,6 +76,9 @@ export default function Home() {
           $subtitle="Everything you need to know."
         />
         <FAQSection />
+      </SectionWrapper>
+      <SectionWrapper $bg="#0a0915">
+        <Footer />
       </SectionWrapper>
     </>
   );

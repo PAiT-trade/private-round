@@ -7,8 +7,9 @@ export const Container = styled.div`
   width: 100%;
 `;
 
-export const SectionWrapper = styled.div`
+export const SectionWrapper = styled.div<{ $bg?: string }>`
   margin: ${({ theme }) => `${theme.padding.small} ${theme.padding.large}`};
+  background-color: ${({ $bg }) => ($bg ? $bg : "none")};
   padding: 1rem 12rem;
   display: flex;
   align-items: center;
