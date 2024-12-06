@@ -6,7 +6,7 @@ import { CirclePlayIcon, MoveUpRightIcon } from "lucide-react";
 
 const Wrapper = styled.div`
   /* background-color: #1c1b1f; */
-  min-width: 737px;
+  max-width: 737px;
   backdrop-filter: blur(60%);
   -webkit-backdrop-filter: blur(60%);
   color: #fff;

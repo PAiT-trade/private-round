@@ -80,7 +80,7 @@ export const BText = styled.div<BuyCardsTextProps>`
 `;
 
 const Card = styled.div`
-  min-width: 519px;
+  /* min-width: 519px; */
   color: #fff;
   /* width: 100%; */
   padding: 2rem 1.5rem;

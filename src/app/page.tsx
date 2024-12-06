@@ -13,6 +13,7 @@ import { Footer } from "@/components/Footer";
 import { SectionWrapper } from "@/styles/app-common-styled";
 import { AppState } from "@/types/app";
 import { useState } from "react";
+import { media } from "@/utils/media";
 
 export default function Home() {
   const [state, setState] = useState<AppState>({
@@ -64,7 +65,6 @@ export default function Home() {
         />
         <Allocations />
       </SectionWrapper>
-
       {/* Show case */}
       <SectionWrapper>
         <ShowCase />
@@ -99,6 +99,16 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+
+  ${media.tablet(`
+    width: 100%;
+    padding: 8px;
+  `)}
+
+  ${media.mobile(`
+    width: 100%;
+    padding: 8px;
+  `)}
 `;
 
 const Wrapping = styled.div`
@@ -106,6 +116,13 @@ const Wrapping = styled.div`
   margin: ${({ theme }) => `${theme.padding.small} auto`};
   max-width: 1512px;
   /* end of it */
+  ${media.tablet(`
+    width: 100%;
+  `)}
+
+  ${media.mobile(`
+    width: 100%;
+  `)}
 `;
 
 const FlexContainer = styled.div`

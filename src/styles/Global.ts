@@ -1,4 +1,5 @@
-import { devices, pixelToViewPortWidth } from "./common";
+import { media } from "@/utils/media";
+import { devices } from "./common";
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
@@ -22,6 +23,9 @@ export const GlobalStyle = createGlobalStyle`
         @media only screen and  (max-width: ${devices.large}) {
             font-size: 50%;
         }
+        ${media.largeDesktop(`
+            font-size: 50%;
+        `)}
     }   
     input,
     textarea,
@@ -39,5 +43,21 @@ export const GlobalStyle = createGlobalStyle`
         background-size: cover;
         background-repeat: no-repeat;
         min-height: 100vh;
+
+        ${media.mobile(`
+            font-size: 14px;
+        `)}
+
+        ${media.tablet(`
+            font-size: 14px;
+        `)}
+
+        ${media.desktop(`
+            font-size: 16px;
+        `)}
+        ${media.largeDesktop(`
+            font-size: 1px;
+        `)}
+
     }
 `;

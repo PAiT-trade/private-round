@@ -45,6 +45,7 @@ const Answer = styled.div<{ $isopen: boolean }>`
   overflow: hidden;
   transition: all 0.3s ease-in-out;
   color: #fff;
+  font-size: 14px;
 `;
 
 export const FAQSection = () => {

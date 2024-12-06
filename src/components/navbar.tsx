@@ -1,6 +1,8 @@
 "use client";
 import { MoveUpRightIcon } from "lucide-react";
 import styled from "styled-components";
+import { MobileNav } from "./MobileNav";
+import { useState } from "react";
 
 export const Navbar = styled.div`
   width: 100%;
@@ -43,31 +45,39 @@ export const ConnectWalletButtonLabel = styled.span`
 `;
 
 export const NavSection = () => {
+  const [isActive, setIsActive] = useState(false);
+
+  const setShow = () => {
+    setIsActive(!isActive);
+  };
   return (
-    <Navbar>
-      <NavLogo>
-        <NavLogoImg src="/Logo.svg" />
-      </NavLogo>
-      <NavItems>
-        <NavItem>
-          <NavItemLink>Home</NavItemLink>
-        </NavItem>
-        <NavItem>
-          <NavItemLink>WhitePaper</NavItemLink>
-        </NavItem>
-        <NavItem>
-          <NavItemLink>Join Telegram</NavItemLink>
-        </NavItem>
-        <NavItem>
-          <NavItemLink>Contact</NavItemLink>
-        </NavItem>
-      </NavItems>
-      <NavActions>
-        <ConnectWalletButton>
-          <ConnectWalletButtonLabel>Connect Wallet</ConnectWalletButtonLabel>
-          <MoveUpRightIcon size={12} />
-        </ConnectWalletButton>
-      </NavActions>
-    </Navbar>
+    <>
+      <MobileNav $isActive={isActive} $setIActive={setShow} />
+      <Navbar>
+        <NavLogo>
+          <NavLogoImg src="/Logo.svg" />
+        </NavLogo>
+        <NavItems>
+          <NavItem>
+            <NavItemLink>Home</NavItemLink>
+          </NavItem>
+          <NavItem>
+            <NavItemLink>WhitePaper</NavItemLink>
+          </NavItem>
+          <NavItem>
+            <NavItemLink>Join Telegram</NavItemLink>
+          </NavItem>
+          <NavItem>
+            <NavItemLink>Contact</NavItemLink>
+          </NavItem>
+        </NavItems>
+        <NavActions>
+          <ConnectWalletButton>
+            <ConnectWalletButtonLabel>Connect Wallet</ConnectWalletButtonLabel>
+            <MoveUpRightIcon size={12} />
+          </ConnectWalletButton>
+        </NavActions>
+      </Navbar>
+    </>
   );
 };
