@@ -1,9 +1,12 @@
 "use client";
+import { Allocations } from "@/components/Allocations";
 import { BuyCard } from "@/components/Cards/Buy";
 import PreSale from "@/components/Cards/PreSale";
 import HeadingWithBar from "@/components/HeadingWIthLeftBar";
 import { HowToBuy } from "@/components/HowToBuy";
 import { NavSection } from "@/components/navbar";
+import { Rewards } from "@/components/Rewards";
+import ShowCase from "@/components/ShowCase";
 import { SectionWrapper } from "@/styles/app-common-styled";
 import { AppState } from "@/types/app";
 import { useState } from "react";
@@ -16,13 +19,14 @@ export default function Home() {
       total: 2000000,
     },
     paitPrice: "0.16",
+    remainingTime: "2024-12-10",
   });
   return (
     <>
       <HeaderWrapper>
         <NavSection />
         <FlexContainer>
-          <PreSale />
+          <PreSale $remainingtime={state.remainingTime} />
           <BuyCard $state={state} />
         </FlexContainer>
       </HeaderWrapper>
@@ -35,6 +39,31 @@ export default function Home() {
           $subtitle="How to acquire tokens in the private round?"
         />
         <HowToBuy />
+      </SectionWrapper>
+      {/* Rewards */}
+      <SectionWrapper>
+        <HeadingWithBar
+          $title="REWARDS"
+          $color="#ADA5D1"
+          $subtitlewidth="39rem"
+          $subtitle="Share with friends, earn rewards?"
+        />
+        <Rewards />
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <HeadingWithBar
+          $title="SUPPLY & SCHEDULE"
+          $color="#ADA5D1"
+          $subtitlewidth="39rem"
+          $subtitle="Allocations & Vesting."
+        />
+        <Allocations />
+      </SectionWrapper>
+
+      {/* Show case */}
+      <SectionWrapper>
+        <ShowCase />
       </SectionWrapper>
     </>
   );

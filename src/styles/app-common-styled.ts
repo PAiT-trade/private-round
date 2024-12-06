@@ -12,6 +12,7 @@ export const SectionWrapper = styled.div`
   padding: 1rem 12rem;
   display: flex;
   align-items: center;
+  width: 100%;
   flex-direction: column;
 `;
 
@@ -20,14 +21,16 @@ export const Link = styled.a``;
 export const Paragraph = styled.p`
   font-size: 14px;
   color: #87939e;
+  margin: 0;
+  padding: 0;
   font-family: ${({ theme }) => theme.fonts.main};
   font-weight: 400;
   line-height: 1.5;
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   flex-direction: column;
+  align-items: flex-start;
   span {
+    font-size: 12px;
   }
 `;
 

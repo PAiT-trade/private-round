@@ -69,17 +69,59 @@ const Container = styled.div`
   color: #fff;
   font-weight: normal;
 `;
+
 const List = styled.ol`
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   justify-content: space-between;
-  align-items: center;
-  align-content: center;
-`;
-const ListItem = styled.li`
-  flex: 1 1 calc(60.33% - 0.5rem);
+  align-items: flex-start;
+  list-style: none;
+  counter-reset: list-counter;
 `;
 
-const ListContent = styled.div``;
+const ListItem = styled.li`
+  flex: 1 1 calc(33.33% - 1rem);
+  min-width: 200px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  counter-increment: list-counter;
+  margin-bottom: 48px;
+
+  &::before {
+    content: counter(list-counter);
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    color: #070b15;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-self: flex-start;
+    align-items: center;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    flex: 1 1 calc(50% - 1rem);
+  }
+
+  @media (max-width: 480px) {
+    flex: 1 1 100%;
+  }
+`;
+
+const ListContent = styled.div`
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.3rem;
+`;
+
 const ListContentItem = styled.p`
   font-size: 12px;
   color: #7d8893;
@@ -89,4 +131,8 @@ const ListContentItem = styled.p`
     padding: 0 0.3rem;
   }
 `;
-const ListContentItemHeader = styled.p``;
+const ListContentItemHeader = styled.p`
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 0.6rem;
+`;

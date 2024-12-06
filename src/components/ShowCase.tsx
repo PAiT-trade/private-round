@@ -6,7 +6,7 @@ import { CirclePlayIcon, MoveUpRightIcon } from "lucide-react";
 
 const Wrapper = styled.div`
   background-color: #070b15;
-  min-width: 46.0625rem;
+  /* min-width: 46.0625rem; */
   backdrop-filter: blur(60%);
   -webkit-backdrop-filter: blur(60%);
   color: #fff;
@@ -74,17 +74,12 @@ const Button = styled.button<{ $bgcolor?: string }>`
   height: 3.4375rem;
 `;
 
-const ButtonWallet = styled.span`
+const ButtonSection = styled.span`
   display: flex;
   gap: 0.3rem;
   justify-content: space-between;
   align-items: center;
 `;
-const ButtonAction = styled.span`
-  display: flex;
-  gap: 0.5rem;
-`;
-
 const Countdown = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
@@ -125,77 +120,47 @@ const getTimeRemaining = (targetTime: number) => {
   };
 };
 
-interface PreSaleProps {
-  $remainingtime: string;
-}
+interface ShowCaseProps {}
 
-const PreSale: React.FC<PreSaleProps> = ({ $remainingtime }) => {
-  const targetTime = new Date($remainingtime).getTime();
-  const [timeLeft, setTimeLeft] = useState(getTimeRemaining(targetTime));
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(getTimeRemaining(targetTime));
-    }, 1000);
-
-    return () => clearInterval(timer); // Cleanup the interval
-  }, [targetTime]);
-
+const ShowCase: React.FC<ShowCaseProps> = () => {
   return (
     <Wrapper>
-      <LiveBadge>LIVE</LiveBadge>
       <Title>
-        <b>Exclusive Access</b>
         <b>
-          to <span>$PAiT</span> pre-sale
+          What is <span>PAiT</span>?
         </b>
+        <b>Save & one-click investing into DeFi</b>
       </Title>
       <Subtitle>
         <Paragraph>
           <span>
-            Join the PAiT Private Round to secure exclusive tokens and earn
+            PAiT is a multi-functional DeFi platform offering secure, one-click
+            investing through
           </span>
           <span>
-            rewards.Act fast—only 2,000,000 tokens are available with a
-            structured
+            features like auto-investing, copy trading, and stablecoin staking
+            for consistent
           </span>
-          <span>unlock schedule! </span>
+          <span>
+            returns. With $PAiT tokens, users can earn rewards, participate in
+            governance, and{" "}
+          </span>
+          <span>
+            access cutting-edge tools for crypto-backed loans and dollar-cost
+            averaging.{" "}
+          </span>
         </Paragraph>
       </Subtitle>
       <ButtonContainer>
         <Button $bgcolor="#7F7BBE">
-          <ButtonWallet>
-            <span>Contact</span>
+          <ButtonSection>
+            <span>Learn more</span>
             <MoveUpRightIcon size={12} />
-          </ButtonWallet>
-        </Button>
-
-        <Button style={{ height: "3.75rem" }} $bgcolor="#fff">
-          <ButtonWallet>
-            <CirclePlayIcon size={16} />
-            <span>How to buy ?</span>
-          </ButtonWallet>
+          </ButtonSection>
         </Button>
       </ButtonContainer>
-      <Countdown>
-        <span>First stage ending soon.</span>
-        <div>
-          <span>
-            {" "}
-            <strong>{timeLeft.days}</strong> Days
-          </span>
-          <span>
-            {" "}
-            <strong>{timeLeft.hours}</strong> Hours
-          </span>
-          <span>
-            {" "}
-            <strong>{timeLeft.minutes}</strong> Minutes
-          </span>
-        </div>
-      </Countdown>
     </Wrapper>
   );
 };
 
-export default PreSale;
+export default ShowCase;

@@ -4,4 +4,5 @@ export interface AppState {
     remaining: number;
   };
   paitPrice: string;
+  remainingTime: string;
 }
