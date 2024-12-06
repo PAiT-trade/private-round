@@ -1,12 +1,13 @@
 "use client";
 import { Paragraph } from "@/styles/app-common-styled";
+import { useState } from "react";
 import styled from "styled-components";
 const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  gap: 1rem;
-  height: 456px;
+  height: 470px;
+  gap: 1.2rem;
 `;
 
 export const FooterHeaderWrapper = styled.div`
@@ -72,6 +73,9 @@ export const CopyrightLink = styled.a`
 `;
 
 export const Footer = () => {
+  const [currentYear, setCurrentYear] = useState(
+    new Date(Date.now()).getFullYear()
+  );
   return (
     <Wrap>
       <FooterHeaderWrapper>
@@ -117,7 +121,7 @@ export const Footer = () => {
         </FooterItem>
       </FooterHeaderWrapper>
       <CopyrightWrapper>
-        <Copyright>&copy;. PAiT. All rights reserved.</Copyright>
+        <Copyright>&copy;{currentYear}. PAiT. All rights reserved.</Copyright>
         <CopyrightAction>
           <CopyrightLink>Terms and Conditions</CopyrightLink>
           <CopyrightLink>SAFT Agreement</CopyrightLink>

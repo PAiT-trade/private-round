@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   backdrop-filter: blur(60%);
   -webkit-backdrop-filter: blur(60%);
   color: #fff;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
   font-family: "Arial", sans-serif;
   display: flex;

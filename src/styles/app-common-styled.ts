@@ -8,12 +8,15 @@ export const Container = styled.div`
 `;
 
 export const SectionWrapper = styled.div<{ $bg?: string }>`
-  margin: ${({ theme }) => `${theme.padding.small} ${theme.padding.large}`};
   background-color: ${({ $bg }) => ($bg ? $bg : "none")};
   padding: 1rem 12rem;
   display: flex;
   align-items: center;
   width: 100%;
+  /* can be removed */
+  max-width: 1512px;
+  margin: ${({ theme }) => `${theme.padding.small} auto`};
+  /* end of it */
   flex-direction: column;
 `;
 

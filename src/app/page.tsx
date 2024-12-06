@@ -26,11 +26,13 @@ export default function Home() {
   return (
     <>
       <HeaderWrapper>
-        <NavSection />
-        <FlexContainer>
-          <PreSale $remainingtime={state.remainingTime} />
-          <BuyCard $state={state} />
-        </FlexContainer>
+        <Wrapping>
+          <NavSection />
+          <FlexContainer>
+            <PreSale $remainingtime={state.remainingTime} />
+            <BuyCard $state={state} />
+          </FlexContainer>
+        </Wrapping>
       </HeaderWrapper>
 
       {/* Instructions Section */}
@@ -97,6 +99,13 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+`;
+
+const Wrapping = styled.div`
+  /* can be removed */
+  margin: ${({ theme }) => `${theme.padding.small} auto`};
+  max-width: 1512px;
+  /* end of it */
 `;
 
 const FlexContainer = styled.div`
