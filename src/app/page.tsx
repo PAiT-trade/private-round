@@ -99,27 +99,18 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-
-  ${media.tablet(`
-    width: 100%;
-    padding: 8px;
-  `)}
-
-  ${media.mobile(`
-    width: 100%;
-    padding: 8px;
-  `)}
 `;
 
 const Wrapping = styled.div`
   /* can be removed */
   margin: ${({ theme }) => `${theme.padding.small} auto`};
+
   max-width: 1512px;
+  width: 100%;
   /* end of it */
   ${media.tablet(`
     width: 100%;
   `)}
-
   ${media.mobile(`
     width: 100%;
   `)}
