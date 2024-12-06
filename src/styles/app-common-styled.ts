@@ -7,19 +7,35 @@ export const Container = styled.div`
   width: 100%;
 `;
 
-export const SectionWrapper = styled.div`
-  padding: 0 20px;
-  margin: ${({ theme }) => `${theme.padding.small} ${theme.padding.large}`};
+export const SectionWrapper = styled.div<{ $bg?: string }>`
+  background-color: ${({ $bg }) => ($bg ? $bg : "none")};
+  padding: 1rem 12rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* can be removed */
+  max-width: 1512px;
+  margin: ${({ theme }) => `${theme.padding.small} auto`};
+  /* end of it */
+  flex-direction: column;
 `;
 
 export const Link = styled.a``;
 
 export const Paragraph = styled.p`
   font-size: 14px;
-  color: #000;
+  color: #87939e;
+  margin: 0;
+  padding: 0;
   font-family: ${({ theme }) => theme.fonts.main};
   font-weight: 400;
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  span {
+    font-size: 16px;
+  }
 `;
 
 const headingStyles = css`

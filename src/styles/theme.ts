@@ -12,7 +12,7 @@ export const theme = {
     },
   },
   fonts: {
-    main: "Manrope, sans-serif",
+    main: "Mona Sans, sans-serif",
     code: "Courier, monospace",
   },
   fontSizes: {

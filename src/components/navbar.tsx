@@ -1,6 +1,8 @@
 "use client";
 import { MoveUpRightIcon } from "lucide-react";
 import styled from "styled-components";
+import { MobileNav } from "./MobileNav";
+import { useState } from "react";
 
 export const Navbar = styled.div`
   width: 100%;
@@ -25,7 +27,7 @@ export const NavItemLink = styled.a`
 `;
 export const NavActions = styled.div``;
 export const ConnectWalletButton = styled.div`
-  height: 55px;
+  height: 3.4375rem;
   width: 196px;
   background-color: #8cd2cf;
   padding: 18px 31px;
@@ -35,37 +37,47 @@ export const ConnectWalletButton = styled.div`
   align-items: center;
   gap: 4px;
   font-size: 14px;
+  color: #000;
 `;
 export const ConnectWalletButtonLabel = styled.span`
-  color: white;
+  color: #000;
+  font-size: 14px;
 `;
 
 export const NavSection = () => {
+  const [isActive, setIsActive] = useState(false);
+
+  const setShow = () => {
+    setIsActive(!isActive);
+  };
   return (
-    <Navbar>
-      <NavLogo>
-        <NavLogoImg src="/Logo.svg" />
-      </NavLogo>
-      <NavItems>
-        <NavItem>
-          <NavItemLink>Home</NavItemLink>
-        </NavItem>
-        <NavItem>
-          <NavItemLink>WhitePaper</NavItemLink>
-        </NavItem>
-        <NavItem>
-          <NavItemLink>Join Telegram</NavItemLink>
-        </NavItem>
-        <NavItem>
-          <NavItemLink>Contact</NavItemLink>
-        </NavItem>
-      </NavItems>
-      <NavActions>
-        <ConnectWalletButton>
-          <ConnectWalletButtonLabel>Connect Wallet</ConnectWalletButtonLabel>
-          <MoveUpRightIcon size={12} />
-        </ConnectWalletButton>
-      </NavActions>
-    </Navbar>
+    <>
+      <MobileNav $isActive={isActive} $setIActive={setShow} />
+      <Navbar>
+        <NavLogo>
+          <NavLogoImg src="/Logo.svg" />
+        </NavLogo>
+        <NavItems>
+          <NavItem>
+            <NavItemLink>Home</NavItemLink>
+          </NavItem>
+          <NavItem>
+            <NavItemLink>WhitePaper</NavItemLink>
+          </NavItem>
+          <NavItem>
+            <NavItemLink>Join Telegram</NavItemLink>
+          </NavItem>
+          <NavItem>
+            <NavItemLink>Contact</NavItemLink>
+          </NavItem>
+        </NavItems>
+        <NavActions>
+          <ConnectWalletButton>
+            <ConnectWalletButtonLabel>Connect Wallet</ConnectWalletButtonLabel>
+            <MoveUpRightIcon size={12} />
+          </ConnectWalletButton>
+        </NavActions>
+      </Navbar>
+    </>
   );
 };
