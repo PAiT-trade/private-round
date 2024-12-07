@@ -141,6 +141,7 @@ const FlexContainer = styled.div`
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
     flex-direction: column;
+    padding: 8px 8px;
   }
 `;
 

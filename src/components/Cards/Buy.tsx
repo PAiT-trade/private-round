@@ -97,6 +97,7 @@ const Card = styled.div`
   @media (max-width: ${sizes.tablet + "px"}) {
     max-width: 100%;
     width: 100%;
+    padding: 2rem 0;
   }
 `;
 
@@ -140,6 +141,10 @@ const FormWrapper = styled.div`
   justify-content: space-between;
   gap: 1rem;
   width: 100%;
+  @media (max-width: ${sizes.tablet + "px"}) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 const FromGroup = styled.div`
   display: flex;
@@ -148,6 +153,9 @@ const FromGroup = styled.div`
   padding-top: 0.5rem;
   justify-content: flex-start;
   align-items: flex-start;
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+  }
 `;
 const FromLabel = styled.div`
   font-size: 14px;
@@ -161,6 +169,9 @@ const FromControl = styled.div`
   padding: 0.2rem;
   border-radius: 4px;
   gap: 0.4rem;
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+  }
 `;
 const FromControlInput = styled.input`
   width: 100%;

@@ -2,6 +2,7 @@
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyle, theme } from "@/styles";
 import { Wrapper } from "./Wrapper";
+import { sizes } from "@/utils/media";
 
 interface BaseLayoutProps {
   children: React.ReactNode;
@@ -16,6 +17,10 @@ const BottomRightCorner = styled.div`
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   z-index: 1000;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    display: none;
+  }
 `;
 
 const FloatShowCase = styled.img``;

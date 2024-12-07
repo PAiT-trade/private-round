@@ -7,19 +7,22 @@ import { sizes } from "@/utils/media";
 import HeadingWithBar, { LeftBar } from "../HeadingWIthLeftBar";
 
 const Wrapper = styled.div`
-  /* background-color: #1c1b1f; */
   max-width: 737px;
   backdrop-filter: blur(60%);
   -webkit-backdrop-filter: blur(60%);
   color: #fff;
-  /* padding: 2rem; */
   text-align: center;
   font-family: "Arial", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-
+  p {
+    width: 450px;
+    @media (max-width: ${sizes.tablet + "px"}) {
+      width: 100%;
+    }
+  }
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
     max-width: 100%;
@@ -78,6 +81,12 @@ const ButtonContainer = styled.div`
   gap: 1rem;
   margin-bottom: 2rem;
   align-items: center;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    align-content: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 `;
 const Button = styled.button<{ $bgcolor?: string }>`
   background-color: #8cd2cf;
@@ -91,6 +100,11 @@ const Button = styled.button<{ $bgcolor?: string }>`
   border-radius: 4px;
   height: 55px;
   font-size: 14px;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    height: 60px;
+    width: 100%;
+  }
 `;
 
 const ButtonWallet = styled.span`
@@ -175,14 +189,9 @@ const PreSale: React.FC<PreSaleProps> = ({ $remainingtime }) => {
       </Title>
       <Subtitle>
         <Paragraph>
-          <span>
-            Join the PAiT Private Round to secure exclusive tokens and earn
-          </span>
-          <span>
-            rewards.Act fast—only 2,000,000 tokens are available with a
-            structured
-          </span>
-          <span>unlock schedule! </span>
+          Join the PAiT Private Round to secure exclusive tokens and earn
+          rewards.Act fast—only 2,000,000 tokens are available with a structured
+          unlock schedule!
         </Paragraph>
       </Subtitle>
       <ButtonContainer>
