@@ -62,15 +62,15 @@ export const FAQSection = () => {
     },
     {
       question: "What is the price of $PAiT tokens during the private round?",
-      answer: "The price of $PAiT in private round is: 0.16 USD.",
+      answer: "1 PAiT = 0.16 USD.",
     },
     {
       question: "How many $PAiT tokens are available in the private round?",
-      answer: "2000,000  Tokens",
+      answer: "2,000,000 PAiT Tokens available in the Private Round",
     },
     {
       question: "What is the unlock schedule for $PAiT tokens?",
-      answer: "6 months",
+      answer: "10% at TGE, 3 months cliff, linear vesting 18 months",
     },
 
     {
@@ -95,7 +95,7 @@ export const FAQSection = () => {
             <span>{faq.question}</span>
             <PlusIcon size={18} />
           </Question>
-          <Answer $isopen={openIndex === index}>Answer: {faq.answer}</Answer>
+          <Answer $isopen={openIndex === index}>{faq.answer}</Answer>
         </FAQItem>
       ))}
     </FAQContainer>
