@@ -4,7 +4,7 @@ import { Paragraph } from "@/styles/app-common-styled";
 import styled from "styled-components";
 import { CirclePlayIcon, MoveUpRightIcon } from "lucide-react";
 import { sizes } from "@/utils/media";
-import HeadingWithBar, { LeftBar } from "../HeadingWIthLeftBar";
+import { LeftBar } from "../HeadingWIthLeftBar";
 
 const Wrapper = styled.div`
   max-width: 737px;
@@ -47,7 +47,7 @@ const LiveBadge = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 24px;
+  font-size: 40px;
   margin: 0.5rem 0;
   font-size: "Mona Sans";
   display: flex;
@@ -135,7 +135,7 @@ const Countdown = styled.div`
     display: flex;
     gap: 1rem;
     span {
-      font-size: 16px;
+      font-size: 20px;
       font-weight: bold;
       color: #fff;
     }

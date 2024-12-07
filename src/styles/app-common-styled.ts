@@ -32,7 +32,7 @@ export const SectionWrapper = styled.div<{ $bg?: string }>`
 export const Link = styled.a``;
 
 export const Paragraph = styled.p`
-  font-size: 14px;
+  font-size: 16px;
   color: #87939e;
   margin: 0;
   padding: 0;
