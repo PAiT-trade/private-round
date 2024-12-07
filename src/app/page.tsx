@@ -80,9 +80,6 @@ export default function Home() {
         />
         <FAQSection />
       </SectionWrapper>
-      <SectionWrapper $bg="#0a0915">
-        <Footer />
-      </SectionWrapper>
     </>
   );
 }
@@ -95,12 +92,14 @@ const HeaderWrapper = styled.div`
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)),
     url("/header-cover.png");
   background-size: cover;
+  width: 100%;
   background-repeat: no-repeat;
   padding: 1rem 12rem;
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100;
+  /* max-width: 1512px; */
+  background-color: rebeccapurple;
   /* mobile and tablet */
   @media (max-width: ${sizes.desktop + "px"}) {
     padding: 8px;

@@ -15,7 +15,7 @@ export const SectionWrapper = styled.div<{ $bg?: string }>`
   align-items: center;
   width: 100%;
   /* can be removed */
-  max-width: 1512px;
+  /* max-width: 1512px; */
   margin: ${({ theme }) => `${theme.padding.small} auto`};
   /* end of it */
   flex-direction: column;
