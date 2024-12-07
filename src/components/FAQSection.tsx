@@ -16,11 +16,6 @@ const FAQContainer = styled.div`
   }
 `;
 
-const FAQTitle = styled.h1`
-  text-align: center;
-  margin-bottom: 20px;
-`;
-
 const FAQItem = styled.div`
   border-radius: 5px;
   margin-bottom: 10px;
