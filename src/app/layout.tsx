@@ -1,5 +1,6 @@
 import { BaseLayout } from "@/components/wraps/BaseLayout";
 import { LoadingProvider } from "@/hooks/useLoading";
+import StyledComponentsRegistry from "@/lib/style-registry";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -67,7 +68,9 @@ export default function RootLayout({
       </head>
       <body>
         <LoadingProvider>
-          <BaseLayout>{children}</BaseLayout>
+          <StyledComponentsRegistry>
+            <BaseLayout>{children}</BaseLayout>
+          </StyledComponentsRegistry>
         </LoadingProvider>
       </body>
     </html>
