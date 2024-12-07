@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Paragraph } from "@/styles/app-common-styled";
 import styled from "styled-components";
 import { CirclePlayIcon, MoveUpRightIcon } from "lucide-react";
+import { sizes } from "@/utils/media";
+import HeadingWithBar, { LeftBar } from "../HeadingWIthLeftBar";
 
 const Wrapper = styled.div`
   /* background-color: #1c1b1f; */
@@ -17,6 +19,13 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+
+  /* mobile and tablet */
+  @media (max-width: ${sizes.tablet + "px"}) {
+    max-width: 100%;
+    width: 100%;
+    align-self: center;
+  }
 `;
 
 const LiveBadge = styled.div`
@@ -24,6 +33,14 @@ const LiveBadge = styled.div`
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+
+  span {
+    font-weight: bold;
+  }
 `;
 
 const Title = styled.h1`
@@ -60,6 +77,7 @@ const ButtonContainer = styled.div`
   justify-content: center;
   gap: 1rem;
   margin-bottom: 2rem;
+  align-items: center;
 `;
 const Button = styled.button<{ $bgcolor?: string }>`
   background-color: #8cd2cf;
@@ -71,7 +89,7 @@ const Button = styled.button<{ $bgcolor?: string }>`
   padding: 0.7rem 1.6rem;
   cursor: pointer;
   border-radius: 4px;
-  height: 3.4375rem;
+  height: 55px;
   font-size: 14px;
 `;
 
@@ -144,7 +162,11 @@ const PreSale: React.FC<PreSaleProps> = ({ $remainingtime }) => {
 
   return (
     <Wrapper>
-      <LiveBadge>LIVE</LiveBadge>
+      <LiveBadge>
+        <LeftBar $color="#8cd2cf" />
+        <span>LIVE</span>
+      </LiveBadge>
+      {/* <HeadingWithBar $title="LIVE" $color="#8cd2cf" $subtitlewidth="0.3rem" /> */}
       <Title>
         <b>Exclusive Access</b>
         <b>
@@ -171,7 +193,7 @@ const PreSale: React.FC<PreSaleProps> = ({ $remainingtime }) => {
           </ButtonWallet>
         </Button>
 
-        <Button style={{ height: "3.75rem" }} $bgcolor="#fff">
+        <Button style={{ height: "60px" }} $bgcolor="#fff">
           <ButtonWallet>
             <CirclePlayIcon size={16} />
             <span>How to buy ?</span>

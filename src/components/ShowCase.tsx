@@ -3,10 +3,17 @@ import React, { useEffect, useState } from "react";
 import { Paragraph } from "@/styles/app-common-styled";
 import styled from "styled-components";
 import { CirclePlayIcon, MoveUpRightIcon } from "lucide-react";
+import { sizes } from "@/utils/media";
 
 const ContentWrap = styled.div`
   display: flex;
   width: 100%;
+
+  /* mobile and tablet */
+  @media (max-width: ${sizes.tablet + "px"}) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 `;
 
 const ShowCaseImgWrapper = styled.div`
@@ -15,6 +22,10 @@ const ShowCaseImgWrapper = styled.div`
   align-items: center;
   align-content: center;
   width: 40%;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+  }
 `;
 const ShowCaseImg = styled.img`
   align-self: center;
@@ -34,6 +45,9 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+  }
 `;
 
 const LiveBadge = styled.div`
@@ -89,7 +103,7 @@ const Button = styled.button<{ $bgcolor?: string }>`
   cursor: pointer;
   border-radius: 4px;
   font-size: 14px;
-  height: 3.4375rem;
+  height: 55px;
 `;
 
 const ButtonSection = styled.span`

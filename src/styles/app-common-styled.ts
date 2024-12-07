@@ -1,4 +1,5 @@
 "use client";
+import { sizes } from "@/utils/media";
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
@@ -18,6 +19,14 @@ export const SectionWrapper = styled.div<{ $bg?: string }>`
   margin: ${({ theme }) => `${theme.padding.small} auto`};
   /* end of it */
   flex-direction: column;
+
+  /* mobile and tablet */
+  @media (max-width: ${sizes.tablet + "px"}) {
+    max-width: 100%;
+    width: 100%;
+    padding: 1rem;
+    align-self: center;
+  }
 `;
 
 export const Link = styled.a``;

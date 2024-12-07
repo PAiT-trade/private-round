@@ -4,6 +4,7 @@ import React from "react";
 import { AppState } from "@/types/app";
 import { ProgressBar } from "../PogressBar";
 import { MoveUpRightIcon } from "lucide-react";
+import { sizes } from "@/utils/media";
 interface BuyCardProps {
   $state: AppState;
   $setPaits?: () => void;
@@ -74,7 +75,6 @@ export const BText = styled.div<BuyCardsTextProps>`
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
-
   margin: 0;
   color: ${({ color }) => (color ? color : "#fff")};
 `;
@@ -92,6 +92,12 @@ const Card = styled.div`
   flex-direction: column;
   gap: 0.8rem;
   border-radius: 0.4rem;
+
+  /* mobile and tablet */
+  @media (max-width: ${sizes.tablet + "px"}) {
+    max-width: 100%;
+    width: 100%;
+  }
 `;
 
 const Header = styled.h2`
@@ -147,7 +153,7 @@ const FromLabel = styled.div`
   font-size: 14px;
 `;
 const FromControl = styled.div`
-  height: 3.5rem;
+  height: 56px;
   background-color: #fff;
   display: flex;
   justify-content: space-between;
@@ -170,7 +176,7 @@ const FromControlIcon = styled.img`
 `;
 
 const BuyNow = styled.button`
-  height: 3.667rem;
+  height: 55px;
   width: 100%;
   background-color: #8cd2cf;
   display: flex;

@@ -12,7 +12,7 @@ const HeadingContainer = styled.div`
   gap: 1rem;
 `;
 
-const LeftBar = styled.div<{ $color: string }>`
+export const LeftBar = styled.div<{ $color: string }>`
   width: 1px;
   height: 17px;
   background-color: ${({ $color }) => $color};

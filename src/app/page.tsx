@@ -13,7 +13,7 @@ import { Footer } from "@/components/Footer";
 import { SectionWrapper } from "@/styles/app-common-styled";
 import { AppState } from "@/types/app";
 import { useState } from "react";
-import { media } from "@/utils/media";
+import { media, sizes } from "@/utils/media";
 
 export default function Home() {
   const [state, setState] = useState<AppState>({
@@ -32,6 +32,7 @@ export default function Home() {
           <FlexContainer>
             <PreSale $remainingtime={state.remainingTime} />
             <BuyCard $state={state} />
+            <ShowCaseImg src="/float-showcase.svg" />
           </FlexContainer>
         </Wrapping>
       </HeaderWrapper>
@@ -99,28 +100,55 @@ const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100;
+  /* mobile and tablet */
+  @media (max-width: ${sizes.desktop + "px"}) {
+    padding: 8px;
+  }
+  @media (max-width: ${sizes.tablet + "px"}) {
+    padding: 1rem;
+  }
 `;
 
 const Wrapping = styled.div`
-  /* can be removed */
   margin: ${({ theme }) => `${theme.padding.small} auto`};
-
-  max-width: 1512px;
   width: 100%;
-  /* end of it */
-  ${media.tablet(`
-    width: 100%;
-  `)}
-  ${media.mobile(`
-    width: 100%;
-  `)}
+  /* mobile and tablet */
+  @media (max-width: ${sizes.desktop + "px"}) {
+    min-width: 100% !important;
+    margin: 0;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+
+    & > {
+      width: 100%;
+    }
+  }
 `;
 
 const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 12.5rem 0;
+  padding: 12.5rem 8px;
   gap: 4rem;
   width: 100%;
+
+  /* mobile and tablet */
+  @media (max-width: ${sizes.tablet + "px"}) {
+    flex-direction: column;
+  }
+`;
+
+const ShowCaseImg = styled.img`
+  width: 100%;
+  display: none;
+  /* mobile and tablet */
+  @media (max-width: ${sizes.mobile + "px"}) {
+    display: block;
+  }
 `;
