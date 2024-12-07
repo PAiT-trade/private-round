@@ -19,6 +19,7 @@ export const FooterHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 100px;
+  gap: 1.2rem;
 
   @media (max-width: ${sizes.tablet + "px"}) {
     flex-direction: column;
