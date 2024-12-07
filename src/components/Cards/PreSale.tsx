@@ -3,20 +3,32 @@ import React, { useEffect, useState } from "react";
 import { Paragraph } from "@/styles/app-common-styled";
 import styled from "styled-components";
 import { CirclePlayIcon, MoveUpRightIcon } from "lucide-react";
+import { sizes } from "@/utils/media";
+import { LeftBar } from "../HeadingWIthLeftBar";
 
 const Wrapper = styled.div`
-  /* background-color: #1c1b1f; */
   max-width: 737px;
   backdrop-filter: blur(60%);
   -webkit-backdrop-filter: blur(60%);
   color: #fff;
-  /* padding: 2rem; */
   text-align: center;
   font-family: "Arial", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  p {
+    width: 450px;
+    @media (max-width: ${sizes.tablet + "px"}) {
+      width: 100%;
+    }
+  }
+  /* mobile and tablet */
+  @media (max-width: ${sizes.tablet + "px"}) {
+    max-width: 100%;
+    width: 100%;
+    align-self: center;
+  }
 `;
 
 const LiveBadge = styled.div`
@@ -24,10 +36,18 @@ const LiveBadge = styled.div`
   font-size: 1rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+
+  span {
+    font-weight: bold;
+  }
 `;
 
 const Title = styled.h1`
-  font-size: 24px;
+  font-size: 40px;
   margin: 0.5rem 0;
   font-size: "Mona Sans";
   display: flex;
@@ -60,6 +80,13 @@ const ButtonContainer = styled.div`
   justify-content: center;
   gap: 1rem;
   margin-bottom: 2rem;
+  align-items: center;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    align-content: center;
+    justify-content: space-between;
+    width: 100%;
+  }
 `;
 const Button = styled.button<{ $bgcolor?: string }>`
   background-color: #8cd2cf;
@@ -71,8 +98,13 @@ const Button = styled.button<{ $bgcolor?: string }>`
   padding: 0.7rem 1.6rem;
   cursor: pointer;
   border-radius: 4px;
-  height: 3.4375rem;
+  height: 55px;
   font-size: 14px;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    height: 60px;
+    width: 100%;
+  }
 `;
 
 const ButtonWallet = styled.span`
@@ -103,7 +135,7 @@ const Countdown = styled.div`
     display: flex;
     gap: 1rem;
     span {
-      font-size: 16px;
+      font-size: 20px;
       font-weight: bold;
       color: #fff;
     }
@@ -144,7 +176,11 @@ const PreSale: React.FC<PreSaleProps> = ({ $remainingtime }) => {
 
   return (
     <Wrapper>
-      <LiveBadge>LIVE</LiveBadge>
+      <LiveBadge>
+        <LeftBar $color="#8cd2cf" />
+        <span>LIVE</span>
+      </LiveBadge>
+      {/* <HeadingWithBar $title="LIVE" $color="#8cd2cf" $subtitlewidth="0.3rem" /> */}
       <Title>
         <b>Exclusive Access</b>
         <b>
@@ -153,14 +189,9 @@ const PreSale: React.FC<PreSaleProps> = ({ $remainingtime }) => {
       </Title>
       <Subtitle>
         <Paragraph>
-          <span>
-            Join the PAiT Private Round to secure exclusive tokens and earn
-          </span>
-          <span>
-            rewards.Act fast—only 2,000,000 tokens are available with a
-            structured
-          </span>
-          <span>unlock schedule! </span>
+          Join the PAiT Private Round to secure exclusive tokens and earn
+          rewards.Act fast—only 2,000,000 tokens are available with a structured
+          unlock schedule!
         </Paragraph>
       </Subtitle>
       <ButtonContainer>
@@ -171,7 +202,7 @@ const PreSale: React.FC<PreSaleProps> = ({ $remainingtime }) => {
           </ButtonWallet>
         </Button>
 
-        <Button style={{ height: "3.75rem" }} $bgcolor="#fff">
+        <Button style={{ height: "60px" }} $bgcolor="#fff">
           <ButtonWallet>
             <CirclePlayIcon size={16} />
             <span>How to buy ?</span>

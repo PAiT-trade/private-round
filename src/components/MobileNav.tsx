@@ -1,5 +1,5 @@
 "use client";
-import { media } from "@/utils/media";
+import { sizes } from "@/utils/media";
 import { MenuIcon, MoveUpRightIcon, XIcon } from "lucide-react";
 import React from "react";
 import styled from "styled-components";
@@ -13,23 +13,10 @@ export const Navbar = styled.div<{ $isActive: boolean }>`
   height: ${({ $isActive }) => ($isActive ? `100vh` : "auto")};
   padding: 8px;
   padding-bottom: 4vh;
-
-  ${media.mobile(`
+  transition: opacity 0.3s ease-in-out;
+  @media (max-width: ${sizes.desktop + "px"}) {
     display: flex;
-    background-color: red;
-  `)}
-
-  ${media.tablet(`
-    display: flex;
-  `)}
-
-  ${media.desktop(`
-    display: none;
-  `)}
-
-  ${media.largeDesktop(`
-    display: none;
-  `)}
+  }
 `;
 
 const TopBar = styled.div`
@@ -53,7 +40,7 @@ export const NavItemLink = styled.a`
 `;
 export const NavActions = styled.div``;
 export const ConnectWalletButton = styled.div`
-  height: 3.4375rem;
+  height: 55px;
 
   width: 100%;
   background-color: #8cd2cf;

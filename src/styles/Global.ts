@@ -44,6 +44,13 @@ export const GlobalStyle = createGlobalStyle`
         background-repeat: no-repeat;
         min-height: 100vh;
 
+        @media (max-width: 768px) {
+            font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 12px;
+        }
         ${media.mobile(`
             font-size: 14px;
         `)}

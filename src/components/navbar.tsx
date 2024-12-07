@@ -3,12 +3,18 @@ import { MoveUpRightIcon } from "lucide-react";
 import styled from "styled-components";
 import { MobileNav } from "./MobileNav";
 import { useState } from "react";
+import { sizes } from "@/utils/media";
 
 export const Navbar = styled.div`
   width: 100%;
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
+  padding: 0;
+  @media (min-width: ${sizes.desktop + "px"}) {
+    display: flex;
+    min-width: 100%;
+  }
 `;
 
 export const NavLogo = styled.div``;
@@ -27,7 +33,7 @@ export const NavItemLink = styled.a`
 `;
 export const NavActions = styled.div``;
 export const ConnectWalletButton = styled.div`
-  height: 3.4375rem;
+  height: 55px;
   width: 196px;
   background-color: #8cd2cf;
   padding: 18px 31px;

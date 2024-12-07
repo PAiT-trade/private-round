@@ -1,5 +1,6 @@
 "use client";
 import { Paragraph } from "@/styles/app-common-styled";
+import { sizes } from "@/utils/media";
 import { useState } from "react";
 import styled from "styled-components";
 const Wrap = styled.div`
@@ -8,12 +9,23 @@ const Wrap = styled.div`
   flex-direction: column;
   height: 470px;
   gap: 1.2rem;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    height: 100%;
+  }
 `;
 
 export const FooterHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 100px;
+  gap: 1.2rem;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    flex-direction: column;
+    width: 100%;
+    gap: 60px;
+  }
 `;
 
 export const AboutPait = styled.div`
@@ -21,22 +33,35 @@ export const AboutPait = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+  }
 `;
 export const AboutLogo = styled.img`
   width: 101.69px;
   height: 28px;
 `;
-export const FooterItem = styled.div`
+
+export const GroupContent = styled.div`
   display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  align-items: flex-start;
-  gap: 1.8rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+`;
+
+export const FooterItem = styled.div`
+  @media (max-width: ${sizes.tablet + "px"}) {
+    padding-bottom: 30px;
+  }
 `;
 
 export const Title = styled.h2`
   color: #87939e;
   font-size: 16px;
+  font-weight: bold;
+  font-family: "Monas Sans";
 `;
 
 export const Nav = styled.ul``;
@@ -54,6 +79,13 @@ const CopyrightWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
 `;
 
 export const Copyright = styled.h5`
@@ -67,6 +99,11 @@ export const CopyrightAction = styled.div`
   align-items: center;
   flex-grow: calc(33.33%, 1);
   gap: 1rem;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+    justify-content: space-between;
+  }
 `;
 export const CopyrightLink = styled.a`
   font-size: 14px;
@@ -88,37 +125,40 @@ export const Footer = () => {
             PAiT team will never contact you directly with offers.
           </Paragraph>
         </AboutPait>
-        <FooterItem>
-          <Title>GENERAL</Title>
-          <Nav>
-            <NavItem>
-              <NavLink href="#">Home</NavLink>
-              <NavLink href="#">Whitepaper</NavLink>
-              <NavLink href="#">Watch video tutorial</NavLink>
-              <NavLink href="#">Contact</NavLink>
-            </NavItem>
-          </Nav>
-        </FooterItem>
-        <FooterItem>
-          <Title>CONNECT</Title>
-          <Nav>
-            <NavItem>
-              <NavLink href="#">Join Telegram</NavLink>
-              <NavLink href="#">Connect StreamFlow</NavLink>
-              <NavLink href="#">Connect Wallet</NavLink>
-            </NavItem>
-          </Nav>
-        </FooterItem>
-        <FooterItem>
-          <Title>GENERAL</Title>
-          <Nav>
-            <NavItem>
-              <NavLink href="#">LinkedIn</NavLink>
-              <NavLink href="#">X</NavLink>
-              <NavLink href="#">Instagram</NavLink>
-            </NavItem>
-          </Nav>
-        </FooterItem>
+
+        <GroupContent>
+          <FooterItem>
+            <Title>GENERAL</Title>
+            <Nav>
+              <NavItem>
+                <NavLink href="#">Home</NavLink>
+                <NavLink href="#">Whitepaper</NavLink>
+                <NavLink href="#">Watch video tutorial</NavLink>
+                <NavLink href="#">Contact</NavLink>
+              </NavItem>
+            </Nav>
+          </FooterItem>
+          <FooterItem>
+            <Title>SOCIAL</Title>
+            <Nav>
+              <NavItem>
+                <NavLink href="#">Join Telegram</NavLink>
+                <NavLink href="#">Connect StreamFlow</NavLink>
+                <NavLink href="#">Connect Wallet</NavLink>
+              </NavItem>
+            </Nav>
+          </FooterItem>
+          <FooterItem>
+            <Title>CONNECT</Title>
+            <Nav>
+              <NavItem>
+                <NavLink href="#">LinkedIn</NavLink>
+                <NavLink href="#">X</NavLink>
+                <NavLink href="#">Instagram</NavLink>
+              </NavItem>
+            </Nav>
+          </FooterItem>
+        </GroupContent>
       </FooterHeaderWrapper>
       <CopyrightWrapper>
         <Copyright>&copy;{currentYear}. PAiT. All rights reserved.</Copyright>

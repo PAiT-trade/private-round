@@ -59,17 +59,17 @@ const Card = styled.div`
   }
 `;
 const CardImg = styled.img`
-  width: 5rem;
-  height: 5rem;
+  width: 80px;
+  height: 80px;
 `;
 const CardTitle = styled.h3`
   padding-bottom: 8px;
-  font-size: 16px;
+  font-size: 20px;
 `;
 const CardContent = styled.div`
   width: 100%;
 `;
 const CardContentParagraph = styled.p`
   color: #7d8893;
-  font-size: 14px;
+  font-size: 16px;
 `;

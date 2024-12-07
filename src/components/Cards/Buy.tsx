@@ -4,6 +4,7 @@ import React from "react";
 import { AppState } from "@/types/app";
 import { ProgressBar } from "../PogressBar";
 import { MoveUpRightIcon } from "lucide-react";
+import { sizes } from "@/utils/media";
 interface BuyCardProps {
   $state: AppState;
   $setPaits?: () => void;
@@ -24,7 +25,7 @@ export const BuyCard: React.FC<BuyCardProps> = ({ $state }) => {
           </BuyCardHeaderAllocationLabel>
           <BuyCardHeaderAllocationValue>
             <BText>
-              {}
+              {$state.allocation.remaining + " "}
               updated every 24h
             </BText>
           </BuyCardHeaderAllocationValue>
@@ -71,12 +72,17 @@ interface BuyCardsTextProps {
 }
 
 export const BText = styled.div<BuyCardsTextProps>`
-  font-size: 16px;
+  color: ${({ color }) => (color ? color : "#fff")};
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
-
   margin: 0;
-  color: ${({ color }) => (color ? color : "#fff")};
+  display: flex;
+  flex-wrap: wrap;
+  /* mobile and tablet */
+  @media (max-width: ${sizes.tablet + "px"}) {
+    /* width: 80%; */
+  }
 `;
 
 const Card = styled.div`
@@ -92,20 +98,28 @@ const Card = styled.div`
   flex-direction: column;
   gap: 0.8rem;
   border-radius: 0.4rem;
+
+  /* mobile and tablet */
+  @media (max-width: ${sizes.tablet + "px"}) {
+    max-width: 100%;
+    width: 100%;
+    padding: 2rem 0.2rem;
+  }
 `;
 
 const Header = styled.h2`
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 26px;
+  font-weight: bold;
   font-weight: 600;
-  line-height: 2.6rem;
+  line-height: 28px;
 `;
 const SubHeader = styled.h4`
   color: #ffffffb2;
-  font-size: 14px;
+  font-size: 16px;
   font-family: "Mona Sans";
   font-weight: 400;
-  line-height: 2rem;
+  line-height: 28px;
 `;
 const PrimaryColor = styled.span`
   color: #8cd2cf;
@@ -128,12 +142,22 @@ const BuyCardHeaderAllocationHeader = styled.div`
 const BuyCardHeaderAllocationLabel = styled.div``;
 const BuyCardHeaderAllocationValue = styled.span`
   font-size: 14px;
+
+  &:last-child {
+    display: flex;
+    align-items: flex-start;
+    align-self: flex-end;
+  }
 `;
 const FormWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   width: 100%;
+  @media (max-width: ${sizes.tablet + "px"}) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 const FromGroup = styled.div`
   display: flex;
@@ -142,12 +166,15 @@ const FromGroup = styled.div`
   padding-top: 0.5rem;
   justify-content: flex-start;
   align-items: flex-start;
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+  }
 `;
 const FromLabel = styled.div`
   font-size: 14px;
 `;
 const FromControl = styled.div`
-  height: 3.5rem;
+  height: 56px;
   background-color: #fff;
   display: flex;
   justify-content: space-between;
@@ -155,6 +182,9 @@ const FromControl = styled.div`
   padding: 0.2rem;
   border-radius: 4px;
   gap: 0.4rem;
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+  }
 `;
 const FromControlInput = styled.input`
   width: 100%;
@@ -170,7 +200,7 @@ const FromControlIcon = styled.img`
 `;
 
 const BuyNow = styled.button`
-  height: 3.667rem;
+  height: 55px;
   width: 100%;
   background-color: #8cd2cf;
   display: flex;
@@ -186,7 +216,7 @@ const BuyNowWallet = styled.span`
   gap: 0.3rem;
 
   span {
-    font-size: 14px;
+    font-size: 16px;
   }
 `;
 const BuyNowAction = styled.span`

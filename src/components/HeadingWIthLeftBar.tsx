@@ -1,4 +1,5 @@
 "use client";
+import { sizes } from "@/utils/media";
 import React from "react";
 import styled from "styled-components";
 
@@ -12,7 +13,7 @@ const HeadingContainer = styled.div`
   gap: 1rem;
 `;
 
-const LeftBar = styled.div<{ $color: string }>`
+export const LeftBar = styled.div<{ $color: string }>`
   width: 1px;
   height: 17px;
   background-color: ${({ $color }) => $color};
@@ -28,12 +29,19 @@ const HeadingContent = styled.div<{ $subtitlewidth?: string }>`
   justify-content: center;
   align-self: center;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   width: ${({ $subtitlewidth }) => ($subtitlewidth ? $subtitlewidth : "42rem")};
   gap: 0.5rem;
   text-align: center;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    max-width: 100%;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    align-self: flex-start;
+  }
 `;
 
 const HeadingText = styled.h1<{ $color: string }>`
@@ -45,7 +53,7 @@ const HeadingText = styled.h1<{ $color: string }>`
 
 const SubHeading = styled.h2`
   color: #fff;
-  font-size: 3.5rem;
+  font-size: 32px;
   font-weight: bold;
   font-family: "Mona Sans";
   margin: 0;

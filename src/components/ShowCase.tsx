@@ -3,10 +3,18 @@ import React, { useEffect, useState } from "react";
 import { Paragraph } from "@/styles/app-common-styled";
 import styled from "styled-components";
 import { CirclePlayIcon, MoveUpRightIcon } from "lucide-react";
+import { sizes } from "@/utils/media";
 
 const ContentWrap = styled.div`
   display: flex;
   width: 100%;
+
+  /* mobile and tablet */
+  @media (max-width: ${sizes.tablet + "px"}) {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 40px;
+  }
 `;
 
 const ShowCaseImgWrapper = styled.div`
@@ -15,6 +23,10 @@ const ShowCaseImgWrapper = styled.div`
   align-items: center;
   align-content: center;
   width: 40%;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+  }
 `;
 const ShowCaseImg = styled.img`
   align-self: center;
@@ -34,20 +46,17 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-`;
-
-const LiveBadge = styled.div`
-  color: #8cd2cf;
-  font-size: 1rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 2.5rem;
   margin: 0.5rem 0;
   font-size: "Mona Sans";
-  display: flex;
+  display: none;
+  gap: 0.1rem;
   flex-direction: column;
   align-items: flex-start;
 
@@ -55,13 +64,43 @@ const Title = styled.h1`
     color: #8cd2cf;
   }
   b {
-    font-size: 3.5rem;
+    font-size: 40px;
     color: #87939e;
-
+    text-align: left;
+    line-height: 48px;
     &:first-child {
       color: white;
-      font-size: 4rem;
     }
+  }
+
+  @media (min-width: ${sizes.tablet + "px"}) {
+    display: flex;
+  }
+`;
+
+const MTitle = styled.h1`
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+  font-size: "Mona Sans";
+  display: none;
+  gap: 0.1rem;
+  flex-direction: column;
+  align-items: flex-start;
+
+  span {
+    color: #8cd2cf;
+  }
+  b {
+    font-size: 40px;
+    color: #87939e;
+    text-align: left;
+    line-height: 48px;
+    &:first-child {
+      color: white;
+    }
+  }
+  @media (max-width: ${sizes.tablet + "px"}) {
+    display: flex;
   }
 `;
 const Subtitle = styled.h4`
@@ -77,6 +116,10 @@ const ButtonContainer = styled.div`
   justify-content: center;
   gap: 1rem;
   margin-bottom: 2rem;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+  }
 `;
 const Button = styled.button<{ $bgcolor?: string }>`
   background-color: #8cd2cf;
@@ -89,7 +132,11 @@ const Button = styled.button<{ $bgcolor?: string }>`
   cursor: pointer;
   border-radius: 4px;
   font-size: 14px;
-  height: 3.4375rem;
+  height: 55px;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+  }
 `;
 
 const ButtonSection = styled.span`
@@ -97,7 +144,7 @@ const ButtonSection = styled.span`
   gap: 0.3rem;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
+  font-size: 16px;
   color: #070b15;
 `;
 
@@ -115,22 +162,11 @@ const ShowCase: React.FC<ShowCaseProps> = () => {
         </Title>
         <Subtitle>
           <Paragraph>
-            <span>
-              PAiT is a multi-functional DeFi platform offering secure,
-              one-click investing through
-            </span>
-            <span>
-              features like auto-investing, copy trading, and stablecoin staking
-              for consistent
-            </span>
-            <span>
-              returns. With $PAiT tokens, users can earn rewards, participate in
-              governance, and{" "}
-            </span>
-            <span>
-              access cutting-edge tools for crypto-backed loans and dollar-cost
-              averaging.{" "}
-            </span>
+            PAiT is a multi-functional DeFi platform offering secure, one-click
+            investing through features like auto-investing, copy trading, and
+            stablecoin staking for consistent returns. With $PAiT tokens, users
+            can earn rewards, participate in governance, and access cutting-edge
+            tools for crypto-backed loans and dollar-cost averaging.
           </Paragraph>
         </Subtitle>
         <ButtonContainer>
@@ -145,6 +181,12 @@ const ShowCase: React.FC<ShowCaseProps> = () => {
       <ShowCaseImgWrapper>
         <ShowCaseImg src="/pait-app.png" />
       </ShowCaseImgWrapper>
+      <MTitle>
+        <b>
+          What is <span>PAiT</span>?
+        </b>
+        <b>Save & one-click investing into DeFi</b>
+      </MTitle>
     </ContentWrap>
   );
 };

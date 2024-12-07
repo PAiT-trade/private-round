@@ -1,4 +1,5 @@
 "use client";
+import { sizes } from "@/utils/media";
 import { PlusIcon } from "lucide-react";
 import React, { useState } from "react";
 import styled from "styled-components";
@@ -9,11 +10,10 @@ const FAQContainer = styled.div`
   padding: 20px;
   margin-top: 80px;
   font-family: Arial, sans-serif;
-`;
-
-const FAQTitle = styled.h1`
-  text-align: center;
-  margin-bottom: 20px;
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+    padding: 20px 0;
+  }
 `;
 
 const FAQItem = styled.div`
@@ -35,7 +35,11 @@ const Question = styled.div`
     border-bottom: 0.3px solid #87939e;
   }
   span {
-    font-size: 14px;
+    font-size: 16px;
+  }
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    padding: 20px 8px;
   }
 `;
 
