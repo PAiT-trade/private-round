@@ -29,14 +29,13 @@ export const Allocations = () => {
 };
 const Container = styled.div`
   padding: 6.25rem 0;
-  font-size: 1.2rem;
-  color: #fff;
+  font-size: 16px;
+  color: #ffffffb3;
   font-weight: normal;
-  justify-content: space-between;
   display: flex;
+  justify-content: space-between;
   width: 100% !important;
   gap: 1.5rem;
-  flex-wrap: wrap;
 `;
 
 const Card = styled.div`
@@ -44,14 +43,15 @@ const Card = styled.div`
   border: 1px solid #454546;
   border-radius: 8px;
   padding: 24px 12px;
-  max-width: 627px;
+  max-width: 500px;
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: flex-start;
   gap: 1.5rem;
 
   @media (max-width: 768px) {
-    flex: 1 1 calc(33.33% - 1rem);
+    flex: 1 1 calc(33.33% - 0.5rem);
   }
 
   @media (max-width: 480px) {
@@ -72,4 +72,7 @@ const CardContent = styled.div`
 const CardContentParagraph = styled.p`
   color: #7d8893;
   font-size: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 `;

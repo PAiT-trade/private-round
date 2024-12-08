@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { uploadToS3 } from "@/lib/aws";
 import { sendEmail } from "@/lib/mail";
 import { prisma } from "@/db/prisma";
 

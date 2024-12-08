@@ -7,9 +7,9 @@ const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  height: 470px;
-  gap: 1.2rem;
-
+  max-height: 29.375rem;
+  height: 100%;
+  gap: 2rem;
   @media (max-width: ${sizes.tablet + "px"}) {
     height: 100%;
   }
@@ -19,7 +19,7 @@ export const FooterHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 100px;
-  gap: 1.2rem;
+  gap: 2rem;
 
   @media (max-width: ${sizes.tablet + "px"}) {
     flex-direction: column;
@@ -52,6 +52,11 @@ export const GroupContent = styled.div`
 `;
 
 export const FooterItem = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.8rem;
+
   @media (max-width: ${sizes.tablet + "px"}) {
     padding-bottom: 30px;
   }
@@ -72,7 +77,8 @@ export const NavItem = styled.li`
 `;
 export const NavLink = styled.a`
   font-size: 14px;
-  font-weight: normal;
+  font-weight: 200;
+  color: #ffffffb3;
 `;
 
 const CopyrightWrapper = styled.div`
