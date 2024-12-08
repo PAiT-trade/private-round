@@ -71,6 +71,23 @@ const customCSS = `
         height:  55px !important;
         max-height:  55px !important;
         background-color: #8cd2cf !important; 
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        color:  #070B15 !important;
+    }
+
+    .dynamic-widget-inline-controls__network-picker, .typography.account-control__name {
+      color: #070B15 !important;
+    }
+
+    .account-control__container.account-control__container--multiwallet-disabled.dynamic-widget-inline-controls__account-control > svg {
+      color: #070B15 !important;
+      font-size: 16px !important;
+    }
+    .icon--size-small, .wallet-icon-with-network__container {
+        width: 12px !important;
+        height: 12px !important;
     }
     .dynamic-widget__container {
         width: 100% !important;
