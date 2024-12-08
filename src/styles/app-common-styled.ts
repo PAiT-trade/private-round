@@ -103,10 +103,8 @@ export const PagesWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 70vh;
-  background-color: #151720 !important;
-  margin: 2rem;
-  border-radius: 0.4rem;
+  /* height: 70vh; */
+  /* margin: 2rem; */
   gap: 1rem;
 
   #veriff-root {
@@ -130,12 +128,23 @@ export const PagesWrapper = styled.div`
 export const PageWrap = styled.div``;
 export const PageTitle = styled.h1`
   font-weight: 500;
-  font-size: 32px;
+  font-size: 24px;
   color: #fff;
   /* max-width: 400px; */
   margin-bottom: 1rem;
   line-height: 48px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Mona Sans", sans-serif;
+
+  /* mobile and tablet */
+  @media (max-width: ${sizes.tablet + "px"}) {
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: 300;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+  }
 `;
 
 export const MenuConnectButton = styled.div`
@@ -183,6 +192,26 @@ export const ConnectWalletButtonExtends = styled.div`
     }
     & > .wallet-adapter-button {
       color: #a6fff3;
+    }
+  }
+`;
+
+export const Wrapping = styled.div`
+  margin: ${({ theme }) => `${theme.padding.small} auto`};
+  width: 100%;
+  /* mobile and tablet */
+  @media (max-width: ${sizes.desktop + "px"}) {
+    min-width: 100% !important;
+    margin: 0;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+
+    & > {
+      width: 100%;
     }
   }
 `;

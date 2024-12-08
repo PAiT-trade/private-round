@@ -8,7 +8,10 @@ import {
   ConnectWalletButtonExtends,
   PagesWrapper,
   PageTitle,
+  SectionWrapper,
+  Wrapping,
 } from "@/styles/app-common-styled";
+import { NavSection } from "@/components/navbar";
 
 export default function KYC() {
   const { connected, publicKey, isValidWallet, disconnect } =
@@ -27,37 +30,42 @@ export default function KYC() {
   }, [connected, publicKey, isValidWallet]);
 
   return (
-    <PagesWrapper>
-      {connected ? (
-        <div
-          style={{
-            padding: "1rem",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <PageTitle>Purchase have not started yet</PageTitle>
-          <PageTitle>
-            You will be able to start your purchase only after completing the
-            KYC verification.
-          </PageTitle>
+    <SectionWrapper>
+      <Wrapping>
+        <NavSection />
+        <PagesWrapper>
+          {connected ? (
+            <div
+              style={{
+                padding: "1rem",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <PageTitle>Purchase have not started yet</PageTitle>
+              <PageTitle>
+                You will be able to start your purchase only after completing
+                the KYC verification.
+              </PageTitle>
 
-          <KycContent>
-            <VerifyKYC wallet={publicKey!} />
-          </KycContent>
-        </div>
-      ) : (
-        <DynamicWidget
-          innerButtonComponent={
-            <ConnectWalletButtonExtends>
-              Connect Wallet
-            </ConnectWalletButtonExtends>
-          }
-        />
-      )}
-    </PagesWrapper>
+              <KycContent>
+                <VerifyKYC wallet={publicKey!} />
+              </KycContent>
+            </div>
+          ) : (
+            <DynamicWidget
+              innerButtonComponent={
+                <ConnectWalletButtonExtends>
+                  Connect Wallet
+                </ConnectWalletButtonExtends>
+              }
+            />
+          )}
+        </PagesWrapper>
+      </Wrapping>
+    </SectionWrapper>
   );
 }
 

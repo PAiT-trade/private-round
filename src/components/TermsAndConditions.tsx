@@ -214,6 +214,7 @@ const SectionTitle = styled.h2`
 const Paragraph = styled.p`
   line-height: 1.5;
   display: flex;
+  font-size: 16px;
   justify-content: flex-start;
   align-items: center;
 `;

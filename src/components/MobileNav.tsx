@@ -1,8 +1,11 @@
 "use client";
 import { sizes } from "@/utils/media";
+import { DynamicWidget } from "@dynamic-labs/sdk-react-core";
 import { MenuIcon, MoveUpRightIcon, XIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 import React from "react";
 import styled from "styled-components";
+import { WalletConnect } from "./navbar";
 
 export const Navbar = styled.div<{ $isActive: boolean }>`
   display: none;
@@ -67,10 +70,15 @@ export const MobileNav: React.FC<MobileNavProps> = ({
   $isActive,
   $setIActive,
 }) => {
+  const router = useRouter();
   return (
     <Navbar $isActive={$isActive}>
       <TopBar>
-        <NavLogo>
+        <NavLogo
+          onClick={() => {
+            router.push("/");
+          }}
+        >
           <NavLogoImg src="/Logo.svg" />
         </NavLogo>
 
@@ -84,25 +92,41 @@ export const MobileNav: React.FC<MobileNavProps> = ({
         <>
           <NavItems>
             <NavItem>
-              <NavItemLink>Home</NavItemLink>
+              <NavItemLink target="_blank" href={`https://pait.fi`}>
+                Home
+              </NavItemLink>
             </NavItem>
             <NavItem>
-              <NavItemLink>WhitePaper</NavItemLink>
+              <NavItemLink
+                target="_blank"
+                href={`https://pait.gitbook.io/pait`}
+              >
+                WhitePaper
+              </NavItemLink>
             </NavItem>
             <NavItem>
-              <NavItemLink>Join Telegram</NavItemLink>
+              <NavItemLink
+                target="_blank"
+                href="https://t.me/+zdBkF3dauTs5ODc8"
+              >
+                Join Telegram
+              </NavItemLink>
             </NavItem>
             <NavItem>
               <NavItemLink>Contact</NavItemLink>
             </NavItem>
           </NavItems>
           <NavActions>
-            <ConnectWalletButton>
-              <ConnectWalletButtonLabel>
-                Connect Wallet
-              </ConnectWalletButtonLabel>
-              <MoveUpRightIcon size={12} />
-            </ConnectWalletButton>
+            <DynamicWidget
+              innerButtonComponent={
+                <WalletConnect>
+                  <ConnectWalletButtonLabel>
+                    Connect Wallet
+                  </ConnectWalletButtonLabel>
+                  <MoveUpRightIcon size={8} />
+                </WalletConnect>
+              }
+            />
           </NavActions>
         </>
       )}

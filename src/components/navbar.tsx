@@ -5,6 +5,7 @@ import { MobileNav } from "./MobileNav";
 import { useState } from "react";
 import { sizes } from "@/utils/media";
 import { DynamicWidget } from "@dynamic-labs/sdk-react-core";
+import { useRouter } from "next/navigation";
 
 export const Navbar = styled.div`
   width: 100%;
@@ -129,11 +130,17 @@ export const NavSection = () => {
   const setShow = () => {
     setIsActive(!isActive);
   };
+
+  const router = useRouter();
   return (
     <>
       <MobileNav $isActive={isActive} $setIActive={setShow} />
       <Navbar>
-        <NavLogo>
+        <NavLogo
+          onClick={() => {
+            router.push("/");
+          }}
+        >
           <NavLogoImg src="/Logo.svg" />
         </NavLogo>
         <NavItems>

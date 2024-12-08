@@ -9,7 +9,10 @@ import { useLoading } from "@/context/loading-context";
 import {
   ConnectWalletButtonExtends,
   PagesWrapper,
+  SectionWrapper,
+  Wrapping,
 } from "@/styles/app-common-styled";
+import { NavSection } from "@/components/navbar";
 
 interface QueryParams {
   params: {
@@ -89,42 +92,45 @@ const Home: React.FC<QueryParams> = ({ params }) => {
   };
 
   return (
-    <div>
-      {connected ? (
-        <>
-          {isContractYours ? (
-            <SignaturePad
-              onSave={submitDocument}
-              name={name}
-              email={email}
-              purchaseId={Number(id)}
-              userId={Number(userId)}
-              tokens={Number(tokens)}
-              link={link}
-              usdcAmount={Number(usdcAmount)}
-              telegram={telegram}
-              setTelegram={setTelegram}
-              setName={setName}
-              setEmail={setEmail}
-              address={publicKey!}
-              showSignature={true}
+    <SectionWrapper>
+      <Wrapping>
+        <NavSection />
+        {connected ? (
+          <>
+            {isContractYours ? (
+              <SignaturePad
+                onSave={submitDocument}
+                name={name}
+                email={email}
+                purchaseId={Number(id)}
+                userId={Number(userId)}
+                tokens={Number(tokens)}
+                link={link}
+                usdcAmount={Number(usdcAmount)}
+                telegram={telegram}
+                setTelegram={setTelegram}
+                setName={setName}
+                setEmail={setEmail}
+                address={publicKey!}
+                showSignature={true}
+              />
+            ) : (
+              <NotAuthorized />
+            )}
+          </>
+        ) : (
+          <PagesWrapper>
+            <DynamicWidget
+              innerButtonComponent={
+                <ConnectWalletButtonExtends>
+                  Connect Wallet
+                </ConnectWalletButtonExtends>
+              }
             />
-          ) : (
-            <NotAuthorized />
-          )}
-        </>
-      ) : (
-        <PagesWrapper>
-          <DynamicWidget
-            innerButtonComponent={
-              <ConnectWalletButtonExtends>
-                Connect Wallet
-              </ConnectWalletButtonExtends>
-            }
-          />
-        </PagesWrapper>
-      )}
-    </div>
+          </PagesWrapper>
+        )}
+      </Wrapping>
+    </SectionWrapper>
   );
 };
 
