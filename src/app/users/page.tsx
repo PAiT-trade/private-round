@@ -13,7 +13,10 @@ import {
   MenuConnectButton,
   PagesWrapper,
   PageTitle,
+  SectionWrapper,
+  Wrapping,
 } from "@/styles/app-common-styled";
+import { NavSection } from "@/components/navbar";
 
 export default function KYC() {
   const { connected, publicKey } = useAnalyzedWallet();
@@ -120,127 +123,134 @@ export default function KYC() {
   };
 
   return (
-    <PagesWrapper style={{ padding: "30px !important" }}>
-      {connected ? (
-        <div style={{ padding: "1rem" }}>
-          {isAuthorized ? (
-            <>
-              {currentUsers.length > 0 && (
-                <Container>
-                  <PageTitle>PAiT Users </PageTitle>
-                  <Table>
-                    <TableHead>
-                      <TableRow>
-                        <TableHeader>#</TableHeader>
-                        <TableHeader>Name</TableHeader>
-                        <TableHeader>Wallet</TableHeader>
-                        <TableHeader>Email</TableHeader>
-                        <TableHeader>Direct USDC</TableHeader>
-                        <TableHeader>Direct PAiT</TableHeader>
-                        <TableHeader>Earning</TableHeader>
-                      </TableRow>
-                    </TableHead>
-                    <tbody>
-                      {currentUsers
-                        .filter((item) => item.name)
-                        .map((user, index) => (
-                          <React.Fragment key={index}>
-                            <TableRow onClick={() => toggleRow(index, user.id)}>
-                              <TableData>{index + 1}</TableData>
-                              <TableData>{user.name}</TableData>
-                              <TableData>{user.wallet}</TableData>
-                              <TableData>
-                                {user.email ? user.email : "N/A"}
-                              </TableData>
-                              <TableData style={{ textAlign: "center" }}>
-                                {user.direct_usdc ? user.direct_usdc : 0}
-                              </TableData>
-                              <TableData style={{ textAlign: "center" }}>
-                                {user.direct_pait ? user.direct_pait : 0}
-                              </TableData>
-                              <TableData>
-                                <div style={{ textAlign: "center" }}>
-                                  <ChevronRightIcon />
-                                </div>
-                              </TableData>
-                            </TableRow>
-                            {expandedRows.includes(index) && (
-                              <ExpandableRow>
-                                <TableData colSpan={7}>
-                                  <div
-                                    style={{
-                                      display: "flex",
-                                      justifyContent: "center",
-                                      alignItems: "center",
-                                      gap: "1.8rem",
-                                    }}
-                                  >
-                                    <p>
-                                      <strong>
-                                        Earning Today(
-                                        {moment(new Date()).format(
-                                          "YYYY/MM/DD"
-                                        )}
-                                        )
-                                      </strong>
-                                    </p>
-                                    <p>USDC: ${` ${earnings}` || "0"}</p>
-                                  </div>
-                                </TableData>
-                              </ExpandableRow>
-                            )}
-                          </React.Fragment>
-                        ))}
-                    </tbody>
-                  </Table>
+    <SectionWrapper>
+      <Wrapping>
+        <NavSection />
+        <PagesWrapper style={{ padding: "30px !important" }}>
+          {connected ? (
+            <div style={{ padding: "1rem" }}>
+              {isAuthorized ? (
+                <>
+                  {currentUsers.length > 0 && (
+                    <Container>
+                      <PageTitle>PAiT Users </PageTitle>
+                      <Table>
+                        <TableHead>
+                          <TableRow>
+                            <TableHeader>#</TableHeader>
+                            <TableHeader>Name</TableHeader>
+                            <TableHeader>Wallet</TableHeader>
+                            <TableHeader>Email</TableHeader>
+                            <TableHeader>Direct USDC</TableHeader>
+                            <TableHeader>Direct PAiT</TableHeader>
+                            <TableHeader>Earning</TableHeader>
+                          </TableRow>
+                        </TableHead>
+                        <tbody>
+                          {currentUsers
+                            .filter((item) => item.name)
+                            .map((user, index) => (
+                              <React.Fragment key={index}>
+                                <TableRow
+                                  onClick={() => toggleRow(index, user.id)}
+                                >
+                                  <TableData>{index + 1}</TableData>
+                                  <TableData>{user.name}</TableData>
+                                  <TableData>{user.wallet}</TableData>
+                                  <TableData>
+                                    {user.email ? user.email : "N/A"}
+                                  </TableData>
+                                  <TableData style={{ textAlign: "center" }}>
+                                    {user.direct_usdc ? user.direct_usdc : 0}
+                                  </TableData>
+                                  <TableData style={{ textAlign: "center" }}>
+                                    {user.direct_pait ? user.direct_pait : 0}
+                                  </TableData>
+                                  <TableData>
+                                    <div style={{ textAlign: "center" }}>
+                                      <ChevronRightIcon />
+                                    </div>
+                                  </TableData>
+                                </TableRow>
+                                {expandedRows.includes(index) && (
+                                  <ExpandableRow>
+                                    <TableData colSpan={7}>
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          justifyContent: "center",
+                                          alignItems: "center",
+                                          gap: "1.8rem",
+                                        }}
+                                      >
+                                        <p>
+                                          <strong>
+                                            Earning Today(
+                                            {moment(new Date()).format(
+                                              "YYYY/MM/DD"
+                                            )}
+                                            )
+                                          </strong>
+                                        </p>
+                                        <p>USDC: ${` ${earnings}` || "0"}</p>
+                                      </div>
+                                    </TableData>
+                                  </ExpandableRow>
+                                )}
+                              </React.Fragment>
+                            ))}
+                        </tbody>
+                      </Table>
 
-                  <Pagination>
-                    <PageButton
-                      onClick={() => handlePageChange(currentPage - 1)}
-                      disabled={currentPage === 1}
-                    >
-                      Prev
-                    </PageButton>
-                    {[...Array(totalPages).keys()].map((number) => (
-                      <PageButton
-                        key={number}
-                        onClick={() => handlePageChange(number + 1)}
-                        disabled={currentPage === number + 1}
-                      >
-                        {number + 1}
-                      </PageButton>
-                    ))}
-                    <PageButton
-                      onClick={() => handlePageChange(currentPage + 1)}
-                      disabled={currentPage === totalPages}
-                    >
-                      Next
-                    </PageButton>
-                  </Pagination>
-                </Container>
+                      <Pagination>
+                        <PageButton
+                          onClick={() => handlePageChange(currentPage - 1)}
+                          disabled={currentPage === 1}
+                        >
+                          Prev
+                        </PageButton>
+                        {[...Array(totalPages).keys()].map((number) => (
+                          <PageButton
+                            key={number}
+                            onClick={() => handlePageChange(number + 1)}
+                            disabled={currentPage === number + 1}
+                          >
+                            {number + 1}
+                          </PageButton>
+                        ))}
+                        <PageButton
+                          onClick={() => handlePageChange(currentPage + 1)}
+                          disabled={currentPage === totalPages}
+                        >
+                          Next
+                        </PageButton>
+                      </Pagination>
+                    </Container>
+                  )}
+                </>
+              ) : (
+                <NotAuthorized />
               )}
-            </>
+            </div>
           ) : (
-            <NotAuthorized />
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                zIndex: 100,
+              }}
+            >
+              <DynamicWidget
+                innerButtonComponent={
+                  <MenuConnectButton>Connect Wallet</MenuConnectButton>
+                }
+              />
+            </div>
           )}
-        </div>
-      ) : (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 100,
-          }}
-        >
-          <DynamicWidget
-            innerButtonComponent={
-              <MenuConnectButton>Connect Wallet</MenuConnectButton>
-            }
-          />
-        </div>
-      )}
-    </PagesWrapper>
+        </PagesWrapper>
+      </Wrapping>
+    </SectionWrapper>
   );
 }
 

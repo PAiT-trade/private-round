@@ -1,8 +1,184 @@
 "use client";
 import { Paragraph } from "@/styles/app-common-styled";
 import { sizes } from "@/utils/media";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
+import { ModalSection } from "./modal/Modal";
+import { devices } from "@/styles/common";
+import TermsAndConditions from "./TermsAndConditions";
+import SignaturePad from "./SaftDocument";
+
+export const Footer = () => {
+  const [currentYear, setCurrentYear] = useState(
+    new Date(Date.now()).getFullYear()
+  );
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [isTermsModal, setIsTermsModal] = useState<boolean>(false);
+  const [showVideo, setShowVideo] = useState<boolean>(false);
+
+  // Videos
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [volume, setVolume] = useState(1);
+
+  /**
+   * Handle Video controls
+   */
+  const handlePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleProgressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (videoRef.current) {
+      const newTime =
+        (videoRef.current.duration * parseInt(e.target.value)) / 100;
+      videoRef.current.currentTime = newTime;
+      setProgress(parseInt(e.target.value));
+    }
+  };
+
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (videoRef.current) {
+      const newVolume = parseFloat(e.target.value);
+      videoRef.current.volume = newVolume;
+      setVolume(newVolume);
+    }
+  };
+
+  const updateProgress = () => {
+    if (videoRef.current) {
+      const currentProgress =
+        (videoRef.current.currentTime / videoRef.current.duration) * 100;
+      setProgress(currentProgress);
+    }
+  };
+
+  return (
+    <>
+      <Wrap>
+        <FooterHeaderWrapper>
+          <AboutPait>
+            <AboutLogo src="/Logo.svg" />
+            <Paragraph>
+              By participating in the PAiT Token sale, you accept these Terms
+              and Conditions. If you don’t agree, do not purchase PAiT Tokens or
+              use the website. Only buy tokens through official PAiT channels.
+              The PAiT team will never contact you directly with offers.
+            </Paragraph>
+          </AboutPait>
+
+          <GroupContent>
+            <FooterItem>
+              <Title>GENERAL</Title>
+              <Nav>
+                <NavItem>
+                  <NavLink target="_blank" href={`https://pait.fi`}>
+                    Home
+                  </NavLink>
+                  <NavLink
+                    target="_blank"
+                    href={`https://pait.gitbook.io/pait`}
+                  >
+                    Whitepaper
+                  </NavLink>
+                  <NavLink href="#" onClick={() => setShowVideo(!showVideo)}>
+                    Watch video tutorial
+                  </NavLink>
+                  <NavLink href="#">Contact</NavLink>
+                </NavItem>
+              </Nav>
+            </FooterItem>
+            <FooterItem>
+              <Title>SOCIAL</Title>
+              <Nav>
+                <NavItem>
+                  <NavLink
+                    target="_blank"
+                    href="https://t.me/+zdBkF3dauTs5ODc8"
+                  >
+                    Join Telegram
+                  </NavLink>
+                  <NavLink href="#">Connect StreamFlow</NavLink>
+                  <NavLink href="#">Connect Wallet</NavLink>
+                </NavItem>
+              </Nav>
+            </FooterItem>
+            <FooterItem>
+              <Title>CONNECT</Title>
+              <Nav>
+                <NavItem>
+                  <NavLink href="#">LinkedIn</NavLink>
+                  <NavLink href="#">X</NavLink>
+                  <NavLink href="#">Instagram</NavLink>
+                </NavItem>
+              </Nav>
+            </FooterItem>
+          </GroupContent>
+        </FooterHeaderWrapper>
+        <CopyrightWrapper>
+          <Copyright>&copy;{currentYear}. PAiT. All rights reserved.</Copyright>
+          <CopyrightAction>
+            <CopyrightLink onClick={() => setIsTermsModal(!isTermsModal)}>
+              Terms and Conditions
+            </CopyrightLink>
+            <CopyrightLink onClick={() => setOpenModal(!openModal)}>
+              SAFT Agreement
+            </CopyrightLink>
+          </CopyrightAction>
+        </CopyrightWrapper>
+      </Wrap>
+
+      <ModalSection
+        title="Terms and Conditions"
+        setIsOpen={setIsTermsModal}
+        isOpen={isTermsModal}
+      >
+        <ReadAgreement>
+          <TermsAndConditions />
+        </ReadAgreement>
+      </ModalSection>
+
+      <ModalSection
+        title="SAFT Agreement"
+        setIsOpen={setOpenModal}
+        isOpen={openModal}
+      >
+        <ReadAgreement>
+          <SignaturePad showSignature={false} />
+        </ReadAgreement>
+      </ModalSection>
+
+      <ModalSection
+        title="VIDEO TUTORIAL HOW TO BUY"
+        setIsOpen={setShowVideo}
+        isOpen={showVideo}
+      >
+        <VideoContainer>
+          <StyledVideo
+            ref={videoRef}
+            onTimeUpdate={updateProgress}
+            onClick={handlePlayPause}
+            controls={true}
+            muted={false}
+          >
+            <source src="/cleaned_video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </StyledVideo>
+        </VideoContainer>
+        ew{" "}
+      </ModalSection>
+    </>
+  );
+};
+
 const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
@@ -115,64 +291,123 @@ export const CopyrightLink = styled.a`
   font-size: 14px;
 `;
 
-export const Footer = () => {
-  const [currentYear, setCurrentYear] = useState(
-    new Date(Date.now()).getFullYear()
-  );
-  return (
-    <Wrap>
-      <FooterHeaderWrapper>
-        <AboutPait>
-          <AboutLogo src="/Logo.svg" />
-          <Paragraph>
-            By participating in the PAiT Token sale, you accept these Terms and
-            Conditions. If you don’t agree, do not purchase PAiT Tokens or use
-            the website. Only buy tokens through official PAiT channels. The
-            PAiT team will never contact you directly with offers.
-          </Paragraph>
-        </AboutPait>
+const ReadAgreement = styled.div`
+  height: 500px;
+  overflow-y: auto;
+  text-align: left;
 
-        <GroupContent>
-          <FooterItem>
-            <Title>GENERAL</Title>
-            <Nav>
-              <NavItem>
-                <NavLink href="#">Home</NavLink>
-                <NavLink href="#">Whitepaper</NavLink>
-                <NavLink href="#">Watch video tutorial</NavLink>
-                <NavLink href="#">Contact</NavLink>
-              </NavItem>
-            </Nav>
-          </FooterItem>
-          <FooterItem>
-            <Title>SOCIAL</Title>
-            <Nav>
-              <NavItem>
-                <NavLink href="#">Join Telegram</NavLink>
-                <NavLink href="#">Connect StreamFlow</NavLink>
-                <NavLink href="#">Connect Wallet</NavLink>
-              </NavItem>
-            </Nav>
-          </FooterItem>
-          <FooterItem>
-            <Title>CONNECT</Title>
-            <Nav>
-              <NavItem>
-                <NavLink href="#">LinkedIn</NavLink>
-                <NavLink href="#">X</NavLink>
-                <NavLink href="#">Instagram</NavLink>
-              </NavItem>
-            </Nav>
-          </FooterItem>
-        </GroupContent>
-      </FooterHeaderWrapper>
-      <CopyrightWrapper>
-        <Copyright>&copy;{currentYear}. PAiT. All rights reserved.</Copyright>
-        <CopyrightAction>
-          <CopyrightLink>Terms and Conditions</CopyrightLink>
-          <CopyrightLink>SAFT Agreement</CopyrightLink>
-        </CopyrightAction>
-      </CopyrightWrapper>
-    </Wrap>
-  );
-};
+  @media ${devices.mobile} {
+    text-align: left;
+  }
+`;
+
+const VideoContainer = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+
+  border-radius: 8px;
+  overflow: hidden;
+`;
+
+const VideoTitle = styled.h3`
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin: 1rem 0.5rem;
+  text-align: left;
+  @media ${devices.mobile} {
+    text-align: left;
+  }
+`;
+
+const StyledVideo = styled.video`
+  width: 100%;
+  height: auto;
+  background-color: #000;
+  border-radius: 8px;
+`;
+
+const Controls = styled.div`
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: white;
+  z-index: 2;
+`;
+
+const PlayButton = styled.button`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+  }
+`;
+
+const ProgressBar = styled.input`
+  flex: 1;
+  margin: 0 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #fff;
+  height: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #ff0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  }
+`;
+
+const VolumeControl = styled.input`
+  width: 100px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #fff;
+  height: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #ff0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+  }
+`;
+
+const VideLink = styled.a`
+  font-size: 14px;
+  color: "#5ed9d2 !important";
+  border-bottom: "2px solid #5ed9d2";
+  margin: "0.3rem";
+`;

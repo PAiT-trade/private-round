@@ -3,13 +3,33 @@ import styled from "styled-components";
 import React from "react";
 import { AppState } from "@/types/app";
 import { ProgressBar } from "../PogressBar";
-import { MoveUpRightIcon } from "lucide-react";
+import { MoveUpRightIcon, ShoppingBagIcon } from "lucide-react";
 import { sizes } from "@/utils/media";
+import { DynamicWidget } from "@dynamic-labs/sdk-react-core";
+import { ConnectWalletButtonLabel, WalletConnect } from "../navbar";
+import toast from "react-hot-toast";
+import { formatNumber } from "@/styles";
+import { useRouter } from "next/navigation";
 interface BuyCardProps {
   $state: AppState;
-  $setPaits?: () => void;
+  $amounts: {
+    min: string;
+    max: string;
+  };
+  $setState: React.Dispatch<React.SetStateAction<AppState>>;
+  $isConnected: boolean;
+  $buyPait: () => Promise<void>;
+  $calculateAmountInPait: () => void;
 }
-export const BuyCard: React.FC<BuyCardProps> = ({ $state }) => {
+export const BuyCard: React.FC<BuyCardProps> = ({
+  $state,
+  $buyPait,
+  $amounts,
+  $isConnected,
+  $setState,
+  $calculateAmountInPait,
+}) => {
+  const router = useRouter();
   return (
     <Card>
       <Header>
@@ -37,20 +57,51 @@ export const BuyCard: React.FC<BuyCardProps> = ({ $state }) => {
           }
         />
 
-        <BText color="#4daa90">1 $PAiT = {0.16} USDC</BText>
+        <BText color="#4daa90">1 $PAiT = {$state.priceOfPait} USDC</BText>
 
         <FormWrapper>
           <FromGroup>
             <FromLabel>Pay with $USDC</FromLabel>
             <FromControl>
-              <FromControlInput placeholder="Enter amount" />
+              <FromControlInput
+                placeholder="Enter amount"
+                type="number"
+                step={"0.0000000001"}
+                value={$state.amountInUsd}
+                onKeyUp={(e) => {
+                  if (e.key === "e" || e.key === ".") {
+                    e.preventDefault();
+                  }
+                  $calculateAmountInPait();
+                }}
+                onChange={(e) => {
+                  $setState((prevState) => ({
+                    ...prevState,
+                    amountInUsd: e.target.value,
+                  }));
+                  const paits =
+                    Number(e.target.value) / Number($state.priceOfPait);
+
+                  $setState((prevState) => ({
+                    ...prevState,
+                    amountInPait: (Math.round(paits * 100) / 100).toString(),
+                  }));
+                  $calculateAmountInPait();
+                }}
+              />
               <FromControlIcon src="/pait_icon.svg" />
             </FromControl>
           </FromGroup>
           <FromGroup>
             <FromLabel>$PAiT you receive</FromLabel>
             <FromControl>
-              <FromControlInput placeholder="Result" />
+              <FromControlInput
+                placeholder="Result"
+                disabled={true}
+                value={$state.amountInPait}
+                type="number"
+                step={"0.0000000001"}
+              />
               <FromControlIcon src="/usdc.png" />
             </FromControl>
           </FromGroup>
@@ -58,10 +109,75 @@ export const BuyCard: React.FC<BuyCardProps> = ({ $state }) => {
       </BuyCardHeaderAllocationWrapper>
 
       <BuyNow>
-        <BuyNowWallet>
-          <span>Connect Wallet</span>
-          <MoveUpRightIcon size={12} />
-        </BuyNowWallet>
+        {$isConnected ? (
+          <BuyNowWallet
+            onClick={async () => {
+              console.log(`isConnected: ${$isConnected}`);
+              console.log(`user: ${$state.user}`);
+              console.log(
+                `Amounts: ${$state.amountInPait} ${$state.amountInUsd}`
+              );
+              console.log(
+                `user.is_approved: ${
+                  $state.user ? $state.user.is_approved : "No user"
+                }`
+              );
+
+              if (!$isConnected) {
+                console.log("Wallet NOT CONNECTED.");
+                return;
+              }
+
+              if (!$state.user) {
+                console.log("USER not found.");
+                return;
+              }
+
+              // if (
+              //   !$state.user.is_approved &&
+              //   process.env.NODE_ENV !== "development"
+              // ) {
+              //   toast.error("Please perform KYC verification to proceed.");
+              //   router.push("/kyc");
+              //   return;
+              // }
+
+              if (!$state.user.is_approved) {
+                toast.error("Please perform KYC verification to proceed.");
+                router.push("/kyc");
+                return;
+              }
+
+              if ($state.isInValid) {
+                toast.error(
+                  `The minimum amount is : ${formatNumber(
+                    Number($state.mininumAmount)
+                  )} & maximum amount is: ${formatNumber(
+                    Number($state.maximumAmount)
+                  )}. Please change to continue!!!`
+                );
+                return;
+              }
+
+              console.log("Calling buyPait...");
+              await $buyPait();
+            }}
+          >
+            <span>Buy PAiT</span>
+            <ShoppingBagIcon size={15} />
+          </BuyNowWallet>
+        ) : (
+          <DynamicWidget
+            innerButtonComponent={
+              <WalletConnect>
+                <ConnectWalletButtonLabel>
+                  Connect Wallet
+                </ConnectWalletButtonLabel>
+                <MoveUpRightIcon size={8} />
+              </WalletConnect>
+            }
+          />
+        )}
       </BuyNow>
     </Card>
   );
@@ -190,8 +306,9 @@ const FromControlInput = styled.input`
   width: 100%;
   padding: 0.4rem;
   border: none;
-  color: #070b154d;
+  color: #0e0d0d;
   font-size: 14px;
+  background-color: #fff;
   outline-width: 0;
 `;
 const FromControlIcon = styled.img`
@@ -213,7 +330,7 @@ const BuyNow = styled.button`
 
 const BuyNowWallet = styled.span`
   display: flex;
-  gap: 0.3rem;
+  gap: 0.6rem;
 
   span {
     font-size: 16px;
