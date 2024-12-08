@@ -3,6 +3,8 @@ import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyle, theme } from "@/styles";
 import { Wrapper } from "./Wrapper";
 import { sizes } from "@/utils/media";
+import { SectionWrapper } from "@/styles/app-common-styled";
+import { Footer } from "../Footer";
 
 interface BaseLayoutProps {
   children: React.ReactNode;
@@ -31,6 +33,9 @@ export const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => {
       <GlobalStyle />
       <Wrapper>
         {children}
+        <SectionWrapper $bg="#0a0915">
+          <Footer />
+        </SectionWrapper>
         <BottomRightCorner>
           <FloatShowCase src="/float-showcase.svg" />
         </BottomRightCorner>

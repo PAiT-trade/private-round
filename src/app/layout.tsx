@@ -1,7 +1,8 @@
-import { BaseLayout } from "@/components/wraps/BaseLayout";
-import { LoadingProvider } from "@/hooks/useLoading";
-import StyledComponentsRegistry from "@/lib/style-registry";
 import type { Metadata } from "next";
+import { BaseLayout } from "@/components/wraps/BaseLayout";
+import { AnalyzeConnectWalletProvider } from "@/context/connect-wallet-context";
+import { Providers } from "@/providers";
+import { DynamicProviderWrapper } from "@/components/wraps/DynamicProviderWrapper";
 
 export const metadata: Metadata = {
   title: "PAiT | Private Round",
@@ -67,11 +68,13 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <LoadingProvider>
-          <StyledComponentsRegistry>
-            <BaseLayout>{children}</BaseLayout>
-          </StyledComponentsRegistry>
-        </LoadingProvider>
+        <DynamicProviderWrapper>
+          <Providers>
+            <AnalyzeConnectWalletProvider>
+              <BaseLayout>{children}</BaseLayout>
+            </AnalyzeConnectWalletProvider>
+          </Providers>
+        </DynamicProviderWrapper>
       </body>
     </html>
   );

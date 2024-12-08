@@ -15,7 +15,7 @@ export const SectionWrapper = styled.div<{ $bg?: string }>`
   align-items: center;
   width: 100%;
   /* can be removed */
-  max-width: 1512px;
+  /* max-width: 1512px; */
   margin: ${({ theme }) => `${theme.padding.small} auto`};
   /* end of it */
   flex-direction: column;
@@ -96,4 +96,93 @@ export const FlexContainer = styled.div`
 `;
 export const FlexItem = styled.div`
   flex: 1;
+`;
+
+export const PagesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  background-color: #151720 !important;
+  margin: 2rem;
+  border-radius: 0.4rem;
+  gap: 1rem;
+
+  #veriff-root {
+    width: 100% !important;
+    padding: 1rem !important;
+
+    .veriff-container {
+      border-radius: 0.4rem;
+      background-color: #151720 !important;
+      width: 100% !important;
+    }
+
+    .veriff-text {
+      width: 100% !important;
+      border: none !important;
+      outline-width: 0 !important;
+    }
+  }
+`;
+
+export const PageWrap = styled.div``;
+export const PageTitle = styled.h1`
+  font-weight: 500;
+  font-size: 32px;
+  color: #fff;
+  /* max-width: 400px; */
+  margin-bottom: 1rem;
+  line-height: 48px;
+  font-family: "Poppins", sans-serif;
+`;
+
+export const MenuConnectButton = styled.div`
+  & > div {
+    width: 100% !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 1rem !important;
+    border-radius: 6px;
+    border: 1px solid #5cdfd8;
+
+    &:hover,
+    &:active {
+      /* padding: 0.8rem !important; */
+    }
+
+    & > .wallet-adapter-button {
+      color: #a6fff3;
+    }
+  }
+`;
+
+export const ConnectWalletButtonExtends = styled.div`
+  display: "flex";
+  justify-content: "center";
+  align-items: "center";
+  z-index: 100;
+  & > div {
+    width: 100% !important;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.5rem 1rem !important;
+    border-radius: 6px;
+    border: 1px solid #5cdfd8;
+
+    &:hover,
+    &:active {
+      /* padding: 0.8rem !important; */
+    }
+    & > .wallet-adapter-button {
+      color: #a6fff3;
+    }
+  }
 `;
