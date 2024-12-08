@@ -30,7 +30,7 @@ export const Allocations = () => {
 const Container = styled.div`
   padding: 6.25rem 0;
   font-size: 16px;
-  color: #fff;
+  color: #ffffffb3;
   font-weight: normal;
   display: flex;
   justify-content: space-between;

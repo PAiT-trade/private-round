@@ -66,7 +66,7 @@ export const HowToBuy = () => {
 const Container = styled.div`
   padding: 6.25rem 0;
   font-size: 16px;
-  color: #fff;
+  color: #fffffff7;
   font-weight: normal;
 `;
 
@@ -94,7 +94,7 @@ const ListItem = styled.li`
     content: counter(list-counter);
     width: 50px;
     height: 50px;
-    background-color: #fff;
+    background-color: #fffffff7;
     color: #070b15;
     font-size: 14px;
     font-weight: bold;
@@ -133,7 +133,7 @@ const ListContentItem = styled.p`
 `;
 const ListContentItemHeader = styled.p`
   font-weight: bold;
-  color: #fff;
+  color: #fffffff7;
   margin-bottom: 0.6rem;
   font-size: 20px;
 `;
