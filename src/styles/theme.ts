@@ -5,7 +5,7 @@ export const theme = {
     accent: "#7570b4",
     background: "#f0f0f0",
     highlight: "#f6f0ff",
-    text: { primary: "0F0840", secondary: "282C2F" },
+    text: { primary: "#ffffffb3", secondary: "282C2F" },
     shimmers: {
       primary: "#e3fae8",
       secondary: "#fbf2fb",

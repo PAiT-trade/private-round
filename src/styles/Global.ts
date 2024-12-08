@@ -39,7 +39,7 @@ export const GlobalStyle = createGlobalStyle`
         letter-spacing: 0.5 !important;
         font-size: 14px;
         line-height: 1.6;
-        color: ${({ theme }) => theme.colors.text};
+        color: ${({ theme }) => theme.colors.text.primary};
         background-color: ${({ theme }) => theme.colors.primary};
         background-size: cover;
         background-repeat: no-repeat;
@@ -121,7 +121,7 @@ export const GlobalStyle = createGlobalStyle`
     .veriff-submit {
         width: 100%;
         background-color:#242d44 !important;
-        color: white;
+        color: #ffffffb3;
         box-sizing: border-box;
         text-transform: capitalize;
         font-weight: 500;
