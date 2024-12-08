@@ -3,11 +3,13 @@ import SignaturePad from "@/components/SaftDocument";
 import { useEffect, useState } from "react";
 import { useAnalyzedWallet } from "@/context/connect-wallet-context";
 import toast from "react-hot-toast";
-import { ConnectWalletButtonExtends } from "@/components/common/Common";
-import { PagesWrapper } from "@/components/common/Common.styled";
 import { DynamicWidget } from "@dynamic-labs/sdk-react-core";
 import { NotAuthorized } from "@/components/NotAuthorized";
 import { useLoading } from "@/context/loading-context";
+import {
+  ConnectWalletButtonExtends,
+  PagesWrapper,
+} from "@/styles/app-common-styled";
 
 interface QueryParams {
   params: {
