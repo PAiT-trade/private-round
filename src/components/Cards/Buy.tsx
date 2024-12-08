@@ -133,20 +133,20 @@ export const BuyCard: React.FC<BuyCardProps> = ({
                 return;
               }
 
-              // if (
-              //   !$state.user.is_approved &&
-              //   process.env.NODE_ENV !== "development"
-              // ) {
-              //   toast.error("Please perform KYC verification to proceed.");
-              //   router.push("/kyc");
-              //   return;
-              // }
-
-              if (!$state.user.is_approved) {
+              if (
+                !$state.user.is_approved &&
+                process.env.NODE_ENV !== "development"
+              ) {
                 toast.error("Please perform KYC verification to proceed.");
                 router.push("/kyc");
                 return;
               }
+
+              // if (!$state.user.is_approved) {
+              //   toast.error("Please perform KYC verification to proceed.");
+              //   router.push("/kyc");
+              //   return;
+              // }
 
               if ($state.isInValid) {
                 toast.error(
