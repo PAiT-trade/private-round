@@ -2,12 +2,9 @@
 import { prisma } from "@/db/prisma"; // Adjust the import according to your project structure
 import { NextResponse } from "next/server";
 
-export async function GET(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
+export async function GET(req: Request, res: { params: { id: string } }) {
   try {
-    const { id } = params;
+    const { id } = res.params;
     if (!id) {
       return NextResponse.json(
         {
