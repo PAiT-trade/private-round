@@ -544,7 +544,6 @@ const HeaderWrapper = styled.div`
   align-items: center;
   flex-direction: column;
   /* max-width: 1512px; */
-  background-color: rebeccapurple;
   /* mobile and tablet */
   @media (max-width: ${sizes.desktop + "px"}) {
     padding: 8px;
