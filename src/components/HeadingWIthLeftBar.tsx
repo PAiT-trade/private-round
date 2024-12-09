@@ -49,12 +49,16 @@ const HeadingText = styled.h1<{ $color: string }>`
   font-weight: bold;
   color: ${({ $color }) => $color};
   margin: 0;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    font-size: 14px;
+  }
 `;
 
 const SubHeading = styled.h2`
   color: #fff;
   font-size: 56px;
-  font-weight: 600;
+  font-weight: ${({ theme }) => theme.fonts.weights.normal};
   font-family: "Mona Sans";
   margin: 0;
   line-height: 1.2;
@@ -64,6 +68,10 @@ const SubHeading = styled.h2`
   word-wrap: break-word;
   margin: 0;
   line-height: 1.5;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    font-size: 32px;
+  }
 `;
 
 interface HeadingWithBarProps {

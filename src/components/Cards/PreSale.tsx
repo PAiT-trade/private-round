@@ -66,6 +66,11 @@ const Title = styled.h1`
       color: white;
     }
   }
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    font-size: 40px;
+    text-align: left;
+  }
 `;
 const Subtitle = styled.h4`
   font-size: 1rem;

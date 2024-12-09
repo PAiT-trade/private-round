@@ -48,6 +48,7 @@ export const GlobalStyle = createGlobalStyle`
         background-repeat: no-repeat;
         /* min-height: 100vh; */
         max-width: 100%;
+        min-height:100%;
         @media (max-width: 768px) {
             font-size: 14px;
         }

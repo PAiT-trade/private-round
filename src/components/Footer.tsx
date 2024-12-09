@@ -182,7 +182,7 @@ const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  max-height: 29.375rem;
+  min-height: 29.375rem;
   height: 100%;
   gap: 2rem;
   margin: 1.2rem;
