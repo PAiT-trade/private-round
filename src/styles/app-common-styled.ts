@@ -164,7 +164,6 @@ export const MenuConnectButton = styled.div`
     width: 100%;
     padding: 0.5rem 1rem !important;
     border-radius: 6px;
-    border: 1px solid #5cdfd8;
 
     &:hover,
     &:active {

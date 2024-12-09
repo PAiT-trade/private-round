@@ -321,13 +321,17 @@ const FromControlIcon = styled.img`
 const BuyNow = styled.button`
   height: 55px;
   width: 100%;
-  background-color: #8cd2cf;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   cursor: pointer;
   border-radius: 4px;
+
+  div#dynamic-widget {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const BuyNowWallet = styled.span`

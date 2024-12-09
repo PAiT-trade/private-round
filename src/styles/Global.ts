@@ -40,8 +40,6 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 14px;
         line-height: 1.6;
         letter-spacing: 0.1px;
-        width: 100%;
-        height:100%;
         color: ${({ theme }) => theme.colors.text.normal};
         background-color: ${({ theme }) => theme.colors.primary};
         background-size: cover;
@@ -49,6 +47,8 @@ export const GlobalStyle = createGlobalStyle`
         /* min-height: 100vh; */
         max-width: 100%;
         min-height:100%;
+        width: 100%;
+        height:100%;
         @media (max-width: 768px) {
             font-size: 14px;
         }
@@ -165,6 +165,7 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         padding: 0.5rem 1rem !important;
         border-radius: 6px;
+        border: none !important;
         border: 1px solid #5cdfd8;
         background-color: #8cd2cf;
     }

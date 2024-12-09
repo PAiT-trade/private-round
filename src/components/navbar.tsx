@@ -114,10 +114,6 @@ export const ConnectWalletButton = styled.div`
     &:active {
       /* padding: 0.8rem !important; */
     }
-
-    & > .wallet-adapter-button {
-      background-color: #8cd2cf;
-    }
   }
 `;
 

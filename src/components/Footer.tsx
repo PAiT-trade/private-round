@@ -296,7 +296,7 @@ const ReadAgreement = styled.div`
   height: 500px;
   overflow-y: auto;
   text-align: left;
-
+  min-width: 100%;
   @media ${devices.mobile} {
     text-align: left;
   }

@@ -55,6 +55,7 @@ const Title = styled.h1`
   margin: 0;
   padding: 0;
   align-items: flex-start;
+  text-align: left;
   span {
     color: #8cd2cf;
   }
@@ -67,7 +68,7 @@ const Title = styled.h1`
     }
   }
 
-  @media (max-width: ${sizes.tablet + "px"}) {
+  @media (max-width: ${"1300px"}) {
     font-size: 40px;
     text-align: left;
   }

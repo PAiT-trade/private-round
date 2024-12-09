@@ -68,7 +68,7 @@ const Title = styled.h1`
     color: #8cd2cf;
   }
   b {
-    font-size: 72px;
+    font-size: 80px;
     color: #87939e;
     text-align: left;
     line-height: 48px;
@@ -82,11 +82,18 @@ const Title = styled.h1`
 
   @media (min-width: ${sizes.tablet + "px"}) {
     display: flex;
+    b {
+      font-size: 40px !important;
+    }
   }
 `;
 
 const MTitle = styled(Title)`
   display: none;
+  gap: 0.1rem;
+  b {
+    font-size: 40px !important;
+  }
   @media (max-width: ${sizes.tablet + "px"}) {
     display: flex;
   }

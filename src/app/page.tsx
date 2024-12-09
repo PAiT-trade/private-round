@@ -76,7 +76,7 @@ export default function Home() {
       setState((prevState) => ({
         ...prevState,
         allocation: {
-          remaining: result.allocation.remaining,
+          remaining: result.allocation ? result.allocation.remaining : 0,
           total: 2000000,
         },
       }));
@@ -487,7 +487,7 @@ export default function Home() {
         <HeadingWithBar
           $title="INSTRUCTION"
           $color="#ADA5D1"
-          $subtitlewidth="60rem"
+          $subtitlewidth="72rem"
           $subtitle="How to acquire tokens in the private round?"
         />
         <HowToBuy />
@@ -497,7 +497,7 @@ export default function Home() {
         <HeadingWithBar
           $title="REWARDS"
           $color="#ADA5D1"
-          $subtitlewidth="45rem"
+          $subtitlewidth="65rem"
           $subtitle="Share with friends, earn rewards?"
         />
         <Rewards />
@@ -507,7 +507,7 @@ export default function Home() {
         <HeadingWithBar
           $title="SUPPLY & SCHEDULE"
           $color="#ADA5D1"
-          $subtitlewidth="60rem"
+          $subtitlewidth="70rem"
           $subtitle="Allocations & Vesting."
         />
         <Allocations />

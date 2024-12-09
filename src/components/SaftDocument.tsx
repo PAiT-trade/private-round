@@ -382,7 +382,15 @@ const SignaturePad: React.FC<SignaturePadProps> = ({
           </ActionButton>
         </WrapContent>
       </ModalSection>
-      <div id="document-section" style={{ fontFamily: "Open Sans" }}>
+      <div
+        id="document-section"
+        style={{
+          fontFamily: "Open Sans",
+          width: "100%",
+          margin: 0,
+          padding: 0,
+        }}
+      >
         <DocumentContainer>
           <Title>Token Sale Agreement</Title>
           <Subtitle>Effective as of {currentDate.human}</Subtitle>
@@ -868,7 +876,7 @@ const Container = styled.div`
 
 const DocumentContainer = styled.div`
   page-break-inside: avoid;
-  max-width: 90%;
+  /* max-width: 90%; */
   margin: 0 auto;
   padding: 20px;
   color: #333;
