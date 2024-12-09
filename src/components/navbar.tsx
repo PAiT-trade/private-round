@@ -30,7 +30,9 @@ export const NavItems = styled.ul`
 `;
 export const NavItem = styled.li``;
 export const NavItemLink = styled.a`
+  cursor: pointer;
   font-size: 16px;
+  height: 19px;
   color: ${({ theme }) => theme.colors.text.normal};
   font-family: ${({ theme }) => theme.fonts.family.main};
   font-weight: ${({ theme }) => theme.fonts.weights.normal};
@@ -145,16 +147,22 @@ export const NavSection = () => {
         </NavLogo>
         <NavItems>
           <NavItem>
-            <NavItemLink>Home</NavItemLink>
+            <NavItemLink target="_blank" href={`https://pait.fi`}>
+              Home
+            </NavItemLink>
           </NavItem>
           <NavItem>
-            <NavItemLink>WhitePaper</NavItemLink>
+            <NavItemLink target="_blank" href={`https://pait.gitbook.io/pait`}>
+              WhitePaper
+            </NavItemLink>
           </NavItem>
           <NavItem>
-            <NavItemLink>Join Telegram</NavItemLink>
+            <NavItemLink target="_blank" href="https://t.me/+zdBkF3dauTs5ODc8">
+              Join Telegram
+            </NavItemLink>
           </NavItem>
           <NavItem>
-            <NavItemLink>Contact</NavItemLink>
+            <NavItemLink href="#">Contact</NavItemLink>
           </NavItem>
         </NavItems>
         <NavActions>

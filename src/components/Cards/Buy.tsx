@@ -230,14 +230,14 @@ const Header = styled.h2`
   color: ${({ theme }) => theme.colors.text.less_10};
   font-weight: ${({ theme }) => theme.fonts.weights.semibold};
   line-height: 28px;
+  margin-bottom: 1.2rem;
 `;
 const SubHeader = styled.h4`
-  color: #ffffffb2;
   font-size: 16px;
   line-height: 32px;
   font-family: ${({ theme }) => theme.fonts.family.main};
   color: ${({ theme }) => theme.colors.text.normal};
-  font-weight: ${({ theme }) => 400};
+  font-weight: ${({ theme }) => theme.fonts.weights.normal};
 `;
 const PrimaryColor = styled.span`
   color: #8cd2cf;
