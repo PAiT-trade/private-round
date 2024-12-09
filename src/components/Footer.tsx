@@ -289,6 +289,7 @@ export const CopyrightAction = styled.div`
 `;
 export const CopyrightLink = styled.a`
   font-size: 14px;
+  cursor: pointer;
 `;
 
 const ReadAgreement = styled.div`
