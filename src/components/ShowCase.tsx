@@ -22,6 +22,7 @@ const ShowCaseImgWrapper = styled.div`
   justify-content: center;
   align-items: center;
   align-content: center;
+  width: 100%;
 
   @media (max-width: ${sizes.tablet + "px"}) {
     width: 100%;
@@ -33,8 +34,8 @@ const ShowCaseImg = styled.img`
 
 const Wrapper = styled.div`
   background-color: #070b15;
-  /* min-width: 46.0625rem; */
-  /* width: 60%; */
+  max-width: 629px;
+  width: 100%;
   backdrop-filter: blur(60%);
   -webkit-backdrop-filter: blur(60%);
   color: #fff;
@@ -55,48 +56,43 @@ const Title = styled.h1`
   margin: 0.5rem 0;
   font-size: "Mona Sans";
   display: none;
-  gap: 0.1rem;
+  gap: 1rem;
   flex-direction: column;
+  flex-wrap: wrap;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  font-weight: ${({ theme }) => theme.fonts.weights.normal};
+
   align-items: flex-start;
 
   span {
     color: #8cd2cf;
   }
   b {
-    font-size: 40px;
+    font-size: 80px;
     color: #87939e;
     text-align: left;
     line-height: 48px;
+    display: flex;
+    flex-wrap: wrap;
     &:first-child {
       color: white;
+      margin-bottom: 1rem;
     }
   }
 
   @media (min-width: ${sizes.tablet + "px"}) {
     display: flex;
+    b {
+      font-size: 40px !important;
+    }
   }
 `;
 
-const MTitle = styled.h1`
-  font-size: 2.5rem;
-  margin: 0.5rem 0;
-  font-size: "Mona Sans";
+const MTitle = styled(Title)`
   display: none;
   gap: 0.1rem;
-  flex-direction: column;
-  align-items: flex-start;
-
-  span {
-    color: #8cd2cf;
-  }
   b {
-    font-size: 40px;
-    color: #87939e;
-    text-align: left;
-    line-height: 48px;
-    &:first-child {
-      color: white;
-    }
+    font-size: 40px !important;
   }
   @media (max-width: ${sizes.tablet + "px"}) {
     display: flex;
@@ -106,7 +102,9 @@ const Subtitle = styled.h4`
   font-size: 1rem;
   margin: 1rem 0 2rem;
   line-height: 1.5;
-  color: #bbb;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  color: ${({ theme }) => theme.colors.text.normal};
+  font-weight: ${({ theme }) => 200};
   text-align: left;
 `;
 
@@ -132,6 +130,9 @@ const Button = styled.button<{ $bgcolor?: string }>`
   border-radius: 4px;
   font-size: 14px;
   height: 55px;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  color: #070b15;
+  font-weight: ${({ theme }) => theme.fonts.weights.semibold};
 
   @media (max-width: ${sizes.tablet + "px"}) {
     width: 100%;

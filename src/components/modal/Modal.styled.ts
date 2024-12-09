@@ -24,7 +24,7 @@ export const Modal = styled.div<ModalProps>`
   border-radius: 5px;
   box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.25);
   color: #fff;
-  max-width: 40rem;
+  width: 70%;
   @media ${devices.mobile} {
     max-width: 95%;
   }
@@ -54,6 +54,7 @@ export const ModalCloseIcon = styled.div`
 export const ModalBody = styled.div`
   margin-top: 1rem;
   border-top: 0.01rem solid #ccc;
+  width: 100%;
   @media ${devices.mobile} {
     padding: 1.2rem 0.3rem;
     border-radius: 0.3rem;

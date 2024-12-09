@@ -49,18 +49,16 @@ export const Rewards = () => {
 };
 const Container = styled.div`
   padding: 6.25rem 0;
-  font-size: 1.2rem;
-  color: #fff;
-  font-weight: normal;
   display: flex;
-  gap: 1.5rem;
+  gap: 24px;
   flex-wrap: wrap;
 `;
 
 const Card = styled.div`
-  background-color: #070b15;
+  background-color: ${({ theme }) => "#0c0f18"};
+  border: 1px solid #ffffff1a;
   border-radius: 8px;
-  padding: 1.2rem;
+  padding: 24px;
   /* max-width: 18.875rem; */
   flex: 1 1 calc(20% - 1rem);
 
@@ -80,11 +78,15 @@ const CardTitle = styled.h3`
   padding-top: 2.8rem;
   padding-bottom: 8px;
   font-size: 20px;
+  font-weight: ${({ theme }) => theme.fonts.weights.semibold};
+  color: ${({ theme }) => theme.colors.text.white};
 `;
 const CardContent = styled.div`
   width: 100%;
 `;
 const CardContentParagraph = styled.p`
-  color: #7d8893;
   font-size: 16px;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  color: ${({ theme }) => theme.colors.text.normal};
+  font-weight: ${({ theme }) => theme.fonts.weights.normal};
 `;

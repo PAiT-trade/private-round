@@ -7,6 +7,7 @@ import { ModalSection } from "./modal/Modal";
 import { devices } from "@/styles/common";
 import TermsAndConditions from "./TermsAndConditions";
 import SignaturePad from "./SaftDocument";
+import { DynamicWidget } from "@dynamic-labs/sdk-react-core";
 
 export const Footer = () => {
   const [currentYear, setCurrentYear] = useState(
@@ -106,8 +107,14 @@ export const Footer = () => {
                   >
                     Join Telegram
                   </NavLink>
-                  <NavLink href="#">Connect StreamFlow</NavLink>
-                  <NavLink href="#">Connect Wallet</NavLink>
+                  <NavLink href="https://streamflow.finance/" target="_blank">
+                    Connect StreamFlow
+                  </NavLink>
+                  {/* <DynamicWidget
+                    innerButtonComponent={
+                      <NavLink href="#">Connect Wallet</NavLink>
+                    }
+                  /> */}
                 </NavItem>
               </Nav>
             </FooterItem>
@@ -182,7 +189,7 @@ const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  max-height: 29.375rem;
+  min-height: 29.375rem;
   height: 100%;
   gap: 2rem;
   margin: 1.2rem;
@@ -255,6 +262,35 @@ export const NavLink = styled.a`
   font-size: 14px;
   font-weight: 200;
   color: #ffffffb3;
+
+  div#dynamic-widget {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    div.dynamic-shadow-dom-content {
+      width: 100%;
+      height: 100%;
+
+      div {
+        background-color: green !important;
+        button.connect-button {
+          width: 100%;
+          height: 100%;
+          background-color: red !important;
+          span {
+            width: 100%;
+            color: blue !important;
+            height: 100%;
+
+            div {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
 `;
 
 const CopyrightWrapper = styled.div`
@@ -289,13 +325,14 @@ export const CopyrightAction = styled.div`
 `;
 export const CopyrightLink = styled.a`
   font-size: 14px;
+  cursor: pointer;
 `;
 
 const ReadAgreement = styled.div`
   height: 500px;
   overflow-y: auto;
   text-align: left;
-
+  min-width: 100%;
   @media ${devices.mobile} {
     text-align: left;
   }

@@ -30,8 +30,12 @@ export const NavItems = styled.ul`
 `;
 export const NavItem = styled.li``;
 export const NavItemLink = styled.a`
-  color: ${({ theme }) => theme.colors.text.primary};
-  font-size: 14px;
+  cursor: pointer;
+  font-size: 16px;
+  height: 19px;
+  color: ${({ theme }) => theme.colors.text.normal};
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  font-weight: ${({ theme }) => theme.fonts.weights.normal};
 `;
 export const NavActions = styled.div`
   width: 196px;
@@ -112,16 +116,14 @@ export const ConnectWalletButton = styled.div`
     &:active {
       /* padding: 0.8rem !important; */
     }
-
-    & > .wallet-adapter-button {
-      background-color: #8cd2cf;
-    }
   }
 `;
 
 export const ConnectWalletButtonLabel = styled.span`
-  color: #000;
-  font-size: 14px;
+  font-size: 16px;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  color: #070b15;
+  font-weight: ${({ theme }) => theme.fonts.weights.semibold};
 `;
 
 export const NavSection = () => {
@@ -145,16 +147,22 @@ export const NavSection = () => {
         </NavLogo>
         <NavItems>
           <NavItem>
-            <NavItemLink>Home</NavItemLink>
+            <NavItemLink target="_blank" href={`https://pait.fi`}>
+              Home
+            </NavItemLink>
           </NavItem>
           <NavItem>
-            <NavItemLink>WhitePaper</NavItemLink>
+            <NavItemLink target="_blank" href={`https://pait.gitbook.io/pait`}>
+              WhitePaper
+            </NavItemLink>
           </NavItem>
           <NavItem>
-            <NavItemLink>Join Telegram</NavItemLink>
+            <NavItemLink target="_blank" href="https://t.me/+zdBkF3dauTs5ODc8">
+              Join Telegram
+            </NavItemLink>
           </NavItem>
           <NavItem>
-            <NavItemLink>Contact</NavItemLink>
+            <NavItemLink href="#">Contact</NavItemLink>
           </NavItem>
         </NavItems>
         <NavActions>

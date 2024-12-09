@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const SectionWrapper = styled.div<{ $bg?: string }>`
-  background-color: ${({ $bg }) => ($bg ? $bg : "none")};
+  background-color: ${({ $bg }) => ($bg ? $bg : "#080b14")};
   padding: 1rem 12rem;
   display: flex;
   align-items: center;
@@ -17,7 +17,7 @@ export const SectionWrapper = styled.div<{ $bg?: string }>`
   height: 100%;
   /* can be removed */
   /* max-width: 1512px; */
-  margin: ${({ theme }) => `${theme.padding.small} auto`};
+  /* margin: ${({ theme }) => `${theme.gaps.small} auto`}; */
   /* end of it */
   flex-direction: column;
 
@@ -40,11 +40,11 @@ export const Link = styled.a``;
 
 export const Paragraph = styled.p`
   font-size: 16px;
-  color: #87939e;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  color: ${({ theme }) => theme.colors.text.normal};
+  font-weight: ${({ theme }) => theme.fonts.weights.normal};
   margin: 0;
   padding: 0;
-  font-family: ${({ theme }) => theme.fonts.main};
-  font-weight: 400;
   line-height: 1.5;
   display: flex;
   flex-direction: column;
@@ -164,7 +164,6 @@ export const MenuConnectButton = styled.div`
     width: 100%;
     padding: 0.5rem 1rem !important;
     border-radius: 6px;
-    border: 1px solid #5cdfd8;
 
     &:hover,
     &:active {
@@ -204,7 +203,7 @@ export const ConnectWalletButtonExtends = styled.div`
 `;
 
 export const Wrapping = styled.div`
-  margin: ${({ theme }) => `${theme.padding.small} auto`};
+  margin: ${({ theme }) => `${theme.gaps.small} auto`};
   width: 100%;
   /* mobile and tablet */
   @media (max-width: ${sizes.desktop + "px"}) {

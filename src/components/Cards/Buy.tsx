@@ -206,7 +206,7 @@ const Card = styled.div`
   color: #fff;
   /* width: 100%; */
   padding: 2rem 1.5rem;
-  background-color: #dde1e514;
+  background-color: #1e1e1e;
   backdrop-filter: blur(8%);
   -webkit-backdrop-filter: blur(8%);
   display: flex;
@@ -225,17 +225,19 @@ const Card = styled.div`
 
 const Header = styled.h2`
   color: #fff;
-  font-size: 26px;
-  font-weight: bold;
-  font-weight: 600;
+  font-size: 40px;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  color: ${({ theme }) => theme.colors.text.less_10};
+  font-weight: ${({ theme }) => theme.fonts.weights.semibold};
   line-height: 28px;
+  margin-bottom: 1.2rem;
 `;
 const SubHeader = styled.h4`
-  color: #ffffffb2;
   font-size: 16px;
-  font-family: "Mona Sans";
-  font-weight: 400;
-  line-height: 28px;
+  line-height: 32px;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  color: ${({ theme }) => theme.colors.text.normal};
+  font-weight: ${({ theme }) => theme.fonts.weights.normal};
 `;
 const PrimaryColor = styled.span`
   color: #8cd2cf;
@@ -319,13 +321,17 @@ const FromControlIcon = styled.img`
 const BuyNow = styled.button`
   height: 55px;
   width: 100%;
-  background-color: #8cd2cf;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   cursor: pointer;
   border-radius: 4px;
+
+  div#dynamic-widget {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const BuyNowWallet = styled.span`

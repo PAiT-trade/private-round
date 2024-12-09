@@ -23,7 +23,13 @@ export async function GET(req: Request, res: any) {
       );
     }
 
-    const allocation = allocations[0];
+    const allocation = allocations[0]
+      ? allocations[0]
+      : {
+          id: 0,
+          remaining: 0,
+          created_at: new Date(Date.now()),
+        };
     return NextResponse.json({
       status: "success",
       allocation,
