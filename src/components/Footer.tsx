@@ -173,7 +173,6 @@ export const Footer = () => {
             Your browser does not support the video tag.
           </StyledVideo>
         </VideoContainer>
-        ew{" "}
       </ModalSection>
     </>
   );
