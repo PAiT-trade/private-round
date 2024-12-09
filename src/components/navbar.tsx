@@ -30,8 +30,10 @@ export const NavItems = styled.ul`
 `;
 export const NavItem = styled.li``;
 export const NavItemLink = styled.a`
-  color: ${({ theme }) => theme.colors.text.primary};
-  font-size: 14px;
+  font-size: 16px;
+  color: ${({ theme }) => theme.colors.text.normal};
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  font-weight: ${({ theme }) => theme.fonts.weights.normal};
 `;
 export const NavActions = styled.div`
   width: 196px;
@@ -120,8 +122,10 @@ export const ConnectWalletButton = styled.div`
 `;
 
 export const ConnectWalletButtonLabel = styled.span`
-  color: #000;
-  font-size: 14px;
+  font-size: 16px;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  color: #070b15;
+  font-weight: ${({ theme }) => theme.fonts.weights.semibold};
 `;
 
 export const NavSection = () => {

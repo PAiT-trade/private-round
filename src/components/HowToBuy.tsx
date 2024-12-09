@@ -65,9 +65,6 @@ export const HowToBuy = () => {
 };
 const Container = styled.div`
   padding: 6.25rem 0;
-  font-size: 16px;
-  color: #fffffff7;
-  font-weight: normal;
 `;
 
 const List = styled.ol`
@@ -82,22 +79,22 @@ const List = styled.ol`
 
 const ListItem = styled.li`
   flex: 1 1 calc(33.33% - 1rem);
-  min-width: 200px;
+  min-width: 132px;
   box-sizing: border-box;
   display: flex;
-  gap: 1rem;
+  gap: 24px;
   align-items: center;
   counter-increment: list-counter;
   margin-bottom: 48px;
 
   &::before {
-    content: counter(list-counter);
+    content: counter(list-counter, decimal-leading-zero);
     width: 50px;
     height: 50px;
     background-color: #fffffff7;
     color: #070b15;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: ${({ theme }) => theme.fonts.weights.normal};
     display: flex;
     justify-content: center;
     align-self: flex-start;
@@ -124,16 +121,20 @@ const ListContent = styled.div`
 
 const ListContentItem = styled.p`
   font-size: 16px;
-  color: #7d8893;
-
+  color: ${({ theme }) => theme.colors.text.normal};
+  font-weight: ${({ theme }) => theme.fonts.weights.normal};
+  font-family: ${({ theme }) => theme.fonts.family.main};
   span {
     color: #95fce9;
     padding: 0 0.3rem;
+    font-family: inherit;
+    font-weight: inherit;
   }
 `;
 const ListContentItemHeader = styled.p`
-  font-weight: bold;
-  color: #fffffff7;
+  color: white;
   margin-bottom: 0.6rem;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  font-weight: ${({ theme }) => theme.fonts.weights.semibold};
   font-size: 20px;
 `;

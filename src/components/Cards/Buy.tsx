@@ -206,7 +206,7 @@ const Card = styled.div`
   color: #fff;
   /* width: 100%; */
   padding: 2rem 1.5rem;
-  background-color: #dde1e514;
+  background-color: #1e1e1e;
   backdrop-filter: blur(8%);
   -webkit-backdrop-filter: blur(8%);
   display: flex;
@@ -225,17 +225,19 @@ const Card = styled.div`
 
 const Header = styled.h2`
   color: #fff;
-  font-size: 26px;
-  font-weight: bold;
-  font-weight: 600;
+  font-size: 40px;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  color: ${({ theme }) => theme.colors.text.less_10};
+  font-weight: ${({ theme }) => theme.fonts.weights.semibold};
   line-height: 28px;
 `;
 const SubHeader = styled.h4`
   color: #ffffffb2;
   font-size: 16px;
-  font-family: "Mona Sans";
-  font-weight: 400;
-  line-height: 28px;
+  line-height: 32px;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  color: ${({ theme }) => theme.colors.text.normal};
+  font-weight: ${({ theme }) => 400};
 `;
 const PrimaryColor = styled.span`
   color: #8cd2cf;

@@ -53,8 +53,8 @@ const HeadingText = styled.h1<{ $color: string }>`
 
 const SubHeading = styled.h2`
   color: #fff;
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 56px;
+  font-weight: 600;
   font-family: "Mona Sans";
   margin: 0;
   line-height: 1.2;

@@ -34,14 +34,15 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 14px;
     }
     body {
-        font-family: ${({ theme }) => theme.fonts.main};
-        font-weight: 400;
+        font-weight: 200;
+        font-family: ${({ theme }) => theme.fonts.family.main};
         letter-spacing: 0.5 !important;
         font-size: 14px;
         line-height: 1.6;
+        letter-spacing: 0.1px;
         width: 100%;
         height:100%;
-        color: ${({ theme }) => theme.colors.text.primary};
+        color: ${({ theme }) => theme.colors.text.normal};
         background-color: ${({ theme }) => theme.colors.primary};
         background-size: cover;
         background-repeat: no-repeat;

@@ -47,23 +47,23 @@ const LiveBadge = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 40px;
-  margin: 0.5rem 0;
+  font-size: 80px;
   font-size: "Mona Sans";
   display: flex;
   flex-direction: column;
+  gap: -1rem;
+  margin: 0;
+  padding: 0;
   align-items: flex-start;
-
   span {
     color: #8cd2cf;
   }
   b {
-    font-size: 3.5rem;
     color: #87939e;
-
+    margin: 0 !important;
+    padding: 0 !important;
     &:first-child {
       color: white;
-      font-size: 4rem;
     }
   }
 `;
@@ -73,6 +73,11 @@ const Subtitle = styled.h4`
   line-height: 1.5;
   color: #bbb;
   text-align: left;
+
+  & > {
+    font-weight: 400;
+    font-size: 16px;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -132,13 +137,14 @@ const Countdown = styled.div`
   justify-content: flex-start;
   span {
     color: #87939e;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: 400;
   }
   div {
     display: flex;
     gap: 1rem;
     span {
-      font-size: 20px;
+      font-size: 24px;
       font-weight: bold;
       color: #fff;
     }

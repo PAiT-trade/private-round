@@ -27,10 +27,14 @@ const Question = styled.div`
   padding: 15px;
   display: flex;
   justify-content: space-between;
-  color: #87939e;
+  font-size: 16px;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  color: ${({ theme }) => theme.colors.text.white};
+  font-weight: ${({ theme }) => 300};
+  font-family: ${({ theme }) => theme.fonts.family.main};
   align-items: center;
   cursor: pointer;
-  font-family: "Mona Sans";
+
   &:not(:last-child) {
     border-bottom: 0.3px solid #87939e;
   }
@@ -48,8 +52,12 @@ const Answer = styled.div<{ $isopen: boolean }>`
   height: ${({ $isopen }) => ($isopen ? "auto" : "0")};
   overflow: hidden;
   transition: all 0.3s ease-in-out;
-  color: #fff;
-  font-size: 14px;
+  font-size: 16px;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  color: ${({ theme }) => theme.colors.text.white};
+  font-weight: ${({ theme }) => 200};
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  border-bottom: 0.1px solid #989899;
 `;
 
 export const FAQSection = () => {
