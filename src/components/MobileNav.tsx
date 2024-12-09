@@ -14,8 +14,7 @@ export const Navbar = styled.div<{ $isActive: boolean }>`
   width: 100%;
   z-index: 1500;
   height: ${({ $isActive }) => ($isActive ? `100vh` : "auto")};
-  padding: 8px;
-  padding-bottom: 4vh;
+  padding: 16px 8px 40px 8px;
   transition: opacity 0.3s ease-in-out;
   @media (max-width: ${sizes.desktop + "px"}) {
     display: flex;
@@ -38,7 +37,7 @@ export const NavItems = styled.ul`
 `;
 export const NavItem = styled.li``;
 export const NavItemLink = styled.a`
-  color: white;
+  color: ${({ theme }) => theme.colors.text.primary};
   font-size: 16px;
 `;
 export const NavActions = styled.div``;

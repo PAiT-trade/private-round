@@ -96,12 +96,14 @@ const customCSS = `
     .dynamic-shadow-dom-content {
         width: 100% !important;
         height: 100% !important;
-        background-color: #8cd2cf !important; 
     }
     .connect-button{
         width:100% !important;
         height: 55px !important;
-        background-color: #8cd2cf !important;        
+        border:none;  
+        border-radius: 4px !important;   
+        z-index: 1 !important; 
+        background-color: #8cd2cf !important; 
         span {
             font-size: 16px !important;
             font-family: 'Mona Sans', sans-serif !important;

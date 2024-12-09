@@ -1,14 +1,14 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Paragraph } from "@/styles/app-common-styled";
 import styled from "styled-components";
-import { CirclePlayIcon, MoveUpRightIcon } from "lucide-react";
+import { MoveUpRightIcon } from "lucide-react";
 import { sizes } from "@/utils/media";
 
 const ContentWrap = styled.div`
   display: flex;
   width: 100%;
-
+  gap: 2rem;
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
     flex-direction: column-reverse;
@@ -22,7 +22,6 @@ const ShowCaseImgWrapper = styled.div`
   justify-content: center;
   align-items: center;
   align-content: center;
-  width: 40%;
 
   @media (max-width: ${sizes.tablet + "px"}) {
     width: 100%;
@@ -35,7 +34,7 @@ const ShowCaseImg = styled.img`
 const Wrapper = styled.div`
   background-color: #070b15;
   /* min-width: 46.0625rem; */
-  width: 60%;
+  /* width: 60%; */
   backdrop-filter: blur(60%);
   -webkit-backdrop-filter: blur(60%);
   color: #fff;

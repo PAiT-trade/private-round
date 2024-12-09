@@ -30,7 +30,7 @@ export const NavItems = styled.ul`
 `;
 export const NavItem = styled.li``;
 export const NavItemLink = styled.a`
-  color: white;
+  color: ${({ theme }) => theme.colors.text.primary};
   font-size: 14px;
 `;
 export const NavActions = styled.div`

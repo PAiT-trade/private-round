@@ -33,9 +33,10 @@ const Container = styled.div`
   color: #ffffffb3;
   font-weight: normal;
   display: flex;
+  flex-wrap: wrap; /* Enable wrapping */
   justify-content: space-between;
-  width: 100% !important;
   gap: 1.5rem;
+  width: 100% !important;
 `;
 
 const Card = styled.div`
@@ -50,12 +51,12 @@ const Card = styled.div`
   justify-content: flex-start;
   gap: 1.5rem;
 
-  @media (max-width: 768px) {
-    flex: 1 1 calc(33.33% - 0.5rem);
-  }
+  /* For larger screens */
+  flex: 1 1 calc(50% - 0.75rem);
 
-  @media (max-width: 480px) {
-    flex: 1 1 100%;
+  /* For smaller screens */
+  @media (max-width: 768px) {
+    flex: 1 1 100%; /* Full width on small screens */
   }
 `;
 const CardImg = styled.img`
