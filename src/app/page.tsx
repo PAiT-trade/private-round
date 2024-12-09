@@ -483,7 +483,7 @@ export default function Home() {
       </HeaderWrapper>
 
       {/* Instructions Section */}
-      <SectionWrapper>
+      <SectionWrapper id="how-to-buy">
         <HeadingWithBar
           $title="INSTRUCTION"
           $color="#ADA5D1"

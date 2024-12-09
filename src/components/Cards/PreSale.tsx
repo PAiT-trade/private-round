@@ -88,7 +88,7 @@ const ButtonContainer = styled.div`
     width: 100%;
   }
 `;
-const Button = styled.button<{ $bgcolor?: string }>`
+const Button = styled.a<{ $bgcolor?: string }>`
   background-color: #8cd2cf;
   background-color: ${({ $bgcolor }) => ($bgcolor ? $bgcolor : "##8cd2cf")};
   display: flex;
@@ -112,6 +112,9 @@ const ButtonWallet = styled.span`
   gap: 0.3rem;
   justify-content: space-between;
   align-items: center;
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
 `;
 const ButtonAction = styled.span`
   display: flex;
@@ -195,14 +198,14 @@ const PreSale: React.FC<PreSaleProps> = ({ $remainingtime }) => {
         </Paragraph>
       </Subtitle>
       <ButtonContainer>
-        <Button $bgcolor="#7F7BBE">
+        <Button $bgcolor="#7F7BBE" href="#">
           <ButtonWallet>
             <span>Contact</span>
             <MoveUpRightIcon size={12} />
           </ButtonWallet>
         </Button>
 
-        <Button style={{ height: "60px" }} $bgcolor="#fff">
+        <Button style={{ height: "60px" }} $bgcolor="#fff" href="#how-to-buy">
           <ButtonWallet>
             <CirclePlayIcon size={16} />
             <span>How to buy ?</span>
