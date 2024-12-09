@@ -23,6 +23,9 @@ const BottomRightCorner = styled.div`
   @media (max-width: ${sizes.tablet + "px"}) {
     display: none;
   }
+  @media (max-width: "900px") {
+    display: none !important;
+  }
 `;
 
 const FloatShowCase = styled.img``;

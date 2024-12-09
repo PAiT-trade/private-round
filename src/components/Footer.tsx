@@ -173,7 +173,6 @@ export const Footer = () => {
             Your browser does not support the video tag.
           </StyledVideo>
         </VideoContainer>
-        ew{" "}
       </ModalSection>
     </>
   );
@@ -186,6 +185,7 @@ const Wrap = styled.div`
   max-height: 29.375rem;
   height: 100%;
   gap: 2rem;
+  margin: 1.2rem;
   @media (max-width: ${sizes.tablet + "px"}) {
     height: 100%;
   }

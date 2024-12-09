@@ -14,6 +14,7 @@ export const SectionWrapper = styled.div<{ $bg?: string }>`
   display: flex;
   align-items: center;
   width: 100%;
+  height: 100%;
   /* can be removed */
   /* max-width: 1512px; */
   margin: ${({ theme }) => `${theme.padding.small} auto`};
@@ -22,6 +23,12 @@ export const SectionWrapper = styled.div<{ $bg?: string }>`
 
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
+    max-width: 100%;
+    width: 100%;
+    padding: 1rem;
+    align-self: center;
+  }
+  @media (max-width: ${"900" + "px"}) {
     max-width: 100%;
     width: 100%;
     padding: 1rem;

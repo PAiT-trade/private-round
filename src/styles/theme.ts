@@ -16,7 +16,7 @@ export const theme = {
     code: "Courier, monospace",
   },
   fontSizes: {
-    small: "1.0rem",
+    small: "1.2rem",
     medium: "1.15rem",
     large: "2.3rem",
   },

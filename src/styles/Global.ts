@@ -39,12 +39,14 @@ export const GlobalStyle = createGlobalStyle`
         letter-spacing: 0.5 !important;
         font-size: 14px;
         line-height: 1.6;
+        width: 100%;
+        height:100%;
         color: ${({ theme }) => theme.colors.text.primary};
         background-color: ${({ theme }) => theme.colors.primary};
         background-size: cover;
         background-repeat: no-repeat;
-        min-height: 100vh;
-
+        /* min-height: 100vh; */
+        max-width: 100%;
         @media (max-width: 768px) {
             font-size: 14px;
         }
