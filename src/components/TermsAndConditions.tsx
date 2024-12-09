@@ -186,7 +186,7 @@ const TermsAndConditions = () => {
 };
 
 const Container = styled.div`
-  /* padding: 20px; */
+  padding: 4px;
   width: 100%;
   margin: auto;
   color: #000;
