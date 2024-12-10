@@ -89,7 +89,7 @@ export const BuyCard: React.FC<BuyCardProps> = ({
                   $calculateAmountInPait();
                 }}
               />
-              <FromControlIcon src="/pait_icon.svg" />
+              <FromControlIcon src="/USDC.svg" />
             </FromControl>
           </FromGroup>
           <FromGroup>
@@ -102,7 +102,7 @@ export const BuyCard: React.FC<BuyCardProps> = ({
                 type="number"
                 step={"0.0000000001"}
               />
-              <FromControlIcon src="/usdc.png" />
+              <FromControlIcon src="/PAIT_COIN.svg" />
             </FromControl>
           </FromGroup>
         </FormWrapper>
@@ -202,7 +202,7 @@ export const BText = styled.div<BuyCardsTextProps>`
 `;
 
 const Card = styled.div`
-  /* min-width: 519px; */
+  min-width: 519px;
   color: #fff;
   /* width: 100%; */
   padding: 2rem 1.5rem;
@@ -218,8 +218,9 @@ const Card = styled.div`
 
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
-    max-width: 100%;
-    width: 100%;
+    max-width: 100% !important;
+    width: 100% !important;
+    min-width: 100%;
     padding: 2rem 0.2rem;
   }
 `;

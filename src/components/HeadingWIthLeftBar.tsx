@@ -14,7 +14,7 @@ const HeadingContainer = styled.div`
 `;
 
 export const LeftBar = styled.div<{ $color: string }>`
-  width: 1px;
+  width: 1.5px;
   height: 17px;
   background-color: ${({ $color }) => $color};
   margin-top: 0.25rem;

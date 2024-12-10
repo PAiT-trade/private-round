@@ -14,7 +14,7 @@ export const Navbar = styled.div<{ $isActive: boolean }>`
   width: 100%;
   z-index: 1500;
   height: ${({ $isActive }) => ($isActive ? `100vh` : "auto")};
-  padding: 16px 8px 40px 8px;
+  padding: 16px 8px;
   transition: opacity 0.3s ease-in-out;
   @media (max-width: ${sizes.desktop + "px"}) {
     display: flex;

@@ -8,30 +8,32 @@ export const Container = styled.div`
   width: 100%;
 `;
 
-export const SectionWrapper = styled.div<{ $bg?: string }>`
+export const SectionWrapper = styled.div<{
+  $bg?: string;
+  $paddingtop?: string;
+}>`
   background-color: ${({ $bg }) => ($bg ? $bg : "#080b14")};
-  padding: 1rem 12rem;
+  padding: 0 12rem;
   display: flex;
   align-items: center;
   width: 100%;
   height: 100%;
-  /* can be removed */
-  /* max-width: 1512px; */
-  /* margin: ${({ theme }) => `${theme.gaps.small} auto`}; */
-  /* end of it */
+  &:not(:last-child) {
+    padding-top: ${({ $paddingtop }) => ($paddingtop ? $paddingtop : "1rem")};
+  }
   flex-direction: column;
 
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
     max-width: 100%;
     width: 100%;
-    padding: 1rem;
+    padding: 1rem !important;
     align-self: center;
   }
   @media (max-width: ${"900" + "px"}) {
     max-width: 100%;
     width: 100%;
-    padding: 1rem;
+    padding: 1rem !important;
     align-self: center;
   }
 `;
@@ -203,13 +205,48 @@ export const ConnectWalletButtonExtends = styled.div`
 `;
 
 export const Wrapping = styled.div`
-  margin: ${({ theme }) => `${theme.gaps.small} auto`};
   width: 100%;
+  background-color: #0e111b;
+  /* min-height: 900px; */
   /* mobile and tablet */
   @media (max-width: ${sizes.desktop + "px"}) {
     min-width: 100% !important;
     margin: 0;
     max-width: 100%;
+    /* padding: 32px 0; */
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+
+    & > {
+      width: 100%;
+    }
+  }
+`;
+
+export const MinWrapp = styled.div`
+  width: 100%;
+  background: linear-gradient(to top, rgba(60, 60, 60, 0.3), rgba(7, 7, 7, 0.9)),
+    url("/header-cover.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0px 12rem;
+  padding-bottom: 12rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8rem;
+  /* mobile and tablet */
+  @media (max-width: ${sizes.desktop + "px"}) {
+    min-width: 100% !important;
+    margin: 0;
+    gap: 3rem;
+    max-width: 100%;
+    padding: 0px 0px 32px 0px;
     display: flex;
     justify-content: center;
     align-items: center;

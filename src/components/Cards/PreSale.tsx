@@ -33,7 +33,7 @@ const Wrapper = styled.div`
 
 const LiveBadge = styled.div`
   color: #8cd2cf;
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: bold;
   margin-bottom: 1rem;
   display: flex;
@@ -42,20 +42,23 @@ const LiveBadge = styled.div`
   gap: 0.4rem;
 
   span {
-    font-weight: bold;
+    font-weight: ${({ theme }) => theme.fonts.weights.bold};
   }
 `;
 
 const Title = styled.h1`
-  font-size: 80px;
+  font-size: 56px;
   font-size: "Mona Sans";
   display: flex;
-  flex-direction: column;
-  gap: -1rem;
-  margin: 0;
-  padding: 0;
+  justify-content: flex-start;
   align-items: flex-start;
+  flex-direction: column;
+  letter-spacing: -5%;
+  line-height: 1.1;
+  gap: 0;
   text-align: left;
+  margin: 0 !important;
+  padding: 0 !important;
   span {
     color: #8cd2cf;
   }

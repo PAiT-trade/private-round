@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 export const Navbar = styled.div`
   width: 100%;
   display: none;
+  padding: 16px 0 !important;
   justify-content: space-between;
   align-items: center;
   padding: 0;
@@ -24,7 +25,7 @@ export const NavLogoImg = styled.img``;
 export const NavItems = styled.ul`
   display: flex;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 24px;
   text-decoration: none;
   list-style-type: none;
 `;
@@ -42,6 +43,7 @@ export const NavActions = styled.div`
   height: 55px;
   display: flex;
   align-items: center;
+  align-self: center;
   div#dynamic-widget {
     width: 100%;
     height: 100%;
