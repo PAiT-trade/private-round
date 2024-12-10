@@ -10,7 +10,7 @@ import { WalletConnect } from "./navbar";
 export const Navbar = styled.div<{ $isActive: boolean }>`
   display: none;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 1.5rem;
   width: 100%;
   z-index: 1500;
   height: ${({ $isActive }) => ($isActive ? `100vh` : "auto")};
@@ -25,6 +25,27 @@ const TopBar = styled.div`
   display: flex;
   justify-content: space-between;
 `;
+
+const TopWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  padding-top: 8px;
+  gap: 8px;
+`;
+
+const Navs = styled.div`
+  margin-top: 8px; /* Adjust as necessary */
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1.3rem;
+  text-decoration: none;
+  list-style-type: none;
+`;
 export const NavLogo = styled.div``;
 export const NavLogoImg = styled.img``;
 export const NavItems = styled.ul`
@@ -37,10 +58,14 @@ export const NavItems = styled.ul`
 `;
 export const NavItem = styled.li``;
 export const NavItemLink = styled.a`
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  font-weight: ${({ theme }) => 300};
   color: ${({ theme }) => theme.colors.text.primary};
-  font-size: 16px;
+  font-size: 32px;
 `;
-export const NavActions = styled.div``;
+export const NavActions = styled.div`
+  width: 100%;
+`;
 export const ConnectWalletButton = styled.div`
   height: 55px;
 
@@ -88,33 +113,36 @@ export const MobileNav: React.FC<MobileNavProps> = ({
         )}
       </TopBar>
       {$isActive && (
-        <>
-          <NavItems>
-            <NavItem>
-              <NavItemLink target="_blank" href={`https://pait.fi`}>
-                Home
-              </NavItemLink>
-            </NavItem>
-            <NavItem>
-              <NavItemLink
-                target="_blank"
-                href={`https://pait.gitbook.io/pait`}
-              >
-                WhitePaper
-              </NavItemLink>
-            </NavItem>
-            <NavItem>
-              <NavItemLink
-                target="_blank"
-                href="https://t.me/+zdBkF3dauTs5ODc8"
-              >
-                Join Telegram
-              </NavItemLink>
-            </NavItem>
-            <NavItem>
-              <NavItemLink>Contact</NavItemLink>
-            </NavItem>
-          </NavItems>
+        <TopWrapper>
+          <Navs>
+            <NavItems>
+              <NavItem>
+                <NavItemLink target="_blank" href={`https://pait.fi`}>
+                  Home
+                </NavItemLink>
+              </NavItem>
+              <NavItem>
+                <NavItemLink
+                  target="_blank"
+                  href={`https://pait.gitbook.io/pait`}
+                >
+                  WhitePaper
+                </NavItemLink>
+              </NavItem>
+              <NavItem>
+                <NavItemLink
+                  target="_blank"
+                  href="https://t.me/+zdBkF3dauTs5ODc8"
+                >
+                  Join Telegram
+                </NavItemLink>
+              </NavItem>
+              <NavItem>
+                <NavItemLink>Contact</NavItemLink>
+              </NavItem>
+            </NavItems>
+          </Navs>
+
           <NavActions>
             <DynamicWidget
               innerButtonComponent={
@@ -127,7 +155,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
               }
             />
           </NavActions>
-        </>
+        </TopWrapper>
       )}
     </Navbar>
   );
