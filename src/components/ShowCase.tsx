@@ -30,10 +30,14 @@ const ShowCaseImgWrapper = styled.div`
 `;
 const ShowCaseImg = styled.img`
   align-self: center;
+  width: 280px;
+  height: 567px;
+  border: 1px solid #3f4040;
+  border-radius: 40px;
 `;
 
 const Wrapper = styled.div`
-  background-color: #070b15;
+  background-color: transparent;
   max-width: 629px;
   width: 100%;
   backdrop-filter: blur(60%);
@@ -96,6 +100,12 @@ const MTitle = styled(Title)`
   }
   @media (max-width: ${sizes.tablet + "px"}) {
     display: flex;
+    margin-top: 270px;
+  }
+
+  @media (max-width: ${400 + "px"}) {
+    display: flex;
+    margin-top: 270px;
   }
 `;
 const Subtitle = styled.h4`
@@ -179,7 +189,7 @@ const ShowCase: React.FC<ShowCaseProps> = () => {
         </ButtonContainer>
       </Wrapper>
       <ShowCaseImgWrapper>
-        <ShowCaseImg src="/pait-app.png" />
+        <ShowCaseImg src="/showcase-img.png" />
       </ShowCaseImgWrapper>
       <MTitle>
         <b>

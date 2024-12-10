@@ -59,7 +59,7 @@ export const NavItems = styled.ul`
 export const NavItem = styled.li``;
 export const NavItemLink = styled.a`
   font-family: ${({ theme }) => theme.fonts.family.main};
-  font-weight: ${({ theme }) => 300};
+  font-weight: ${({ theme }) => 400};
   color: ${({ theme }) => theme.colors.text.primary};
   font-size: 32px;
 `;
@@ -68,7 +68,6 @@ export const NavActions = styled.div`
 `;
 export const ConnectWalletButton = styled.div`
   height: 55px;
-
   width: 100%;
   background-color: #8cd2cf;
   padding: 18px 31px;
@@ -77,12 +76,12 @@ export const ConnectWalletButton = styled.div`
   border-radius: 4px;
   align-items: center;
   gap: 4px;
-  font-size: 14px;
+  font-size: 16px;
   color: #000;
 `;
 export const ConnectWalletButtonLabel = styled.span`
   color: #000;
-  font-size: 14px;
+  font-size: 16px;
 `;
 
 interface MobileNavProps {

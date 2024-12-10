@@ -11,13 +11,14 @@ export const Container = styled.div`
 export const SectionWrapper = styled.div<{
   $bg?: string;
   $paddingtop?: string;
+  $height?: string;
 }>`
   background-color: ${({ $bg }) => ($bg ? $bg : "#080b14")};
   padding: 0 12rem;
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: ${({ $height }) => ($height ? $height : "100%")};
   &:not(:last-child) {
     padding-top: ${({ $paddingtop }) => ($paddingtop ? $paddingtop : "1rem")};
   }
@@ -47,7 +48,7 @@ export const Paragraph = styled.p`
   font-weight: ${({ theme }) => theme.fonts.weights.normal};
   margin: 0;
   padding: 0;
-  line-height: 1.5;
+  line-height: 32px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -229,7 +230,11 @@ export const Wrapping = styled.div`
 
 export const MinWrapp = styled.div`
   width: 100%;
-  background: linear-gradient(to top, rgba(60, 60, 60, 0.3), rgba(7, 7, 7, 0.9)),
+  background: linear-gradient(
+      to bottom right,
+      rgba(15, 15, 15, 0.1),
+      rgba(55, 55, 55, 0.9)
+    ),
     url("/header-cover.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -252,9 +257,84 @@ export const MinWrapp = styled.div`
     align-items: center;
     align-content: center;
     flex-direction: column;
+    background: linear-gradient(
+        to bottom right,
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.9)
+      ),
+      url("/header-cover.png");
 
     & > {
       width: 100%;
     }
+  }
+`;
+
+export const FloatingBackgrounds = styled.div<{
+  showRight?: boolean;
+  showLeft?: boolean;
+}>`
+  width: 100%;
+  height: 100%;
+  background-color: rgba(8, 11, 20, 0.7);
+
+  /* Conditionally apply background images */
+  background-image: ${({ showRight }) =>
+      showRight ? 'url("/RightCoin.svg")' : "none"},
+    ${({ showLeft }) => (showLeft ? 'url("/LeftCoin.svg")' : "none")};
+
+  /* Conditionally apply positions */
+  background-position: ${({ showRight }) => (showRight ? "top right" : "unset")},
+    ${({ showLeft }) => (showLeft ? "bottom left" : "unset")};
+
+  /* Prevent tiling */
+  background-repeat: no-repeat;
+
+  /* Conditionally apply sizes */
+  background-size: ${({ showRight }) => (showRight ? "400px 400px" : "unset")},
+    ${({ showLeft }) => (showLeft ? "350px 350px" : "unset")};
+
+  @media (max-width: ${sizes.mobile + "px"}) {
+    /* background-image: none; */
+  }
+`;
+
+export const ManageContent = styled.div`
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+`;
+
+export const FloatingBackgroundOnlyLeft = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: rgba(8, 11, 20, 0.7);
+  background-image: url("/RightCoin.svg");
+  /* Conditionally apply positions */
+  background-position: top left;
+  /* Prevent tiling */
+  background-repeat: no-repeat;
+  /* Conditionally apply sizes */
+  background-size: 426px 400px;
+
+  @media (max-width: ${sizes.mobile + "px"}) {
+    background-image: none;
+  }
+`;
+
+export const FloatingBackgroundOnlyRight = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: rgba(8, 11, 20, 0.7);
+  background-image: url("/LeftCoin.svg");
+  /* Conditionally apply positions */
+  background-position: top right;
+  /* Prevent tiling */
+  background-repeat: no-repeat;
+  /* Conditionally apply sizes */
+  background-size: 426px 400px;
+
+  @media (max-width: ${sizes.mobile + "px"}) {
+    /* background-image: none; */
   }
 `;

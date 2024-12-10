@@ -35,8 +35,10 @@ export const BuyCard: React.FC<BuyCardProps> = ({
       <Header>
         Buy <PrimaryColor>$PAiT</PrimaryColor> token
       </Header>
-      <SubHeader>The PAiT Private Round is live! Join</SubHeader>
-      <SubHeader>now and earn referral rewards!</SubHeader>
+      <div>
+        <SubHeader>The PAiT Private Round is live! Join</SubHeader>
+        <SubHeader>now and earn referral rewards!</SubHeader>
+      </div>
 
       <BuyCardHeaderAllocationWrapper>
         <BuyCardHeaderAllocationHeader>
@@ -44,10 +46,13 @@ export const BuyCard: React.FC<BuyCardProps> = ({
             <BText>Remaining allocation:</BText>
           </BuyCardHeaderAllocationLabel>
           <BuyCardHeaderAllocationValue>
-            <BText>
-              {$state.allocation.remaining + " "}
-              updated every 24h
-            </BText>
+            <BTextAllocation>
+              <p>
+                {$state.allocation.remaining + " "}
+                updated every 24h
+              </p>{" "}
+              <img src="/contact_support.svg" />
+            </BTextAllocation>
           </BuyCardHeaderAllocationValue>
         </BuyCardHeaderAllocationHeader>
 
@@ -57,7 +62,9 @@ export const BuyCard: React.FC<BuyCardProps> = ({
           }
         />
 
-        <BText color="#4daa90">1 $PAiT = {$state.priceOfPait} USDC</BText>
+        <BText color="#4daa90" style={{ paddingBottom: "16px" }}>
+          1 $PAiT = {$state.priceOfPait} USDC
+        </BText>
 
         <FormWrapper>
           <FromGroup>
@@ -197,23 +204,50 @@ export const BText = styled.div<BuyCardsTextProps>`
   flex-wrap: wrap;
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
-    /* width: 80%; */
+    width: 82px;
+  }
+`;
+
+const BTextAllocation = styled.div<BuyCardsTextProps>`
+  color: ${({ color }) => (color ? color : "#fff")};
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    /* background-color: green; */
+    width: 126px;
+    align-items: flex-end;
+  }
+
+  img {
+    width: 14.17px;
+    height: 16.67px;
+  }
+  @media (max-width: ${sizes.tablet + "px"}) {
+    /* width: 126px; */
   }
 `;
 
 const Card = styled.div`
   min-width: 519px;
+  /* min-height: 534px; */
   color: #fff;
   /* width: 100%; */
-  padding: 2rem 1.5rem;
-  background-color: #03060a;
+  padding: 32px 12px;
+  background-color: #1e1e1e;
   /* border: 0.1px solid #dde1e5; */
   backdrop-filter: blur(8%);
   -webkit-backdrop-filter: blur(8%);
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 24px;
   border-radius: 0.4rem;
 
   /* mobile and tablet */
@@ -221,7 +255,7 @@ const Card = styled.div`
     max-width: 100% !important;
     width: 100% !important;
     min-width: 100%;
-    padding: 2rem 0.2rem;
+    height: 100%;
   }
 `;
 

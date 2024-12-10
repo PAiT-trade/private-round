@@ -10,7 +10,15 @@ import { NavSection } from "@/components/navbar";
 import { Rewards } from "@/components/Rewards";
 import ShowCase from "@/components/ShowCase";
 import { Footer } from "@/components/Footer";
-import { MinWrapp, SectionWrapper, Wrapping } from "@/styles/app-common-styled";
+import {
+  FloatingBackgroundOnlyLeft,
+  FloatingBackgroundOnlyRight,
+  FloatingBackgrounds,
+  ManageContent,
+  MinWrapp,
+  SectionWrapper,
+  Wrapping,
+} from "@/styles/app-common-styled";
 import { AppState } from "@/types/app";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { media, sizes } from "@/utils/media";
@@ -36,7 +44,7 @@ export default function Home() {
   const { primaryWallet } = useDynamicContext();
   const { setIsLoading, isLoading } = useLoading();
   const [minAmounts, setMinAmounts] = useState({
-    min: "1000",
+    min: "0.1",
     max: "20000",
   });
   const router = useRouter();
@@ -77,7 +85,7 @@ export default function Home() {
       setState((prevState) => ({
         ...prevState,
         allocation: {
-          remaining: result.allocation ? result.allocation.remaining : 0,
+          remaining: result.allocation ? result.allocation.remaining : 1956000,
           total: 2000000,
         },
       }));
@@ -487,13 +495,17 @@ export default function Home() {
 
       {/* Instructions Section */}
       <SectionWrapper id="how-to-buy" $paddingtop="100px">
-        <HeadingWithBar
-          $title="INSTRUCTION"
-          $color="#ADA5D1"
-          $subtitlewidth="72rem"
-          $subtitle="How to acquire tokens in the private round?"
-        />
-        <HowToBuy />
+        <FloatingBackgrounds showLeft={true} showRight={true}>
+          <ManageContent>
+            <HeadingWithBar
+              $title="INSTRUCTION"
+              $color="#ADA5D1"
+              $subtitlewidth="72rem"
+              $subtitle="How to acquire tokens in the private round?"
+            />
+            <HowToBuy />
+          </ManageContent>
+        </FloatingBackgrounds>
       </SectionWrapper>
       {/* Rewards */}
       <SectionWrapper>
@@ -506,28 +518,40 @@ export default function Home() {
         <Rewards />
       </SectionWrapper>
 
-      <SectionWrapper $paddingtop="100px">
-        <HeadingWithBar
-          $title="SUPPLY & SCHEDULE"
-          $color="#ADA5D1"
-          $subtitlewidth="70rem"
-          $subtitle="Allocations & Vesting."
-        />
-        <Allocations />
+      <SectionWrapper $paddingtop="100px" $height="60vh">
+        <FloatingBackgrounds showRight={true} showLeft>
+          <ManageContent>
+            <HeadingWithBar
+              $title="SUPPLY & SCHEDULE"
+              $color="#ADA5D1"
+              $subtitlewidth="70rem"
+              $subtitle="Allocations & Vesting."
+            />
+            <Allocations />
+          </ManageContent>
+        </FloatingBackgrounds>
       </SectionWrapper>
       {/* Show case */}
       <SectionWrapper $paddingtop="100px">
-        <ShowCase />
+        <FloatingBackgrounds showRight={true} showLeft>
+          <ManageContent>
+            <ShowCase />
+          </ManageContent>
+        </FloatingBackgrounds>
       </SectionWrapper>
 
-      <SectionWrapper $paddingtop="100px">
-        <HeadingWithBar
-          $title="FAQ"
-          $color="#ADA5D1"
-          $subtitlewidth="45rem"
-          $subtitle="Everything you need to know."
-        />
-        <FAQSection />
+      <SectionWrapper $paddingtop="100px" style={{ paddingBottom: "60px" }}>
+        <FloatingBackgroundOnlyRight>
+          <ManageContent>
+            <HeadingWithBar
+              $title="FAQ"
+              $color="#ADA5D1"
+              $subtitlewidth="45rem"
+              $subtitle="Everything you need to know."
+            />
+            <FAQSection />
+          </ManageContent>
+        </FloatingBackgroundOnlyRight>
       </SectionWrapper>
     </>
   );

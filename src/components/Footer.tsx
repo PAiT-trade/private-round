@@ -203,7 +203,7 @@ const Wrap = styled.div`
 export const FooterHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 4rem;
 
   @media (max-width: ${sizes.tablet + "px"}) {
     flex-direction: column;
@@ -213,7 +213,7 @@ export const FooterHeaderWrapper = styled.div`
 `;
 
 export const AboutPait = styled.div`
-  width: 40%;
+  width: 43%;
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
@@ -232,7 +232,10 @@ export const GroupContent = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 16px;
-  width: 100%;
+  width: 57%;
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+  }
 `;
 
 export const FooterItem = styled.div`
@@ -298,18 +301,19 @@ const CopyrightWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 4rem;
 
   @media (max-width: ${sizes.tablet + "px"}) {
     flex-direction: column-reverse;
     align-items: flex-start;
     justify-content: flex-start;
-    gap: 2rem;
   }
 `;
 
 export const Copyright = styled.h5`
   font-size: 16px;
-  color: #87939e;
+  color: ${({ theme }) => theme.colors.text.normal};
+  font-weight: ${({ theme }) => 400};
   flex: 1;
 `;
 export const CopyrightAction = styled.div`
@@ -325,8 +329,12 @@ export const CopyrightAction = styled.div`
   }
 `;
 export const CopyrightLink = styled.a`
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
+  line-height: 0%;
+  font-family: "Monas Sans";
+  color: ${({ theme }) => theme.colors.text.normal + " !important"};
+  font-weight: ${({ theme }) => 400};
 `;
 
 const ReadAgreement = styled.div`

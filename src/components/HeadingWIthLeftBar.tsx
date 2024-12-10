@@ -38,9 +38,9 @@ const HeadingContent = styled.div<{ $subtitlewidth?: string }>`
   @media (max-width: ${sizes.tablet + "px"}) {
     max-width: 100%;
     width: 100%;
-    align-items: flex-start;
-    justify-content: flex-start;
-    align-self: flex-start;
+    /* align-items: flex-start; */
+    /* justify-content: flex-start;
+    align-self: flex-start; */
   }
 `;
 
@@ -58,7 +58,7 @@ const HeadingText = styled.h1<{ $color: string }>`
 const SubHeading = styled.h2`
   color: #fff;
   font-size: 56px;
-  font-weight: ${({ theme }) => theme.fonts.weights.normal};
+  font-weight: ${({ theme }) => 400};
   font-family: "Mona Sans";
   margin: 0;
   line-height: 1.2;
