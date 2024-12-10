@@ -206,7 +206,8 @@ const Card = styled.div`
   color: #fff;
   /* width: 100%; */
   padding: 2rem 1.5rem;
-  background-color: #1e1e1e;
+  background-color: #03060a;
+  /* border: 0.1px solid #dde1e5; */
   backdrop-filter: blur(8%);
   -webkit-backdrop-filter: blur(8%);
   display: flex;
