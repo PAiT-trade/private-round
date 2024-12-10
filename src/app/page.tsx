@@ -10,7 +10,7 @@ import { NavSection } from "@/components/navbar";
 import { Rewards } from "@/components/Rewards";
 import ShowCase from "@/components/ShowCase";
 import { Footer } from "@/components/Footer";
-import { SectionWrapper, Wrapping } from "@/styles/app-common-styled";
+import { MinWrapp, SectionWrapper, Wrapping } from "@/styles/app-common-styled";
 import { AppState } from "@/types/app";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { media, sizes } from "@/utils/media";
@@ -29,6 +29,7 @@ import {
   TOKEN_PROGRAM_ID,
   ASSOCIATED_TOKEN_PROGRAM_ID,
 } from "@solana/spl-token";
+import { BackgroundImage } from "@/components/BackgroundImage";
 
 export default function Home() {
   const { connected, publicKey } = useAnalyzedWallet();
@@ -49,7 +50,7 @@ export default function Home() {
       total: 2000000,
     },
     priceOfPait: "0.16",
-    remainingTime: "2024-12-10",
+    remainingTime: "2024-12-31",
     allowReferral: false,
     symbol: "USDC",
     inputValue: "",
@@ -464,26 +465,28 @@ export default function Home() {
 
   return (
     <>
-      <HeaderWrapper>
-        <Wrapping>
-          <NavSection />
-          <FlexContainer>
-            <PreSale $remainingtime={state.remainingTime} />
-            <BuyCard
-              $state={state}
-              $setState={setState}
-              $isConnected={connected}
-              $amounts={minAmounts}
-              $buyPait={sendUSDC}
-              $calculateAmountInPait={calculateAmountInPait}
-            />
-            <ShowCaseImg src="/float-showcase.svg" />
-          </FlexContainer>
-        </Wrapping>
-      </HeaderWrapper>
+      <Wrapping>
+        <HeaderWrapper>
+          <MinWrapp>
+            <NavSection />
+            <FlexContainer>
+              <PreSale $remainingtime={state.remainingTime} />
+              <BuyCard
+                $state={state}
+                $setState={setState}
+                $isConnected={connected}
+                $amounts={minAmounts}
+                $buyPait={sendUSDC}
+                $calculateAmountInPait={calculateAmountInPait}
+              />
+              <ShowCaseImg src="/float-showcase.svg" />
+            </FlexContainer>
+          </MinWrapp>
+        </HeaderWrapper>
+      </Wrapping>
 
       {/* Instructions Section */}
-      <SectionWrapper id="how-to-buy">
+      <SectionWrapper id="how-to-buy" $paddingtop="100px">
         <HeadingWithBar
           $title="INSTRUCTION"
           $color="#ADA5D1"
@@ -503,7 +506,7 @@ export default function Home() {
         <Rewards />
       </SectionWrapper>
 
-      <SectionWrapper>
+      <SectionWrapper $paddingtop="100px">
         <HeadingWithBar
           $title="SUPPLY & SCHEDULE"
           $color="#ADA5D1"
@@ -513,11 +516,11 @@ export default function Home() {
         <Allocations />
       </SectionWrapper>
       {/* Show case */}
-      <SectionWrapper>
+      <SectionWrapper $paddingtop="100px">
         <ShowCase />
       </SectionWrapper>
 
-      <SectionWrapper>
+      <SectionWrapper $paddingtop="100px">
         <HeadingWithBar
           $title="FAQ"
           $color="#ADA5D1"
@@ -535,22 +538,17 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   color: white;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.9)),
-    url("/header-cover.png");
-  background-size: cover;
+  width: 1440px;
   width: 100%;
-  background-repeat: no-repeat;
-  padding: 1rem 12rem;
+  height: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  /* max-width: 1512px; */
-  /* mobile and tablet */
   @media (max-width: ${sizes.desktop + "px"}) {
-    padding: 8px;
+    padding: 0;
   }
   @media (max-width: ${sizes.tablet + "px"}) {
-    padding: 1rem;
+    /* padding: 1rem; */
   }
 `;
 
@@ -558,7 +556,8 @@ const FlexContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 12.5rem 8px;
+  /* padding: 8rem 8px; */
+  /* background-color: red; */
   gap: 4rem;
   width: 100%;
 
@@ -566,6 +565,7 @@ const FlexContainer = styled.div`
   @media (max-width: ${sizes.tablet + "px"}) {
     flex-direction: column;
     padding: 8px 8px;
+    gap: 2rem;
   }
 `;
 

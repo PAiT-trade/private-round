@@ -189,19 +189,20 @@ const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  min-height: 29.375rem;
+  min-height: 300px;
   height: 100%;
   gap: 2rem;
   margin: 1.2rem;
+  padding-top: 6rem;
   @media (max-width: ${sizes.tablet + "px"}) {
     height: 100%;
+    padding-top: 2rem;
   }
 `;
 
 export const FooterHeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 100px;
   gap: 2rem;
 
   @media (max-width: ${sizes.tablet + "px"}) {
