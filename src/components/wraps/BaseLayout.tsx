@@ -36,7 +36,7 @@ export const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => {
       <GlobalStyle />
       <Wrapper>
         {children}
-        <SectionWrapper $bg="#080b14 !important" $paddingtop="10px">
+        <SectionWrapper $bg="#090a0c !important" $paddingtop="10px">
           <Footer />
         </SectionWrapper>
         <BottomRightCorner>

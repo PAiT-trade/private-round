@@ -104,21 +104,26 @@ const customCSS = `
         border-radius: 4px !important;   
         z-index: 1 !important; 
         background-color: #8cd2cf !important; 
+        display: flex !important;
+        align-items: center !important;
         span {
             font-size: 16px !important;
             font-family: 'Mona Sans', sans-serif !important;
             width: 100% !important;
             color: #070B15 !important;
             font-weight: normal !important;
+            display: flex !important;
+            justify-content: center !important;
+            
 
             div {
                 display: flex !important;
-                justify-content: space-around !important;
+                align-items: center !important;
                 gap: 4px;
             }
             svg {
-                width: 16px !important;
-                height: 16px !important;
+                width: 13px !important;
+                height: 13px !important;
                 align-self: flex-start;
             }
         } 

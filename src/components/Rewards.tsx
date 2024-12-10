@@ -78,7 +78,7 @@ const CardTitle = styled.h3`
   padding-top: 2.8rem;
   padding-bottom: 8px;
   font-size: 20px;
-  font-weight: ${({ theme }) => theme.fonts.weights.semibold};
+  font-weight: ${({ theme }) => 400};
   color: ${({ theme }) => theme.colors.text.white};
 `;
 const CardContent = styled.div`

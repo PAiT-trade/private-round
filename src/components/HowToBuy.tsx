@@ -135,6 +135,6 @@ const ListContentItemHeader = styled.p`
   color: white;
   margin-bottom: 0.6rem;
   font-family: ${({ theme }) => theme.fonts.family.main};
-  font-weight: ${({ theme }) => theme.fonts.weights.semibold};
+  font-weight: ${({ theme }) => 400};
   font-size: 20px;
 `;

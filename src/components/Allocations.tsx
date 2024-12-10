@@ -36,7 +36,7 @@ const Container = styled.div`
 `;
 
 const Card = styled.div`
-  background-color: #070b15;
+  background-color: rgba(8, 11, 20, 0.7);
   border: 1px solid #ffffff1a;
   border-radius: 8px;
   padding: 24px 12px;
@@ -62,7 +62,8 @@ const CardImg = styled.img`
 const CardTitle = styled.h3`
   color: white;
   font-family: ${({ theme }) => theme.fonts.family.main};
-  font-weight: ${({ theme }) => theme.fonts.weights.semibold};
+  font-weight: ${({ theme }) => 400};
+
   padding-bottom: 8px;
   font-size: 20px;
   margin-bottom: 0.6rem;

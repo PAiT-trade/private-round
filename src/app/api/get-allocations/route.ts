@@ -27,7 +27,7 @@ export async function GET(req: Request, res: any) {
       ? allocations[0]
       : {
           id: 0,
-          remaining: 0,
+          remaining: 1956000,
           created_at: new Date(Date.now()),
         };
     return NextResponse.json({

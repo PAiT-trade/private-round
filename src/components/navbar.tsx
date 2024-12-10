@@ -2,7 +2,7 @@
 import { MoveUpRightIcon } from "lucide-react";
 import styled from "styled-components";
 import { MobileNav } from "./MobileNav";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { sizes } from "@/utils/media";
 import { DynamicWidget } from "@dynamic-labs/sdk-react-core";
 import { useRouter } from "next/navigation";
@@ -121,21 +121,46 @@ export const ConnectWalletButton = styled.div`
   }
 `;
 
-export const ConnectWalletButtonLabel = styled.span`
+export const ConnectWalletButtonLabel = styled.div`
+  background-color: green !important;
   font-size: 16px;
   font-family: ${({ theme }) => theme.fonts.family.main};
   color: #070b15;
+  display: flex;
   font-weight: ${({ theme }) => theme.fonts.weights.semibold};
 `;
 
 export const NavSection = () => {
   const [isActive, setIsActive] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const setShow = () => {
     setIsActive(!isActive);
   };
 
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 50) {
+      // Hide header when scrolling down
+      setIsActive(false);
+    } else {
+      // Show header when scrolling up
+      // setIsActive(true);
+    }
+
+    setLastScrollY(currentScrollY);
+  };
+
   const router = useRouter();
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
   return (
     <>
       <MobileNav $isActive={isActive} $setIActive={setShow} />
@@ -172,9 +197,9 @@ export const NavSection = () => {
             innerButtonComponent={
               <WalletConnect>
                 <ConnectWalletButtonLabel>
-                  Connect Wallet
+                  <span>Connect Wallet</span>
+                  <MoveUpRightIcon size={8} />
                 </ConnectWalletButtonLabel>
-                <MoveUpRightIcon size={8} />
               </WalletConnect>
             }
           />

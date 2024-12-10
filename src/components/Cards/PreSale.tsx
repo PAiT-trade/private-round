@@ -93,7 +93,6 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
   align-items: center;
 
   @media (max-width: ${sizes.tablet + "px"}) {
@@ -202,17 +201,17 @@ const PreSale: React.FC<PreSaleProps> = ({ $remainingtime }) => {
       <Title>
         <b>Exclusive Access</b>
         <b>
-          to <span>$PAiT</span> pre-sale
+          to <span>$PAiT</span> private round
         </b>
       </Title>
-      <Subtitle>
+      <Subtitle style={{ paddingBottom: "40px" }}>
         <Paragraph>
           Join the PAiT Private Round to secure exclusive tokens and earn
           rewards.Act fast—only 2,000,000 tokens are available with a structured
           unlock schedule!
         </Paragraph>
       </Subtitle>
-      <ButtonContainer>
+      <ButtonContainer style={{ paddingBottom: "48px" }}>
         <Button $bgcolor="#7F7BBE" href="#">
           <ButtonWallet>
             <span>Contact</span>
