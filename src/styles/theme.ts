@@ -34,7 +34,7 @@ export const theme = {
       white: "#FFFFFF", // white 100%
       less_10: "#FFFFFF1",
       normal: "#FFFFFF4D", // white 70%
-      less_50: "##FFFFFF80", // white 50%
+      less_50: "#FFFFFF80", // white 50%
     },
     bg: "#070B15",
     primary: "#080b14",

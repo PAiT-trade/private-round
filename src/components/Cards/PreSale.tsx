@@ -92,9 +92,17 @@ const Subtitle = styled.h4`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 16px;
   align-items: center;
 
+  button {
+    &:first-child {
+      width: 142px;
+    }
+    &:last-child {
+      width: 185px;
+    }
+  }
   @media (max-width: ${sizes.tablet + "px"}) {
     align-content: center;
     justify-content: space-between;
@@ -207,8 +215,8 @@ const PreSale: React.FC<PreSaleProps> = ({ $remainingtime }) => {
       <Subtitle style={{ paddingBottom: "40px" }}>
         <Paragraph>
           Join the PAiT Private Round to secure exclusive tokens and earn
-          rewards.Act fast—only 2,000,000 tokens are available with a structured
-          unlock schedule!
+          rewards. Act fast—only 2,000,000 tokens are available with a
+          structured unlock schedule!
         </Paragraph>
       </Subtitle>
       <ButtonContainer style={{ paddingBottom: "48px" }}>
