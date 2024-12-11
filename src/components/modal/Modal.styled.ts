@@ -15,11 +15,11 @@ export const ModalOverlary = styled.div`
 `;
 
 interface ModalProps {
-  bg?: "light";
+  bg?: "light" | "dark";
 }
 export const Modal = styled.div<ModalProps>`
   background: ${({ theme, bg }) =>
-    bg === "light" ? "white" : theme.colors.primary};
+    bg === "light" ? "white" : theme.colors.bg};
   padding: 1rem;
   border-radius: 5px;
   box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.25);

@@ -102,11 +102,11 @@ const SignaturePad: React.FC<SignaturePadProps> = ({
   const saveSignature = async () => {
     setIsLoading(true);
 
-    if (!name) {
-      toast.error("Please provide your name!!!");
-      setIsLoading(false);
-      return;
-    }
+    // if (!name) {
+    //   toast.error("Please provide your name!!!");
+    //   setIsLoading(false);
+    //   return;
+    // }
     if (!email) {
       toast.error("Please provide your email to proceed");
       setIsLoading(false);
@@ -850,7 +850,7 @@ const Spacing = styled.div`
 `;
 
 const Container = styled.div`
-  max-width: 90%;
+  max-width: 100%;
   margin: 0 auto;
   padding: 20px;
   font-size: 18px;
@@ -1109,6 +1109,7 @@ const ActionButton = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 16px;
   width: 100%;
   padding: 0.5rem 1rem !important;
   border-radius: 6px;

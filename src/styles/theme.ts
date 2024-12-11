@@ -37,7 +37,7 @@ export const theme = {
       less_50: "##FFFFFF80", // white 50%
     },
     bg: "#070B15",
-    primary: "##080b14",
+    primary: "#080b14",
   },
   margins: {
     small: "16px",

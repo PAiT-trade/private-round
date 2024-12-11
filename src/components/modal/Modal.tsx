@@ -14,6 +14,7 @@ interface ModalSectionProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   title: string;
+  $bg?: string;
 }
 
 export const ModalSection: React.FC<ModalSectionProps> = ({
@@ -21,6 +22,7 @@ export const ModalSection: React.FC<ModalSectionProps> = ({
   title,
   isOpen,
   setIsOpen,
+  $bg = "#090a0c !important",
 }) => {
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
@@ -31,7 +33,7 @@ export const ModalSection: React.FC<ModalSectionProps> = ({
   return (
     isOpen && (
       <ModalOverlary>
-        <Modal>
+        <Modal bg="dark">
           <ModalHeader>
             <ModalTitle>{title}</ModalTitle>
             <ModalCloseIcon

@@ -114,66 +114,67 @@ export const BuyCard: React.FC<BuyCardProps> = ({
           </FromGroup>
         </FormWrapper>
       </BuyCardHeaderAllocationWrapper>
+      {$isConnected ? (
+        <BuyNow
+          onClick={async () => {
+            console.log(`isConnected: ${$isConnected}`);
+            console.log(`user: ${$state.user}`);
+            console.log(
+              `Amounts: ${$state.amountInPait} ${$state.amountInUsd}`
+            );
+            console.log(
+              `user.is_approved: ${
+                $state.user ? $state.user.is_approved : "No user"
+              }`
+            );
 
-      <BuyNow>
-        {$isConnected ? (
-          <BuyNowWallet
-            onClick={async () => {
-              console.log(`isConnected: ${$isConnected}`);
-              console.log(`user: ${$state.user}`);
-              console.log(
-                `Amounts: ${$state.amountInPait} ${$state.amountInUsd}`
-              );
-              console.log(
-                `user.is_approved: ${
-                  $state.user ? $state.user.is_approved : "No user"
-                }`
-              );
+            if (!$isConnected) {
+              console.log("Wallet NOT CONNECTED.");
+              return;
+            }
 
-              if (!$isConnected) {
-                console.log("Wallet NOT CONNECTED.");
-                return;
-              }
+            if (!$state.user) {
+              console.log("USER not found.");
+              return;
+            }
 
-              if (!$state.user) {
-                console.log("USER not found.");
-                return;
-              }
+            if (
+              !$state.user.is_approved &&
+              process.env.NODE_ENV !== "development"
+            ) {
+              toast.error("Please perform KYC verification to proceed.");
+              router.push("/kyc");
+              return;
+            }
 
-              if (
-                !$state.user.is_approved &&
-                process.env.NODE_ENV !== "development"
-              ) {
-                toast.error("Please perform KYC verification to proceed.");
-                router.push("/kyc");
-                return;
-              }
+            if (!$state.user.is_approved) {
+              toast.error("Please perform KYC verification to proceed.");
+              router.push("/kyc");
+              return;
+            }
 
-              // if (!$state.user.is_approved) {
-              //   toast.error("Please perform KYC verification to proceed.");
-              //   router.push("/kyc");
-              //   return;
-              // }
+            // if ($state.isInValid) {
+            //   toast.error(
+            //     `The minimum amount is : ${formatNumber(
+            //       Number($state.mininumAmount)
+            //     )} & maximum amount is: ${formatNumber(
+            //       Number($state.maximumAmount)
+            //     )}. Please change to continue!!!`
+            //   );
+            //   return;
+            // }
 
-              if ($state.isInValid) {
-                toast.error(
-                  `The minimum amount is : ${formatNumber(
-                    Number($state.mininumAmount)
-                  )} & maximum amount is: ${formatNumber(
-                    Number($state.maximumAmount)
-                  )}. Please change to continue!!!`
-                );
-                return;
-              }
-
-              console.log("Calling buyPait...");
-              await $buyPait();
-            }}
-          >
+            console.log("Calling buyPait...");
+            await $buyPait();
+          }}
+        >
+          <BuyNowWallet>
             <span>Buy PAiT</span>
             <ShoppingBagIcon size={15} />
           </BuyNowWallet>
-        ) : (
+        </BuyNow>
+      ) : (
+        <BuyNow>
           <DynamicWidget
             innerButtonComponent={
               <WalletConnect>
@@ -184,8 +185,8 @@ export const BuyCard: React.FC<BuyCardProps> = ({
               </WalletConnect>
             }
           />
-        )}
-      </BuyNow>
+        </BuyNow>
+      )}
     </Card>
   );
 };
@@ -355,6 +356,7 @@ const FromControlIcon = styled.img`
 `;
 
 const BuyNow = styled.button`
+  background-color: #8cd2cf !important;
   height: 55px;
   width: 100%;
   display: flex;
