@@ -358,11 +358,12 @@ const SignaturePad: React.FC<SignaturePadProps> = ({
             <HeadingPage>Earn Rewards by Sharing</HeadingPage>
             <WrapsSubHeader>
               <Label>
-                Referral link: {`https://presale.pait.fi/?referral=${link}`}
+                Referral link:{" "}
+                {`https://privateround.pait.fi/?referral=${link}`}
               </Label>
               <WrapsCopy
                 onClick={() =>
-                  handleCopy(`https://presale.pait.fi/?referral=${link}`)
+                  handleCopy(`https://privateround.pait.fi/?referral=${link}`)
                 }
               >
                 <CopyIcon size={24} />
