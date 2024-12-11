@@ -30,10 +30,15 @@ const ShowCaseImgWrapper = styled.div`
 `;
 const ShowCaseImg = styled.img`
   align-self: center;
-  width: 280px;
+  width: 260px;
   height: 567px;
   border: 1px solid #3f4040;
   border-radius: 40px;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+    padding: 1.1rem;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -81,6 +86,9 @@ const Title = styled.h1`
     &:first-child {
       color: white;
       margin-bottom: 1rem;
+    }
+    span {
+      padding-left: 6px;
     }
   }
 
@@ -142,7 +150,7 @@ const Button = styled.button<{ $bgcolor?: string }>`
   height: 55px;
   font-family: ${({ theme }) => theme.fonts.family.main};
   color: #070b15;
-  font-weight: ${({ theme }) => theme.fonts.weights.semibold};
+  font-weight: ${({ theme }) => 300};
 
   @media (max-width: ${sizes.tablet + "px"}) {
     width: 100%;
