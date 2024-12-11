@@ -39,6 +39,37 @@ export const SectionWrapper = styled.div<{
   }
 `;
 
+export const FAQSectionWrapper = styled.div<{
+  $bg?: string;
+  $paddingtop?: string;
+  $height?: string;
+}>`
+  background-color: ${({ $bg }) => ($bg ? $bg : "#080b14")};
+  padding: 0 12rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: ${({ $height }) => ($height ? $height : "100%")};
+  &:not(:last-child) {
+    padding-top: ${({ $paddingtop }) => ($paddingtop ? $paddingtop : "1rem")};
+  }
+  flex-direction: column;
+
+  /* mobile and tablet */
+  @media (max-width: ${sizes.tablet + "px"}) {
+    max-width: 100%;
+    width: 100%;
+    padding: 1rem !important;
+    align-self: center;
+  }
+  @media (max-width: ${"900" + "px"}) {
+    max-width: 100%;
+    width: 100%;
+    padding: 1rem !important;
+    align-self: center;
+  }
+`;
+
 export const Link = styled.a``;
 
 export const Paragraph = styled.p`

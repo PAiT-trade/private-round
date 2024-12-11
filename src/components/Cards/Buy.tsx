@@ -52,6 +52,7 @@ export const BuyCard: React.FC<BuyCardProps> = ({
                 updated every 24h
               </p>{" "}
               <img src="/contact_support.svg" />
+              <ToolTip>Use USDC on Solana for payment.</ToolTip>
             </BTextAllocation>
           </BuyCardHeaderAllocationValue>
         </BuyCardHeaderAllocationHeader>
@@ -66,15 +67,15 @@ export const BuyCard: React.FC<BuyCardProps> = ({
           color="#FFFFFF4"
           style={{
             paddingBottom: "14px",
-            color: "#FFFFFF80 !important",
-            fontWeight: 400,
             width: "100%",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          1 $PAiT = {$state.priceOfPait} USDC
+          <span style={{ color: "#FFFFFF80 !important", fontWeight: "bold" }}>
+            1 $PAiT = {$state.priceOfPait} USDC
+          </span>
         </BText>
 
         <FormWrapper>
@@ -151,32 +152,32 @@ export const BuyCard: React.FC<BuyCardProps> = ({
               console.log("USER not found.");
               return;
             }
-
-            if (
-              !$state.user.is_approved &&
-              process.env.NODE_ENV !== "development"
-            ) {
-              toast.error("Please perform KYC verification to proceed.");
-              router.push("/kyc");
-              return;
-            }
-
-            if (!$state.user.is_approved) {
-              toast.error("Please perform KYC verification to proceed.");
-              router.push("/kyc");
-              return;
-            }
-
-            // if ($state.isInValid) {
-            //   toast.error(
-            //     `The minimum amount is : ${formatNumber(
-            //       Number($state.mininumAmount)
-            //     )} & maximum amount is: ${formatNumber(
-            //       Number($state.maximumAmount)
-            //     )}. Please change to continue!!!`
-            //   );
+            // TODO:  to uncomment them
+            // if (
+            //   !$state.user.is_approved &&
+            //   process.env.NODE_ENV !== "development"
+            // ) {
+            //   toast.error("Please perform KYC verification to proceed.");
+            //   router.push("/kyc");
             //   return;
             // }
+
+            // if (!$state.user.is_approved) {
+            //   toast.error("Please perform KYC verification to proceed.");
+            //   router.push("/kyc");
+            //   return;
+            // }
+
+            if ($state.isInValid) {
+              toast.error(
+                `The minimum amount is : ${formatNumber(
+                  Number($state.mininumAmount)
+                )} & maximum amount is: ${formatNumber(
+                  Number($state.maximumAmount)
+                )}. Please change to continue!!!`
+              );
+              return;
+            }
 
             console.log("Calling buyPait...");
             await $buyPait();
@@ -227,9 +228,11 @@ export const BText = styled.div<BuyCardsTextProps>`
 
 const BTextAllocation = styled.div<BuyCardsTextProps>`
   color: ${({ color }) => (color ? color : "#fff")};
+  position: relative;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
+  gap: 0.4rem;
   margin: 0;
   display: flex;
   flex-wrap: wrap;
@@ -237,11 +240,9 @@ const BTextAllocation = styled.div<BuyCardsTextProps>`
   justify-content: space-between;
   align-items: center;
   p {
-    /* background-color: green; */
     align-items: flex-end;
 
     @media (max-width: ${sizes.tablet + "px"}) {
-      /* width: 126px; */
       width: 126px;
     }
   }
@@ -249,7 +250,34 @@ const BTextAllocation = styled.div<BuyCardsTextProps>`
   img {
     width: 14.17px;
     height: 16.67px;
+
+    &:hover {
+      visibility: visible;
+      opacity: 1;
+    }
   }
+
+  img:hover b {
+    visibility: visible;
+    opacity: 1;
+  }
+`;
+
+const ToolTip = styled.b`
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
 `;
 
 const Card = styled.div`
@@ -341,9 +369,8 @@ const FormWrapper = styled.div`
 const FromGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
   padding-top: 0.5rem;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
   @media (max-width: ${sizes.tablet + "px"}) {
     width: 100%;
@@ -351,16 +378,17 @@ const FromGroup = styled.div`
 `;
 const FromLabel = styled.div`
   font-weight: 400;
-  line-height: 1.5;
-  font-size: 16px;
+  font-size: 14px;
   font-family: ${({ theme }) => theme.fonts.family.main};
   display: flex;
   gap: 0.4rem;
   align-items: center;
   span {
     font-weight: 400;
-    line-height: 1.5;
-    font-size: 16px;
+    line-height: 0;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
     font-family: ${({ theme }) => theme.fonts.family.main};
   }
 `;

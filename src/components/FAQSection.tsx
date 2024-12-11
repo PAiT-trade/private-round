@@ -67,28 +67,29 @@ export const FAQSection = () => {
   const faqs = [
     {
       question: "What is $PAiT, and why should I invest in it?",
-      answer: " and why should invest in it",
+      answer:
+        "$PAiT simplifies dApps, making blockchain accessible to everyone. It’s an innovative project with strong growth potential.",
     },
     {
       question: "What is the price of $PAiT tokens during the private round?",
-      answer: "1 PAiT = 0.16 USD.",
+      answer: "1 PAiT = $0.16 USD.",
     },
     {
       question: "How many $PAiT tokens are available in the private round?",
-      answer: "2,000,000 PAiT Tokens available in the Private Round",
+      answer: "2,000,000 $PAiT tokens are available.",
     },
     {
       question: "What is the unlock schedule for $PAiT tokens?",
-      answer: "10% at TGE, 3 months cliff, linear vesting 18 months",
+      answer: "10% at TGE, 3-month cliff, and linear vesting over 18 months.",
     },
 
     {
       question: "Can I use a centralized exchange wallet to buy $PAiT tokens?",
-      answer: "NO.",
+      answer: "No, only non-custodial wallets are supported.",
     },
     {
       question: "How do I sign the SAFT agreement?",
-      answer: "The agreement is signed after successfuly purchase.",
+      answer: "The SAFT agreement is signed after a successful purchase.",
     },
   ];
 

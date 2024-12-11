@@ -11,6 +11,7 @@ import { Rewards } from "@/components/Rewards";
 import ShowCase from "@/components/ShowCase";
 import { Footer } from "@/components/Footer";
 import {
+  FAQSectionWrapper,
   FloatingBackgroundOnlyLeft,
   FloatingBackgroundOnlyRight,
   FloatingBackgrounds,
@@ -553,15 +554,16 @@ export default function Home() {
         </FloatingBackgrounds>
       </SectionWrapper>
 
-      <SectionWrapper
+      <FAQSectionWrapper
         $paddingtop="100px"
         $bg="transparent !important"
         style={{
           paddingBottom: "60px",
           backgroundImage: 'url("/radial-bg.svg")',
           backgroundPosition: `center bottom`,
-          backgroundSize: `auto 272px`,
+          backgroundSize: "100% auto",
           backgroundRepeat: "no-repeat",
+          width: "100vw",
           [`@media (max-width: ${sizes.tablet}px)`]: {
             display: "none",
           },
@@ -578,7 +580,7 @@ export default function Home() {
             <FAQSection />
           </ManageContent>
         </FloatingBackgroundOnlyRight>
-      </SectionWrapper>
+      </FAQSectionWrapper>
     </>
   );
 }
