@@ -475,7 +475,18 @@ export default function Home() {
     <>
       <Wrapping>
         <HeaderWrapper>
-          <MinWrapp>
+          <MinWrapp
+            style={{
+              backgroundImage: 'url("/radial-bg.svg")',
+              backgroundPosition: `center bottom`,
+              backgroundSize: `auto 272px`,
+              backgroundRepeat: "no-repeat",
+
+              [`@media (max-width: ${sizes.tablet}px)`]: {
+                display: "none",
+              },
+            }}
+          >
             <NavSection />
             <FlexContainer>
               <PreSale $remainingtime={state.remainingTime} />
@@ -540,7 +551,20 @@ export default function Home() {
         </FloatingBackgrounds>
       </SectionWrapper>
 
-      <SectionWrapper $paddingtop="100px" style={{ paddingBottom: "60px" }}>
+      <SectionWrapper
+        $paddingtop="100px"
+        $bg="transparent !important"
+        style={{
+          paddingBottom: "60px",
+          backgroundImage: 'url("/radial-bg.svg")',
+          backgroundPosition: `center bottom`,
+          backgroundSize: `auto 272px`,
+          backgroundRepeat: "no-repeat",
+          [`@media (max-width: ${sizes.tablet}px)`]: {
+            display: "none",
+          },
+        }}
+      >
         <FloatingBackgroundOnlyRight>
           <ManageContent>
             <HeadingWithBar

@@ -7,6 +7,7 @@ import styled from "styled-components";
 const FAQContainer = styled.div`
   width: 846px;
   margin: 0 auto;
+  background-color: transparent !important;
   padding: 20px;
   margin-top: 80px;
   font-family: Arial, sans-serif;
