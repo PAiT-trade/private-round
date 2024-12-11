@@ -774,10 +774,17 @@
     "@turnkey/iframe-stamper" "2.0.0"
     "@turnkey/webauthn-stamper" "0.5.0"
 
-"@dynamic-labs/ethereum-core@3.9.0", "@dynamic-labs/ethereum-core@^3.9.0":
+"@dynamic-labs/ethereum-core@3.9.0":
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/@dynamic-labs/ethereum-core/-/ethereum-core-3.9.0.tgz#83bc886242fe18665e9552e1ee4ff11f12ce296f"
   integrity sha512-Fh/DLNc3zN1gpzqmmmHJWxa2txK08G+H1EkuaBOsmfXGwS9CCSmF+3ApMb4rm/32iWaHjKPXorrvTHLESGKA6w==
+  dependencies:
+    "@dynamic-labs/sdk-api-core" "0.0.570"
+
+"@dynamic-labs/ethereum-core@^3.9.1":
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/@dynamic-labs/ethereum-core/-/ethereum-core-3.9.1.tgz#a780ed9b23556e75bcf67ba1ad0ddf16e52aa18d"
+  integrity sha512-EFnleypZsB7hV50uTNXUgYfBtdrd3Jq4ESGvDhfaXr2HoJrctG1r0uiAAd2SXrgw7KOiBQXFRacIE5vhvqKGQA==
   dependencies:
     "@dynamic-labs/sdk-api-core" "0.0.570"
 

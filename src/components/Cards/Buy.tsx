@@ -62,13 +62,27 @@ export const BuyCard: React.FC<BuyCardProps> = ({
           }
         />
 
-        <BText color="#4daa90" style={{ paddingBottom: "16px" }}>
+        <BText
+          color="#FFFFFF4"
+          style={{
+            paddingBottom: "14px",
+            color: "#FFFFFF80 !important",
+            fontWeight: 400,
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           1 $PAiT = {$state.priceOfPait} USDC
         </BText>
 
         <FormWrapper>
           <FromGroup>
-            <FromLabel>Pay with $USDC</FromLabel>
+            <FromLabel>
+              <span>Pay with $USDC</span>
+              <img src="/contact_support.svg" />
+            </FromLabel>
             <FromControl>
               <FromControlInput
                 placeholder="Enter amount"
@@ -197,11 +211,13 @@ interface BuyCardsTextProps {
 
 export const BText = styled.div<BuyCardsTextProps>`
   color: ${({ color }) => (color ? color : "#fff")};
-  font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
+  font-size: 16px;
+  font-family: ${({ theme }) => theme.fonts.family.main};
   margin: 0;
   display: flex;
+  font-weight: 400;
   flex-wrap: wrap;
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
@@ -222,16 +238,17 @@ const BTextAllocation = styled.div<BuyCardsTextProps>`
   align-items: center;
   p {
     /* background-color: green; */
-    width: 126px;
     align-items: flex-end;
+
+    @media (max-width: ${sizes.tablet + "px"}) {
+      /* width: 126px; */
+      width: 126px;
+    }
   }
 
   img {
     width: 14.17px;
     height: 16.67px;
-  }
-  @media (max-width: ${sizes.tablet + "px"}) {
-    /* width: 126px; */
   }
 `;
 
@@ -290,13 +307,20 @@ const BuyCardHeaderAllocationWrapper = styled.div`
 `;
 const BuyCardHeaderAllocationHeader = styled.div`
   display: flex;
-  gap: 8px;
+  /* gap: 8px; */
   justify-content: space-between;
   width: 100%;
 `;
-const BuyCardHeaderAllocationLabel = styled.div``;
+const BuyCardHeaderAllocationLabel = styled.div`
+  width: 100%;
+`;
 const BuyCardHeaderAllocationValue = styled.span`
   font-size: 14px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  align-self: flex-end;
 
   &:last-child {
     display: flex;
@@ -326,7 +350,19 @@ const FromGroup = styled.div`
   }
 `;
 const FromLabel = styled.div`
-  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 16px;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  span {
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 16px;
+    font-family: ${({ theme }) => theme.fonts.family.main};
+  }
 `;
 const FromControl = styled.div`
   height: 56px;
@@ -342,7 +378,7 @@ const FromControl = styled.div`
   }
 `;
 const FromControlInput = styled.input`
-  width: 100%;
+  width: 230px;
   padding: 0.4rem;
   border: none;
   color: #0e0d0d;
