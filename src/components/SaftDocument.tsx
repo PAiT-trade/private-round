@@ -851,6 +851,7 @@ const Spacing = styled.div`
 
 const Container = styled.div`
   max-width: 100%;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
   font-size: 18px;
@@ -953,7 +954,9 @@ const UserInput = styled.input<UserInputProps>`
 `;
 
 const OwnerPartySignature = styled.div``;
-const OwnerPartySignatureImg = styled.img``;
+const OwnerPartySignatureImg = styled.img`
+  width: 100%;
+`;
 
 const SecondPartySignature = styled.div`
   page-break-inside: avoid;
