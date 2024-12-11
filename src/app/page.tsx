@@ -473,20 +473,22 @@ export default function Home() {
 
   return (
     <>
-      <Wrapping>
-        <HeaderWrapper>
-          <MinWrapp
-            style={{
-              backgroundImage: 'url("/radial-bg.svg")',
-              backgroundPosition: `center bottom`,
-              backgroundSize: `auto 272px`,
-              backgroundRepeat: "no-repeat",
+      <Wrapping
+        style={{
+          backgroundImage: 'url("/top-bottom-bg.svg")',
+          backgroundPosition: `center bottom`,
+          backgroundSize: `auto 272px`,
+          backgroundRepeat: "no-repeat",
+          width: "100vw",
+          // zIndex: 100,
 
-              [`@media (max-width: ${sizes.tablet}px)`]: {
-                display: "none",
-              },
-            }}
-          >
+          [`@media (max-width: ${sizes.tablet}px)`]: {
+            display: "none",
+          },
+        }}
+      >
+        <HeaderWrapper>
+          <MinWrapp>
             <NavSection />
             <FlexContainer>
               <PreSale $remainingtime={state.remainingTime} />
