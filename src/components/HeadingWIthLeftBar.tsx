@@ -36,11 +36,9 @@ const HeadingContent = styled.div<{ $subtitlewidth?: string }>`
   text-align: center;
 
   @media (max-width: ${sizes.tablet + "px"}) {
-    max-width: 100%;
-    width: 100%;
-    /* align-items: flex-start; */
-    /* justify-content: flex-start;
-    align-self: flex-start; */
+    display: flex;
+    flex-wrap: wrap;
+    width: 342px !important;
   }
 `;
 

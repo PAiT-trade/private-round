@@ -74,6 +74,8 @@ const Title = styled.h1`
   @media (max-width: ${"1300px"}) {
     font-size: 40px;
     text-align: left;
+    font-family: ${({ theme }) => theme.fonts.family.main};
+    font-weight: ${({ theme }) => theme.fonts.weights.semibold};
   }
 `;
 const Subtitle = styled.h4`

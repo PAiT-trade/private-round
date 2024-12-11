@@ -122,8 +122,18 @@ export const Footer = () => {
               <Title>SOCIALS</Title>
               <Nav>
                 <NavItem>
-                  <NavLink href="#">LinkedIn</NavLink>
-                  <NavLink href="#">X</NavLink>
+                  <NavLink
+                    href="https://www.linkedin.com/company/paitfi"
+                    target="_blank"
+                  >
+                    LinkedIn
+                  </NavLink>
+                  <NavLink
+                    href="https://twitter.com/pait_fi?s=11&t=NctnIGQG5IDTDeYO0PoLFA"
+                    target="_blank"
+                  >
+                    X
+                  </NavLink>
                 </NavItem>
               </Nav>
             </FooterItem>
