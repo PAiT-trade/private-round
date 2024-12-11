@@ -329,7 +329,7 @@ export const FloatingBackgroundOnlyLeft = styled.div`
 export const FloatingBackgroundOnlyRight = styled.div`
   width: 100%;
   height: 100%;
-  background-color: rgba(8, 11, 20, 0.7);
+  /* background-color: rgba(8, 11, 20, 0.7); */
   background-image: url("/LeftCoin.svg");
   /* Conditionally apply positions */
   background-position: top right;
