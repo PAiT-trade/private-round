@@ -7,20 +7,18 @@ export const Allocations = () => {
       <Card>
         <CardImg src="/limited.png" />
         <CardContent>
-          <CardTitle>Direct referrals.</CardTitle>
+          <CardTitle>Limited supply.</CardTitle>
           <CardContentParagraph>
-            Receive 5% cashback in USDC and 2.5% in PAiT tokens for each person
-            you directly refer.
+            2,000,000 PAiT Tokens available in the Private Round.
           </CardContentParagraph>
         </CardContent>
       </Card>
       <Card>
         <CardImg src="/unlock.png" />
         <CardContent>
-          <CardTitle>Secondary referrals.</CardTitle>
+          <CardTitle>Unlock schedule.</CardTitle>
           <CardContentParagraph>
-            Earn an additional 2.5% in PAiT tokens from referrals made by your
-            direct referrals.
+            10% at TGE, 3 months cliff, linear vesting 18 months
           </CardContentParagraph>
         </CardContent>
       </Card>
@@ -30,8 +28,7 @@ export const Allocations = () => {
 const Container = styled.div`
   padding: 6.25rem 0;
   display: flex;
-  flex-wrap: wrap; /* Enable wrapping */
-  justify-content: space-between;
+  gap: 24px;
   width: 100% !important;
 `;
 
@@ -40,7 +37,7 @@ const Card = styled.div`
   border: 1px solid #ffffff1a;
   border-radius: 8px;
   padding: 24px 12px;
-  max-width: 500px;
+  /* max-width: 627px; */
   display: flex;
   width: 100%;
   align-items: center;
@@ -48,7 +45,7 @@ const Card = styled.div`
   gap: 86px;
 
   /* For larger screens */
-  flex: 1 1 calc(50% - 0.75rem);
+  /* flex: 1 1 calc(50% - 0.75rem); */
 
   /* For smaller screens */
   @media (max-width: 768px) {

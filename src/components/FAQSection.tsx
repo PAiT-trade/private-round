@@ -66,7 +66,7 @@ export const FAQSection = () => {
 
   const faqs = [
     {
-      question: "What is $PAiT, and why should invest in it?",
+      question: "What is $PAiT, and why should I invest in it?",
       answer: " and why should invest in it",
     },
     {
@@ -83,11 +83,11 @@ export const FAQSection = () => {
     },
 
     {
-      question: "Can i use a centralized exchange wallet to buy $PAiT tokens?",
+      question: "Can I use a centralized exchange wallet to buy $PAiT tokens?",
       answer: "NO.",
     },
     {
-      question: "How do i sign the SAFT agreement?",
+      question: "How do I sign the SAFT agreement?",
       answer: "The agreement is signed after successfuly purchase.",
     },
   ];
