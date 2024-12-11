@@ -560,13 +560,10 @@ export default function Home() {
         style={{
           paddingBottom: "60px",
           backgroundImage: 'url("/radial-bg.svg")',
-          backgroundPosition: `center bottom`,
-          backgroundSize: "100% auto",
+          backgroundPosition: `bottom`,
+          backgroundSize: `auto 300px`,
           backgroundRepeat: "no-repeat",
           width: "100vw",
-          [`@media (max-width: ${sizes.tablet}px)`]: {
-            display: "none",
-          },
         }}
       >
         <FloatingBackgroundOnlyRight>
