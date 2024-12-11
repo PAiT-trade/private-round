@@ -282,7 +282,7 @@ const buildHtml = (opts: {
         <h3 style="color: #0066cc;">Your Referral Link</h3>
         <p><strong>We’re excited to offer you a unique opportunity to earn additional rewards through our referral program. Here is your personalized referral link:</strong></p>
 
-        <p><a href="https://presale.pait.fi/?referral=${opts.link}">https://presale.pait.fi/?referral=${opts.link}</a></p>
+        <p><a href="https://privateround.pait.fi/?referral=${opts.link}">https://privateround.pait.fi/?referral=${opts.link}</a></p>
 
         <p><strong>Feel free to share this link with friends, family, and colleagues who may be interested in joining our journey. By referring others, you not only help us grow our community but also earn potential rewards for each successful referral.</strong></p>
 

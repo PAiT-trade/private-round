@@ -306,28 +306,29 @@ export const MinWrapp = styled.div`
 `;
 
 export const FloatingBackgrounds = styled.div<{
-  showRight?: boolean;
-  showLeft?: boolean;
+  $showRight?: boolean;
+  $showLeft?: boolean;
 }>`
   width: 100%;
   height: 100%;
   background-color: rgba(8, 11, 20, 0.7);
 
   /* Conditionally apply background images */
-  background-image: ${({ showRight }) =>
-      showRight ? 'url("/RightCoin.svg")' : "none"},
-    ${({ showLeft }) => (showLeft ? 'url("/LeftCoin.svg")' : "none")};
+  background-image: ${({ $showRight }) =>
+      $showRight ? 'url("/RightCoin.svg")' : "none"},
+    ${({ $showLeft }) => ($showLeft ? 'url("/LeftCoin.svg")' : "none")};
 
   /* Conditionally apply positions */
-  background-position: ${({ showRight }) => (showRight ? "top right" : "unset")},
-    ${({ showLeft }) => (showLeft ? "bottom left" : "unset")};
+  background-position: ${({ $showRight }) =>
+      $showRight ? "top right" : "unset"},
+    ${({ $showLeft }) => ($showLeft ? "bottom left" : "unset")};
 
   /* Prevent tiling */
   background-repeat: no-repeat;
 
   /* Conditionally apply sizes */
-  background-size: ${({ showRight }) => (showRight ? "400px 400px" : "unset")},
-    ${({ showLeft }) => (showLeft ? "350px 350px" : "unset")};
+  background-size: ${({ $showRight }) => ($showRight ? "400px 400px" : "unset")},
+    ${({ $showLeft }) => ($showLeft ? "350px 350px" : "unset")};
 
   @media (max-width: ${sizes.mobile + "px"}) {
     /* background-image: none; */

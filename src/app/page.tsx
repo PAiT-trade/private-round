@@ -483,9 +483,9 @@ export default function Home() {
           width: "100vw",
           // zIndex: 100,
 
-          [`@media (max-width: ${sizes.tablet}px)`]: {
-            display: "none",
-          },
+          // [`@media (max-width: ${sizes.tablet}px)`]: {
+          //   display: "none",
+          // },
         }}
       >
         <HeaderWrapper>
@@ -509,12 +509,12 @@ export default function Home() {
 
       {/* Instructions Section */}
       <SectionWrapper id="how-to-buy" $paddingtop="100px">
-        <FloatingBackgrounds showLeft={true} showRight={true}>
+        <FloatingBackgrounds $showLeft={true} $showRight={true}>
           <ManageContent>
             <HeadingWithBar
               $title="INSTRUCTION"
               $color="#ADA5D1"
-              $subtitlewidth="628px !important"
+              $subtitlewidth="635px !important"
               $subtitle="How to acquire tokens in the private round?"
             />
             <HowToBuy />
@@ -533,7 +533,7 @@ export default function Home() {
       </SectionWrapper>
 
       <SectionWrapper $paddingtop="100px" $height="60vh">
-        <FloatingBackgrounds showRight={true} showLeft>
+        <FloatingBackgrounds $showRight={true} $showLeft>
           <ManageContent>
             <HeadingWithBar
               $title="SUPPLY & SCHEDULE"
@@ -547,7 +547,7 @@ export default function Home() {
       </SectionWrapper>
       {/* Show case */}
       <SectionWrapper $paddingtop="100px">
-        <FloatingBackgrounds showRight={true} showLeft>
+        <FloatingBackgrounds $showRight={true} $showLeft>
           <ManageContent>
             <ShowCase />
           </ManageContent>

@@ -173,6 +173,11 @@ export const GlobalStyle = createGlobalStyle`
     .dynamic-shadow-dom-content {
         width: 100%;
         height: 55px !important;
+
+        .modal {
+            min-width: 370px;
+            height: 100%;
+        }
     }
    .connect-button{
         width:100% !important;

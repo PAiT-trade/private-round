@@ -681,13 +681,6 @@
     eventemitter3 "^5.0.1"
     preact "^10.24.2"
 
-"@dynamic-labs/assert-package-version@3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@dynamic-labs/assert-package-version/-/assert-package-version-3.9.0.tgz#71dbe1563a28d88b1a24319a092a47724b5e92b9"
-  integrity sha512-MBNZtC9V6yHDxfoAJLtk4Qm0tCxcEeGJNXBZfbesX2SzOHz3Dq9aoy2nLqDZexj+B3pw7+UpbQbQFk3LQ4iLGQ==
-  dependencies:
-    "@dynamic-labs/logger" "3.9.0"
-
 "@dynamic-labs/assert-package-version@3.9.1":
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/@dynamic-labs/assert-package-version/-/assert-package-version-3.9.1.tgz#41bde21355de686febeaa8976029e13ea324f964"
@@ -695,20 +688,20 @@
   dependencies:
     "@dynamic-labs/logger" "3.9.1"
 
-"@dynamic-labs/embedded-wallet-evm@3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@dynamic-labs/embedded-wallet-evm/-/embedded-wallet-evm-3.9.0.tgz#85cb6d2b2bb7d928fcc7fe146b6240cf6fe557a4"
-  integrity sha512-erDjn9qRPmTBJ4fF6YPd2IlGpQv12gACkt3r5dvUEXgHSdJsmOKIPSFOzsfqz3ND/TYbQzJ9012Aa74xTXwzhg==
+"@dynamic-labs/embedded-wallet-evm@3.9.1":
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/@dynamic-labs/embedded-wallet-evm/-/embedded-wallet-evm-3.9.1.tgz#edb02745709947eeed2b65240cc3deaac772a44f"
+  integrity sha512-/NB3qJqprkNxi05+Qtuo9HteBySUuMVkk8+NoN3YNbnEn+qRgl8QWK8gi0ZlRdL6EP9lqUQU0AA/nLJAtJ/KbQ==
   dependencies:
-    "@dynamic-labs/assert-package-version" "3.9.0"
-    "@dynamic-labs/embedded-wallet" "3.9.0"
-    "@dynamic-labs/ethereum-core" "3.9.0"
+    "@dynamic-labs/assert-package-version" "3.9.1"
+    "@dynamic-labs/embedded-wallet" "3.9.1"
+    "@dynamic-labs/ethereum-core" "3.9.1"
     "@dynamic-labs/sdk-api-core" "0.0.570"
-    "@dynamic-labs/types" "3.9.0"
-    "@dynamic-labs/utils" "3.9.0"
-    "@dynamic-labs/wallet-book" "3.9.0"
-    "@dynamic-labs/wallet-connector-core" "3.9.0"
-    "@dynamic-labs/webauthn" "3.9.0"
+    "@dynamic-labs/types" "3.9.1"
+    "@dynamic-labs/utils" "3.9.1"
+    "@dynamic-labs/wallet-book" "3.9.1"
+    "@dynamic-labs/wallet-connector-core" "3.9.1"
+    "@dynamic-labs/webauthn" "3.9.1"
     "@turnkey/api-key-stamper" "0.4.1"
     "@turnkey/http" "2.12.2"
     "@turnkey/iframe-stamper" "2.0.0"
@@ -740,23 +733,6 @@
     react-dom "18.2.0"
     viem "2.9.25"
 
-"@dynamic-labs/embedded-wallet@3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@dynamic-labs/embedded-wallet/-/embedded-wallet-3.9.0.tgz#8350b08360b6190fe2d9a951bac1107b60bd1962"
-  integrity sha512-bp6ccpS2u4AA75Vd4xphM3JonE7MUADteAKQbRGFx0dulW4AK0jxS7bX2Mf+zgyCADb4aFdKP2c7vSo5qXSVEg==
-  dependencies:
-    "@dynamic-labs/assert-package-version" "3.9.0"
-    "@dynamic-labs/logger" "3.9.0"
-    "@dynamic-labs/sdk-api-core" "0.0.570"
-    "@dynamic-labs/utils" "3.9.0"
-    "@dynamic-labs/wallet-book" "3.9.0"
-    "@dynamic-labs/wallet-connector-core" "3.9.0"
-    "@dynamic-labs/webauthn" "3.9.0"
-    "@turnkey/api-key-stamper" "0.4.1"
-    "@turnkey/http" "2.12.2"
-    "@turnkey/iframe-stamper" "2.0.0"
-    "@turnkey/webauthn-stamper" "0.5.0"
-
 "@dynamic-labs/embedded-wallet@3.9.1":
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/@dynamic-labs/embedded-wallet/-/embedded-wallet-3.9.1.tgz#af031c8bfd29289aefcc5c1900d806952c491f21"
@@ -774,46 +750,30 @@
     "@turnkey/iframe-stamper" "2.0.0"
     "@turnkey/webauthn-stamper" "0.5.0"
 
-"@dynamic-labs/ethereum-core@3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@dynamic-labs/ethereum-core/-/ethereum-core-3.9.0.tgz#83bc886242fe18665e9552e1ee4ff11f12ce296f"
-  integrity sha512-Fh/DLNc3zN1gpzqmmmHJWxa2txK08G+H1EkuaBOsmfXGwS9CCSmF+3ApMb4rm/32iWaHjKPXorrvTHLESGKA6w==
-  dependencies:
-    "@dynamic-labs/sdk-api-core" "0.0.570"
-
-"@dynamic-labs/ethereum-core@^3.9.1":
+"@dynamic-labs/ethereum-core@3.9.1", "@dynamic-labs/ethereum-core@^3.9.1":
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/@dynamic-labs/ethereum-core/-/ethereum-core-3.9.1.tgz#a780ed9b23556e75bcf67ba1ad0ddf16e52aa18d"
   integrity sha512-EFnleypZsB7hV50uTNXUgYfBtdrd3Jq4ESGvDhfaXr2HoJrctG1r0uiAAd2SXrgw7KOiBQXFRacIE5vhvqKGQA==
   dependencies:
     "@dynamic-labs/sdk-api-core" "0.0.570"
 
-"@dynamic-labs/ethereum@^3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@dynamic-labs/ethereum/-/ethereum-3.9.0.tgz#bffb5102e16950b1c6aae972281d55e5dc027d6f"
-  integrity sha512-wEF1szRYAzScUDjmqOwcuyYjIkmx4jlkneUtrXZiuKqxrdKZF2OqP5ARKAY3sH2/qXb0cAlZnYzhaacwk+ih1A==
+"@dynamic-labs/ethereum@^3.9.1":
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/@dynamic-labs/ethereum/-/ethereum-3.9.1.tgz#0edb95f1e60216aff78c197aca6fb08714ef70bd"
+  integrity sha512-EkSh99tAQEUEiU3mxPvAxh+Ey8LgitV3JJnlZ9m1ypagZf6QZ1/VMPXn0bRlMOPwn3InhlCo4ME9xPUwLK5PDw==
   dependencies:
     "@coinbase/wallet-sdk" "4.0.4"
-    "@dynamic-labs/assert-package-version" "3.9.0"
-    "@dynamic-labs/embedded-wallet-evm" "3.9.0"
-    "@dynamic-labs/ethereum-core" "3.9.0"
-    "@dynamic-labs/types" "3.9.0"
-    "@dynamic-labs/utils" "3.9.0"
-    "@dynamic-labs/wallet-book" "3.9.0"
-    "@dynamic-labs/wallet-connector-core" "3.9.0"
+    "@dynamic-labs/assert-package-version" "3.9.1"
+    "@dynamic-labs/embedded-wallet-evm" "3.9.1"
+    "@dynamic-labs/ethereum-core" "3.9.1"
+    "@dynamic-labs/types" "3.9.1"
+    "@dynamic-labs/utils" "3.9.1"
+    "@dynamic-labs/wallet-book" "3.9.1"
+    "@dynamic-labs/wallet-connector-core" "3.9.1"
     "@walletconnect/ethereum-provider" "2.11.2"
     "@walletconnect/types" "2.10.6"
     buffer "6.0.3"
     eventemitter3 "5.0.1"
-
-"@dynamic-labs/iconic@3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@dynamic-labs/iconic/-/iconic-3.9.0.tgz#1b4477e9ac18bbd9cf21aebf6d93c41559162dd0"
-  integrity sha512-AhnWTOUTI5VgYC1sbdr4zm26RZ4f3j44DB74WuH8+4G3iglV1/d4y9Tk6ReZHOA/Nrl5fIbj29savgM3LIfhyg==
-  dependencies:
-    "@dynamic-labs/assert-package-version" "3.9.0"
-    "@dynamic-labs/logger" "3.9.0"
-    sharp "0.33.2"
 
 "@dynamic-labs/iconic@3.9.1":
   version "3.9.1"
@@ -823,11 +783,6 @@
     "@dynamic-labs/assert-package-version" "3.9.1"
     "@dynamic-labs/logger" "3.9.1"
     sharp "0.33.2"
-
-"@dynamic-labs/logger@3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@dynamic-labs/logger/-/logger-3.9.0.tgz#cc2bcfd65e51eeb9596d8e229d432f39bb6c7168"
-  integrity sha512-DTlM4gkZ2GCll1p9gA5hnO/NTTO/mc/W73LeGJYs4Q43fhrEtwi/x1bKlTsOBuqFrwq65lHNK4Fi2663b0DVlg==
 
 "@dynamic-labs/logger@3.9.1":
   version "3.9.1"
@@ -928,14 +883,6 @@
     "@dynamic-labs/assert-package-version" "3.9.1"
     "@dynamic-labs/logger" "3.9.1"
 
-"@dynamic-labs/types@3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@dynamic-labs/types/-/types-3.9.0.tgz#de848d696a8551c7d41015c872ced9a43bcfee73"
-  integrity sha512-EYBvQ7Z3xS2WoA06GX0pNYsjClKQ8a9IS8MboSuzdfHe+W143gtUUR0c/YBIT++yDthIa2oMdz158gQ14B+yrA==
-  dependencies:
-    "@dynamic-labs/assert-package-version" "3.9.0"
-    "@dynamic-labs/sdk-api-core" "0.0.570"
-
 "@dynamic-labs/types@3.9.1":
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/@dynamic-labs/types/-/types-3.9.1.tgz#434b3abb02fe9dfedd8eb021dfdef99408ab37eb"
@@ -943,19 +890,6 @@
   dependencies:
     "@dynamic-labs/assert-package-version" "3.9.1"
     "@dynamic-labs/sdk-api-core" "0.0.570"
-
-"@dynamic-labs/utils@3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@dynamic-labs/utils/-/utils-3.9.0.tgz#201854ab7d8543e57f1b9a2a554e8f98b98c8b20"
-  integrity sha512-oVyXNqCEq68eeB/bVjsvQZImnz8Sqz5cwlKHa/6MQw/u6asDitJbLcbm00hkYXP8PpIWLgcMLrK9LFk6PlHDHA==
-  dependencies:
-    "@dynamic-labs/assert-package-version" "3.9.0"
-    "@dynamic-labs/logger" "3.9.0"
-    "@dynamic-labs/sdk-api-core" "0.0.570"
-    "@dynamic-labs/types" "3.9.0"
-    buffer "6.0.3"
-    eventemitter3 "5.0.1"
-    tldts "6.0.16"
 
 "@dynamic-labs/utils@3.9.1":
   version "3.9.1"
@@ -975,18 +909,6 @@
   resolved "https://registry.yarnpkg.com/@dynamic-labs/wagmi-connector/-/wagmi-connector-3.9.0.tgz#e44149979dc7e5823ff3ed4c65e232b77c224336"
   integrity sha512-26b8INFJCvo1qeUIYe02X6Yy8Kpg+PrgpWrJQAQj2HMc6sYF8N0ui9T0d3QFyGwQA0xeiiNIWuFTpSTCC2ta8w==
 
-"@dynamic-labs/wallet-book@3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@dynamic-labs/wallet-book/-/wallet-book-3.9.0.tgz#2abd08f0ea162f3b4ac9bffb4e104e7e0621c89a"
-  integrity sha512-+W8WbD8dFHbb7unhkUurrW9n20Kb1r3gm4nBFWhlD32c6dBIvMf6s2nLVdSmk/6y0BT63i3IM1eYAl9BruhZIA==
-  dependencies:
-    "@dynamic-labs/assert-package-version" "3.9.0"
-    "@dynamic-labs/iconic" "3.9.0"
-    "@dynamic-labs/logger" "3.9.0"
-    "@dynamic-labs/utils" "3.9.0"
-    util "0.12.5"
-    zod "3.22.4"
-
 "@dynamic-labs/wallet-book@3.9.1":
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/@dynamic-labs/wallet-book/-/wallet-book-3.9.1.tgz#8f54488ee0ac3e6875b51e66978078567bbcceb4"
@@ -999,29 +921,12 @@
     util "0.12.5"
     zod "3.22.4"
 
-"@dynamic-labs/wallet-connector-core@3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@dynamic-labs/wallet-connector-core/-/wallet-connector-core-3.9.0.tgz#828a4edd82479c222630e50f37ed9b9f117cad6a"
-  integrity sha512-uTj19doltKhchHEkFQpQQG27xnIgAagyFg/RoVnZ7UeGYIXr5qErZFmITjLmPAO7swxvwBW5G4NX/cW2lVBVJw==
-  dependencies:
-    "@dynamic-labs/sdk-api-core" "0.0.570"
-
 "@dynamic-labs/wallet-connector-core@3.9.1":
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/@dynamic-labs/wallet-connector-core/-/wallet-connector-core-3.9.1.tgz#4802977f4989be604aaeffa13dd113ccc395b4a9"
   integrity sha512-Q3fTexIi38UZXpUs/9CtxVrnnwuLuJv2sIodSpr2c2xhLBX7ML9mwg3FExYB+nWGCn7iHPUG9tOTTYTpdceEbg==
   dependencies:
     "@dynamic-labs/sdk-api-core" "0.0.570"
-
-"@dynamic-labs/webauthn@3.9.0":
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/@dynamic-labs/webauthn/-/webauthn-3.9.0.tgz#1f1ddb5d080960c167ff2d121430165f6d4806e9"
-  integrity sha512-oMLMoOc8MYpt+CVO2h3bycoaj4F1ScBoXdU2Us1ZzuvMNCQ8Hpkh9ISoGHVjf26lAm11/5w0AazF1LUz0ezalQ==
-  dependencies:
-    "@dynamic-labs/assert-package-version" "3.9.0"
-    "@dynamic-labs/logger" "3.9.0"
-    "@simplewebauthn/browser" "9.0.1"
-    "@simplewebauthn/types" "9.0.1"
 
 "@dynamic-labs/webauthn@3.9.1":
   version "3.9.1"

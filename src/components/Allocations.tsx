@@ -28,6 +28,9 @@ export const Allocations = () => {
 const Container = styled.div`
   padding: 6.25rem 0;
   display: flex;
+  flex-wrap: wrap; /* Allow wrapping for children */
+  align-items: center;
+  justify-content: center;
   gap: 24px;
   width: 100% !important;
 `;
@@ -45,7 +48,7 @@ const Card = styled.div`
   gap: 86px;
 
   /* For larger screens */
-  /* flex: 1 1 calc(50% - 0.75rem); */
+  flex: 1 1;
 
   /* For smaller screens */
   @media (max-width: 768px) {

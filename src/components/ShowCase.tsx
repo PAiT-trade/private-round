@@ -36,8 +36,8 @@ const ShowCaseImg = styled.img`
   border-radius: 40px;
 
   @media (max-width: ${sizes.tablet + "px"}) {
-    width: 100%;
-    padding: 1.1rem;
+    width: 250px;
+    padding: 1.5rem;
   }
 `;
 
@@ -103,17 +103,19 @@ const Title = styled.h1`
 const MTitle = styled(Title)`
   display: none;
   gap: 0.1rem;
+  font-family: ${({ theme }) => theme.fonts.family.main};
   b {
     font-size: 40px !important;
+    font-weight: ${({ theme }) => theme.fonts.weights.semibold};
   }
   @media (max-width: ${sizes.tablet + "px"}) {
     display: flex;
-    margin-top: 270px;
+    margin-top: 100px;
   }
 
-  @media (max-width: ${400 + "px"}) {
+  @media (max-width: ${375 + "px"}) {
     display: flex;
-    margin-top: 270px;
+    margin-top: 200px;
   }
 `;
 const Subtitle = styled.h4`
