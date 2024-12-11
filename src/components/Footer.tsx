@@ -98,7 +98,7 @@ export const Footer = () => {
               </Nav>
             </FooterItem>
             <FooterItem>
-              <Title>SOCIAL</Title>
+              <Title>CONNECT</Title>
               <Nav>
                 <NavItem>
                   <NavLink
@@ -119,12 +119,11 @@ export const Footer = () => {
               </Nav>
             </FooterItem>
             <FooterItem>
-              <Title>CONNECT</Title>
+              <Title>SOCIALS</Title>
               <Nav>
                 <NavItem>
                   <NavLink href="#">LinkedIn</NavLink>
                   <NavLink href="#">X</NavLink>
-                  <NavLink href="#">Instagram</NavLink>
                 </NavItem>
               </Nav>
             </FooterItem>
@@ -191,9 +190,9 @@ const Wrap = styled.div`
   flex-direction: column;
   min-height: 300px;
   height: 100%;
-  gap: 2rem;
+  gap: 100px;
   margin: 1.2rem;
-  padding-top: 6rem;
+  padding-top: 3.5rem;
   @media (max-width: ${sizes.tablet + "px"}) {
     height: 100%;
     padding-top: 2rem;
@@ -216,7 +215,7 @@ export const AboutPait = styled.div`
   width: 43%;
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
+  gap: 32px;
 
   @media (max-width: ${sizes.tablet + "px"}) {
     width: 100%;

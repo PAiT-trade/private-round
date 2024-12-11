@@ -513,7 +513,7 @@ export default function Home() {
             <HeadingWithBar
               $title="INSTRUCTION"
               $color="#ADA5D1"
-              $subtitlewidth="72rem"
+              $subtitlewidth="628px !important"
               $subtitle="How to acquire tokens in the private round?"
             />
             <HowToBuy />
@@ -525,7 +525,7 @@ export default function Home() {
         <HeadingWithBar
           $title="REWARDS"
           $color="#ADA5D1"
-          $subtitlewidth="65rem"
+          $subtitlewidth="530px !important"
           $subtitle="Share with friends, earn rewards?"
         />
         <Rewards />

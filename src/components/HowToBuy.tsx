@@ -9,12 +9,12 @@ export const HowToBuy = () => {
         <ListItem>
           <ListContent>
             <ListContentItemHeader>Connect your wallet.</ListContentItemHeader>
-            <ListContentItem>Use a SOLANA-supperted wallet</ListContentItem>
+            <ListContentItem>Use a SOLANA-supported wallet.</ListContentItem>
             <ListContentItem>
-              <span>Avoid Boinance or Coinbase</span>
+              <span>Avoid Binance or Coinbase.</span>
             </ListContentItem>
             <ListContentItem>
-              <span>Do not use centralized exchanges wallets</span>
+              <span>Do not use centralized exchange wallets.</span>
             </ListContentItem>
           </ListContent>
         </ListItem>
@@ -22,7 +22,7 @@ export const HowToBuy = () => {
           <ListContent>
             <ListContentItemHeader>Complete KYC.</ListContentItemHeader>
             <ListContentItem>
-              <span>Press Buy PAiT</span> and Click "KYC" and verify your
+              <span> Press Buy PAiT</span> and Click "KYC" and verify your
               identity.
             </ListContentItem>
           </ListContent>
@@ -32,14 +32,14 @@ export const HowToBuy = () => {
             <ListContentItemHeader>Enter USDC amount.</ListContentItemHeader>
             <ListContentItem>
               Specify how much USDC you want to invest
-              <span>from 1000 to 20000</span>
+              <span>from 1000 to 20000.</span>
             </ListContentItem>
           </ListContent>
         </ListItem>
         <ListItem>
           <ListContent>
             <ListContentItemHeader>Confirm purchase.</ListContentItemHeader>
-            <ListContentItem>Click "Confirm" to proceed</ListContentItem>
+            <ListContentItem>Click "Confirm" to proceed.</ListContentItem>
           </ListContent>
         </ListItem>
         <ListItem>
