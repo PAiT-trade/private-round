@@ -113,9 +113,13 @@ export const PagesWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* height: 70vh; */
+  min-height: 70vh;
   /* margin: 2rem; */
   gap: 1rem;
+
+  /* @media (max-width: ${sizes.tablet + "px"}) {
+    min-height: 70vh;
+  } */
 
   #veriff-root {
     width: 100% !important;
@@ -207,7 +211,7 @@ export const ConnectWalletButtonExtends = styled.div`
 
 export const Wrapping = styled.div`
   width: 100%;
-  background-color: #0e111b;
+  /* background-color: #0e111b; */
   /* min-height: 900px; */
   /* mobile and tablet */
   @media (max-width: ${sizes.desktop + "px"}) {

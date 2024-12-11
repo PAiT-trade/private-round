@@ -5,6 +5,7 @@ import { Wrapper } from "./Wrapper";
 import { sizes } from "@/utils/media";
 import { SectionWrapper } from "@/styles/app-common-styled";
 import { Footer } from "../Footer";
+import { Toaster, ToastBar } from "react-hot-toast";
 
 interface BaseLayoutProps {
   children: React.ReactNode;
@@ -43,6 +44,39 @@ export const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => {
           <FloatShowCase src="/float-showcase.svg" />
         </BottomRightCorner>
       </Wrapper>
+      <Toaster
+        toastOptions={{
+          style: {
+            width: "100%",
+          },
+          success: {
+            style: {
+              background: "#080b15",
+              color: "white",
+              fontSize: "14px",
+            },
+          },
+          error: {
+            style: {
+              background: "red",
+              color: "white",
+              fontSize: "14px",
+            },
+          },
+        }}
+      >
+        {(t) => (
+          <ToastBar
+            toast={t}
+            style={{
+              ...t.style,
+              animation: t.visible
+                ? "custom-enter 1s ease"
+                : "custom-exit 1s ease",
+            }}
+          />
+        )}
+      </Toaster>
     </ThemeProvider>
   );
 };

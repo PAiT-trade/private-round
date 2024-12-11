@@ -20,7 +20,9 @@ export const Navbar = styled.div`
   }
 `;
 
-export const NavLogo = styled.div``;
+export const NavLogo = styled.div`
+  cursor: pointer;
+`;
 export const NavLogoImg = styled.img``;
 export const NavItems = styled.ul`
   display: flex;
@@ -122,7 +124,6 @@ export const ConnectWalletButton = styled.div`
 `;
 
 export const ConnectWalletButtonLabel = styled.div`
-  background-color: green !important;
   font-size: 16px;
   font-family: ${({ theme }) => theme.fonts.family.main};
   color: #070b15;

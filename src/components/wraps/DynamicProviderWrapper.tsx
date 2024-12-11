@@ -13,7 +13,7 @@ import { mainnet } from "viem/chains";
 
 const config = createConfig({
   chains: [mainnet],
-  multiInjectedProviderDiscovery: false,
+  multiInjectedProviderDiscovery: true,
   transports: {
     [mainnet.id]: http(),
   },
@@ -128,21 +128,21 @@ const customCSS = `
             }
         } 
     }
-    .modal {
-        width: 20% !important;
-        max-width: 20% !important;
-    }
-    @media (max-width: 768px) {
-        .modal {
-            width: 80% !important;
-            max-width: 80% !important;
-        }
-    }
-    .wallet-list__search-container {
-        height: 100% !important;
-    }
+    // .modal {
+    //     width: 20% !important;
+    //     max-width: 20% !important;
+    // }
+    // @media (max-width: 768px) {
+    //     .modal {
+    //         width: 80% !important;
+    //         max-width: 80% !important;
+    //     }
+    // }
+    // .wallet-list__search-container {
+    //     height: 100% !important;
+    // }
 
-    .search__input {
-        height: 55px !important;
-    }
+    // .search__input {
+    //     height: 55px !important;
+    // }
 `;
