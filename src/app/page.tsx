@@ -480,7 +480,7 @@ export default function Home() {
           backgroundPosition: `center bottom`,
           backgroundSize: `auto 272px`,
           backgroundRepeat: "no-repeat",
-          width: "100vw",
+          width: "100%",
           // zIndex: 100,
 
           // [`@media (max-width: ${sizes.tablet}px)`]: {
@@ -570,7 +570,7 @@ export default function Home() {
           backgroundPosition: `bottom`,
           backgroundSize: `auto 300px`,
           backgroundRepeat: "no-repeat",
-          width: "100vw",
+          width: "100%",
         }}
       >
         <FloatingBackgroundOnlyRight>
@@ -590,10 +590,6 @@ export default function Home() {
 }
 
 const Page = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background-color: ${({ theme }) => theme.colors.bg};
   color: ${({ theme }) => theme.colors.text.white};
   font-family: ${({ theme }) => theme.fonts.family.main};
@@ -601,6 +597,8 @@ const Page = styled.div`
   padding: 0 0 0 0;
   margin: 0;
   gap: 32px;
+  width: 100%;
+  height: 100%;
 `;
 const HeaderWrapper = styled.div`
   display: flex;
@@ -626,7 +624,6 @@ const FlexContainer = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   /* padding: 8rem 8px; */
-  /* background-color: red; */
   gap: 4rem;
   width: 100%;
 

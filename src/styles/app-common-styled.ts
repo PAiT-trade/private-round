@@ -247,16 +247,16 @@ export const ConnectWalletButtonExtends = styled.div`
 `;
 
 export const Wrapping = styled.div`
-  background-color: green;
   /* background-color: #0e111b; */
   /* min-height: 900px; */
   /* mobile and tablet */
+  min-width: 100% !important;
   @media (max-width: ${sizes.desktop + "px"}) {
     min-width: 100% !important;
     margin: 0;
     max-width: 100%;
+    width: 100%;
     /* padding: 32px 0; */
-    background-color: green;
     height: 100%;
     display: flex;
     justify-content: center;
