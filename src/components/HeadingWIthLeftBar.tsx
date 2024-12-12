@@ -23,7 +23,10 @@ export const LeftBar = styled.div<{ $color: string }>`
   align-items: center;
 `;
 
-const HeadingContent = styled.div<{ $subtitlewidth?: string }>`
+const HeadingContent = styled.div<{
+  $subtitlewidth?: string;
+  $smwidth?: string;
+}>`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -38,7 +41,6 @@ const HeadingContent = styled.div<{ $subtitlewidth?: string }>`
   @media (max-width: ${sizes.tablet + "px"}) {
     display: flex;
     flex-wrap: wrap;
-    width: 342px !important;
   }
 `;
 
@@ -50,16 +52,18 @@ const HeadingText = styled.h1<{ $color: string }>`
 
   @media (max-width: ${sizes.tablet + "px"}) {
     font-size: 14px;
+    line-height: normal;
+    font-weight: 700;
+    letter-spacing: 0%;
   }
 `;
 
-const SubHeading = styled.h2`
+const SubHeading = styled.h2<{ $smwidth?: string }>`
   color: #fff;
   font-size: 56px;
   font-weight: ${({ theme }) => 400};
   font-family: "Mona Sans";
   margin: 0;
-  line-height: 1.2;
 
   /* wrap text*/
   flex: 1 1;
@@ -69,6 +73,11 @@ const SubHeading = styled.h2`
 
   @media (max-width: ${sizes.tablet + "px"}) {
     font-size: 32px;
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: -1%;
+    width: ${({ $smwidth }) => ($smwidth ? $smwidth : "320px !important")};
+    line-height: 1.2;
   }
 `;
 
@@ -77,6 +86,7 @@ interface HeadingWithBarProps {
   $color?: string;
   $subtitle?: string;
   $subtitlewidth?: string;
+  $smwidth?: string;
 }
 
 const HeadingWithBar: React.FC<HeadingWithBarProps> = ({
@@ -84,6 +94,7 @@ const HeadingWithBar: React.FC<HeadingWithBarProps> = ({
   $color = "#7139ec",
   $subtitle,
   $subtitlewidth = "42rem",
+  $smwidth = "18.75rem",
 }) => {
   return (
     <HeadingContainer>
@@ -98,8 +109,8 @@ const HeadingWithBar: React.FC<HeadingWithBarProps> = ({
         <HeadingText $color={$color}>{$title}</HeadingText>
       </div>
 
-      <HeadingContent $subtitlewidth={$subtitlewidth}>
-        {$subtitle && <SubHeading>{$subtitle}</SubHeading>}
+      <HeadingContent $subtitlewidth={$subtitlewidth} $smwidth={$smwidth}>
+        {$subtitle && <SubHeading $smwidth={$smwidth}>{$subtitle}</SubHeading>}
       </HeadingContent>
     </HeadingContainer>
   );

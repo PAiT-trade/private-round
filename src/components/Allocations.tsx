@@ -1,4 +1,5 @@
 "use client";
+import { sizes } from "@/utils/media";
 import styled from "styled-components";
 
 export const Allocations = () => {
@@ -33,6 +34,11 @@ const Container = styled.div`
   justify-content: center;
   gap: 24px;
   width: 100% !important;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    gap: 16px;
+    z-index: 2 !important;
+  }
 `;
 
 const Card = styled.div`
@@ -51,8 +57,12 @@ const Card = styled.div`
   flex: 1 1;
 
   /* For smaller screens */
-  @media (max-width: 768px) {
-    flex: 1 1 100%; /* Full width on small screens */
+  @media (max-width: ${sizes.tablet + "px"}) {
+    flex: 1 1 100%;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px 24px;
   }
 `;
 const CardImg = styled.img`

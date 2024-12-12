@@ -12,9 +12,10 @@ export const Navbar = styled.div<{ $isActive: boolean }>`
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
+  margin-bottom: 1.5rem;
   z-index: 1500;
   height: ${({ $isActive }) => ($isActive ? `100vh` : "auto")};
-  padding: 16px 8px;
+
   transition: opacity 0.3s ease-in-out;
   @media (max-width: ${sizes.desktop + "px"}) {
     display: flex;
@@ -22,8 +23,10 @@ export const Navbar = styled.div<{ $isActive: boolean }>`
 `;
 
 const TopBar = styled.div`
+  background-color: ${({ theme }) => theme.colors.bg};
   display: flex;
   justify-content: space-between;
+  padding: 16px 16px !important;
 `;
 
 const TopWrapper = styled.div`
@@ -46,8 +49,14 @@ const Navs = styled.div`
   text-decoration: none;
   list-style-type: none;
 `;
-export const NavLogo = styled.div``;
-export const NavLogoImg = styled.img``;
+export const NavLogo = styled.div`
+  width: 100px;
+  width: 28px;
+  cursor: pointer;
+`;
+export const NavLogoImg = styled.img`
+  width: 100px;
+`;
 export const NavItems = styled.ul`
   display: flex;
   justify-content: space-between;
@@ -106,9 +115,17 @@ export const MobileNav: React.FC<MobileNavProps> = ({
         </NavLogo>
 
         {$isActive ? (
-          <XIcon size={24} onClick={() => $setIActive()} />
+          <XIcon
+            size={24}
+            onClick={() => $setIActive()}
+            style={{ cursor: "pointer" }}
+          />
         ) : (
-          <MenuIcon size={24} onClick={() => $setIActive()} />
+          <MenuIcon
+            size={24}
+            onClick={() => $setIActive()}
+            style={{ cursor: "pointer" }}
+          />
         )}
       </TopBar>
       {$isActive && (

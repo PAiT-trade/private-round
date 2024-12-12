@@ -473,7 +473,7 @@ export default function Home() {
   }, [connected, publicKey, state]);
 
   return (
-    <>
+    <Page>
       <Wrapping
         style={{
           backgroundImage: 'url("/top-bottom-bg.svg")',
@@ -515,6 +515,7 @@ export default function Home() {
               $title="INSTRUCTION"
               $color="#ADA5D1"
               $subtitlewidth="635px !important"
+              $smwidth="347px !important"
               $subtitle="How to acquire tokens in the private round?"
             />
             <HowToBuy />
@@ -526,19 +527,21 @@ export default function Home() {
         <HeadingWithBar
           $title="REWARDS"
           $color="#ADA5D1"
-          $subtitlewidth="530px !important"
+          $subtitlewidth="550px !important"
+          $smwidth="300px !important"
           $subtitle="Share with friends, earn rewards?"
         />
         <Rewards />
       </SectionWrapper>
 
-      <SectionWrapper $paddingtop="100px" $height="60vh">
+      <SectionWrapper $paddingtop="100px">
         <FloatingBackgrounds $showRight={true} $showLeft>
           <ManageContent>
             <HeadingWithBar
               $title="SUPPLY & SCHEDULE"
               $color="#ADA5D1"
               $subtitlewidth="70rem"
+              $smwidth="347px !important"
               $subtitle="Allocations & Vesting."
             />
             <Allocations />
@@ -546,8 +549,12 @@ export default function Home() {
         </FloatingBackgrounds>
       </SectionWrapper>
       {/* Show case */}
-      <SectionWrapper $paddingtop="100px">
-        <FloatingBackgrounds $showRight={true} $showLeft>
+      <SectionWrapper
+        $paddingtop="100px"
+        $bg="transparent !important"
+        style={{ marginBottom: "100px !important" }}
+      >
+        <FloatingBackgrounds $showRight={true} $showLeft={true}>
           <ManageContent>
             <ShowCase />
           </ManageContent>
@@ -578,10 +585,23 @@ export default function Home() {
           </ManageContent>
         </FloatingBackgroundOnlyRight>
       </FAQSectionWrapper>
-    </>
+    </Page>
   );
 }
 
+const Page = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.colors.bg};
+  color: ${({ theme }) => theme.colors.text.white};
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  font-weight: ${({ theme }) => theme.fonts.weights.normal};
+  padding: 0 0 0 0;
+  margin: 0;
+  gap: 32px;
+`;
 const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -613,7 +633,7 @@ const FlexContainer = styled.div`
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
     flex-direction: column;
-    padding: 8px 8px;
+    padding: 8px 16px !important;
     gap: 2rem;
   }
 `;
