@@ -36,7 +36,7 @@ const TopWrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  padding-top: 8px;
+  padding: 16px 16px !important;
   gap: 8px;
 `;
 
@@ -74,6 +74,7 @@ export const NavItemLink = styled.a`
 `;
 export const NavActions = styled.div`
   width: 100%;
+  margin-bottom: 3vh;
 `;
 export const ConnectWalletButton = styled.div`
   height: 55px;
