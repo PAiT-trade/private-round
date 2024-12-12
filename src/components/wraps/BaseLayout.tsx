@@ -12,20 +12,18 @@ interface BaseLayoutProps {
 }
 
 const BottomRightCorner = styled.div`
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  margin: 4.5rem;
-  border-radius: 8px;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  z-index: 1000;
+  display: none;
 
-  @media (max-width: ${sizes.tablet + "px"}) {
-    display: none;
-  }
-  @media (max-width: "900px") {
-    display: none !important;
+  @media (min-width: ${sizes.tablet + "px"}) {
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 4.5rem;
+    border-radius: 8px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
   }
 `;
 
