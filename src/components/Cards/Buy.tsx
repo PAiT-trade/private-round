@@ -212,13 +212,13 @@ interface BuyCardsTextProps {
 
 export const BText = styled.div<BuyCardsTextProps>`
   color: ${({ color }) => (color ? color : "#fff")};
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.5;
   font-size: 16px;
   font-family: ${({ theme }) => theme.fonts.family.main};
   margin: 0;
   display: flex;
-  font-weight: 400;
+  font-weight: 600;
   flex-wrap: wrap;
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
@@ -230,7 +230,7 @@ const BTextAllocation = styled.div<BuyCardsTextProps>`
   color: ${({ color }) => (color ? color : "#fff")};
   position: relative;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.5;
   gap: 0.4rem;
   margin: 0;
@@ -332,7 +332,7 @@ const SubHeader = styled.h4`
   line-height: 32px;
   font-family: "Mona Sans";
   color: ${({ theme }) => theme.colors.text.normal};
-  font-weight: ${({ theme }) => 400};
+  font-weight: ${({ theme }) => 600};
 
   @media (max-width: ${sizes.tablet + "px"}) {
     line-height: 28px;
@@ -399,7 +399,7 @@ const FromGroup = styled.div`
   }
 `;
 const FromLabel = styled.div`
-  font-weight: 400;
+  font-weight: 600;
   font-size: 16px;
   font-family: ${({ theme }) => theme.fonts.family.main};
   display: flex;
@@ -407,7 +407,7 @@ const FromLabel = styled.div`
   align-items: center;
   margin-bottom: 8px;
   span {
-    font-weight: 400;
+    font-weight: 600;
     line-height: 0;
     font-size: 16px;
     display: flex;
@@ -463,7 +463,7 @@ const BuyNowWallet = styled.span`
   display: flex;
   gap: 0.6rem;
   font-family: ${({ theme }) => theme.fonts.family.main};
-  font-weight: 400;
+  font-weight: 600;
 
   span {
     font-size: 16px;
