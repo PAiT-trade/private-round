@@ -59,7 +59,7 @@ export default function Home() {
       total: 2000000,
     },
     priceOfPait: "0.16",
-    remainingTime: "2024-12-31",
+    remainingTime: "2024-12-21",
     allowReferral: false,
     symbol: "USDC",
     inputValue: "",
