@@ -9,6 +9,7 @@ const ContentWrap = styled.div`
   display: flex;
   width: 100%;
   gap: 2rem;
+  height: 100%;
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
     flex-direction: column-reverse;
@@ -103,6 +104,7 @@ const Title = styled.h1`
 const MTitle = styled(Title)`
   display: none;
   gap: 0.1rem;
+  padding: 8px;
   font-family: ${({ theme }) => theme.fonts.family.main};
   b {
     font-size: 40px !important;
@@ -110,12 +112,10 @@ const MTitle = styled(Title)`
   }
   @media (max-width: ${sizes.tablet + "px"}) {
     display: flex;
-    margin-top: 100px;
   }
 
   @media (max-width: ${375 + "px"}) {
     display: flex;
-    margin-top: 200px;
   }
 `;
 const Subtitle = styled.h4`

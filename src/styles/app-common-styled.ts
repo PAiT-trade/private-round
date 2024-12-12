@@ -11,6 +11,7 @@ export const Container = styled.div`
 export const SectionWrapper = styled.div<{
   $bg?: string;
   $paddingtop?: string;
+  $margintop?: string;
   $height?: string;
 }>`
   background-color: ${({ $bg }) => ($bg ? $bg : "#080b14")};
@@ -22,6 +23,11 @@ export const SectionWrapper = styled.div<{
   &:not(:last-child) {
     padding-top: ${({ $paddingtop }) => ($paddingtop ? $paddingtop : "1rem")};
   }
+
+  &:nth-child(1) {
+    margin-top: ${({ $margintop }) => ($margintop ? $margintop : "1rem")};
+  }
+
   flex-direction: column;
 
   /* mobile and tablet */
@@ -241,7 +247,7 @@ export const ConnectWalletButtonExtends = styled.div`
 `;
 
 export const Wrapping = styled.div`
-  width: 100%;
+  background-color: green;
   /* background-color: #0e111b; */
   /* min-height: 900px; */
   /* mobile and tablet */
@@ -250,10 +256,10 @@ export const Wrapping = styled.div`
     margin: 0;
     max-width: 100%;
     /* padding: 32px 0; */
+    background-color: green;
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     align-content: center;
     flex-direction: column;
 
@@ -338,7 +344,7 @@ export const FloatingBackgrounds = styled.div<{
 export const ManageContent = styled.div`
   height: 100%;
   width: 100%;
-  z-index: 1;
+  z-index: -1;
 `;
 
 export const FloatingBackgroundOnlyLeft = styled.div`
@@ -372,5 +378,6 @@ export const FloatingBackgroundOnlyRight = styled.div`
 
   @media (max-width: ${sizes.mobile + "px"}) {
     /* background-image: none; */
+    display: none;
   }
 `;

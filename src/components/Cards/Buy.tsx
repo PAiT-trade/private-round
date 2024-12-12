@@ -35,10 +35,10 @@ export const BuyCard: React.FC<BuyCardProps> = ({
       <Header>
         Buy <PrimaryColor>$PAiT</PrimaryColor> token
       </Header>
-      <div>
+      <HeaderSubTitle>
         <SubHeader>The PAiT Private Round is live! Join</SubHeader>
         <SubHeader>now and earn referral rewards!</SubHeader>
-      </div>
+      </HeaderSubTitle>
 
       <BuyCardHeaderAllocationWrapper>
         <BuyCardHeaderAllocationHeader>
@@ -285,7 +285,7 @@ const Card = styled.div`
   /* min-height: 534px; */
   color: #fff;
   /* width: 100%; */
-  padding: 32px 12px;
+  padding: 32px 12px 12px 12px;
   background-color: #1e1e1e;
   /* border: 0.1px solid #dde1e5; */
   backdrop-filter: blur(8%);
@@ -302,6 +302,8 @@ const Card = styled.div`
     width: 100% !important;
     min-width: 100%;
     height: 100%;
+    gap: 0px;
+    margin-bottom: 32px;
   }
 `;
 
@@ -313,13 +315,29 @@ const Header = styled.h2`
   font-weight: ${({ theme }) => theme.fonts.weights.semibold};
   line-height: 28px;
   margin-bottom: 1.2rem;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+    font-size: 26px;
+    line-height: 32px;
+    margin-bottom: 16px !important;
+  }
+`;
+
+const HeaderSubTitle = styled.div`
+  width: 100%;
 `;
 const SubHeader = styled.h4`
   font-size: 16px;
   line-height: 32px;
-  font-family: ${({ theme }) => theme.fonts.family.main};
+  font-family: "Mona Sans";
   color: ${({ theme }) => theme.colors.text.normal};
-  font-weight: ${({ theme }) => theme.fonts.weights.normal};
+  font-weight: ${({ theme }) => 400};
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    line-height: 28px;
+    letter-spacing: 0%;
+  }
 `;
 const PrimaryColor = styled.span`
   color: #8cd2cf;
@@ -364,6 +382,10 @@ const FormWrapper = styled.div`
   @media (max-width: ${sizes.tablet + "px"}) {
     flex-direction: column;
     width: 100%;
+    gap: 20px;
+    &:last-child {
+      margin-bottom: 20px;
+    }
   }
 `;
 const FromGroup = styled.div`
@@ -378,15 +400,16 @@ const FromGroup = styled.div`
 `;
 const FromLabel = styled.div`
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   font-family: ${({ theme }) => theme.fonts.family.main};
   display: flex;
   gap: 0.4rem;
   align-items: center;
+  margin-bottom: 8px;
   span {
     font-weight: 400;
     line-height: 0;
-    font-size: 14px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     font-family: ${({ theme }) => theme.fonts.family.main};
@@ -439,6 +462,8 @@ const BuyNow = styled.button`
 const BuyNowWallet = styled.span`
   display: flex;
   gap: 0.6rem;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  font-weight: 400;
 
   span {
     font-size: 16px;

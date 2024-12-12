@@ -35,7 +35,7 @@ const LiveBadge = styled.div`
   color: #8cd2cf;
   font-size: 14px;
   font-weight: bold;
-  margin-bottom: 1rem;
+  margin-bottom: 12px !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,17 +44,23 @@ const LiveBadge = styled.div`
   span {
     font-weight: ${({ theme }) => theme.fonts.weights.bold};
   }
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    margin-bottom: 12px !important;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 56px;
-  font-size: "Mona Sans";
+  font-family: "Mona Sans", sans-serif;
+  font-weight: 600;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
   letter-spacing: -5%;
   line-height: 1.1;
+  color: #fff;
   gap: 0;
   text-align: left;
   margin: 0 !important;
@@ -67,7 +73,7 @@ const Title = styled.h1`
     margin: 0 !important;
     padding: 0 !important;
     &:first-child {
-      color: white;
+      color: #fff;
     }
   }
 
@@ -77,17 +83,32 @@ const Title = styled.h1`
     font-family: ${({ theme }) => theme.fonts.family.main};
     font-weight: ${({ theme }) => theme.fonts.weights.semibold};
   }
+  @media (max-width: ${sizes.tablet + "px"}) {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.05em;
+    margin-bottom: 16px !important;
+  }
 `;
 const Subtitle = styled.h4`
-  font-size: 1rem;
-  margin: 1rem 0 2rem;
-  line-height: 1.5;
+  font-size: 16px;
+  /* margin: 1rem 0 2rem; */
+  line-height: 28px;
+  letter-spacing: 0;
   color: #bbb;
-  text-align: left;
 
-  & > {
-    font-weight: 400;
-    font-size: 16px;
+  text-align: left;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    margin: 0;
+    padding: 0 !important;
+    margin-bottom: 32px !important;
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      color: ${({ theme }) => theme.colors.text.normal + " !important"};
+    }
   }
 `;
 
@@ -106,9 +127,11 @@ const ButtonContainer = styled.div`
     }
   }
   @media (max-width: ${sizes.tablet + "px"}) {
+    margin: 0;
     align-content: center;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 32px !important;
   }
 `;
 const Button = styled.a<{ $bgcolor?: string }>`
@@ -126,7 +149,11 @@ const Button = styled.a<{ $bgcolor?: string }>`
 
   @media (max-width: ${sizes.tablet + "px"}) {
     height: 60px;
-    width: 100%;
+    width: 164px;
+
+    &:last-child {
+      width: 163px;
+    }
   }
 `;
 
@@ -136,8 +163,12 @@ const ButtonWallet = styled.span`
   justify-content: space-between;
   align-items: center;
   color: #000;
-  font-size: 16px;
-  font-weight: 400;
+  line-height: normal;
+  & > * {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: ${({ theme }) => theme.fonts.family.main};
+  }
 `;
 const ButtonAction = styled.span`
   display: flex;
@@ -145,6 +176,7 @@ const ButtonAction = styled.span`
 `;
 
 const Countdown = styled.div`
+  width: 100%;
   font-size: 16px;
   font-weight: bold;
   margin-top: 2rem;
@@ -153,10 +185,10 @@ const Countdown = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  span {
+  & > span {
     color: #87939e;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 700;
   }
   div {
     display: flex;
@@ -165,7 +197,15 @@ const Countdown = styled.div`
       font-size: 24px;
       font-weight: bold;
       color: #fff;
+
+      @media (max-width: ${sizes.tablet + "px"}) {
+        font-size: 20px;
+      }
     }
+  }
+  @media (max-width: ${sizes.tablet + "px"}) {
+    margin-top: -32px !important;
+    padding: 0 !important;
   }
 `;
 
@@ -231,7 +271,7 @@ const PreSale: React.FC<PreSaleProps> = ({ $remainingtime }) => {
 
         <Button style={{ height: "60px" }} $bgcolor="#fff" href="#how-to-buy">
           <ButtonWallet>
-            <CirclePlayIcon size={16} />
+            <CirclePlayIcon size={24} />
             <span>How to buy ?</span>
           </ButtonWallet>
         </Button>
