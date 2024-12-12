@@ -287,19 +287,16 @@ const ToolTip = styled.b`
 
 const Card = styled.div`
   min-width: 519px;
-  /* min-height: 534px; */
   color: #fff;
-  /* width: 100%; */
   padding: 32px 12px 12px 12px;
   background-color: #1e1e1e;
-  /* border: 0.1px solid #dde1e5; */
   backdrop-filter: blur(8%);
   -webkit-backdrop-filter: blur(8%);
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   gap: 24px;
-  border-radius: 0.4rem;
+  border-radius: 8px;
 
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {

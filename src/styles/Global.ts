@@ -1,4 +1,4 @@
-import { media } from "@/utils/media";
+import { media, sizes } from "@/utils/media";
 import { devices } from "./common";
 import { createGlobalStyle } from "styled-components";
 
@@ -21,6 +21,10 @@ export const GlobalStyle = createGlobalStyle`
     html {
         box-sizing: border-box;
         font-size: 65.5% ; // 1rem = 10px , 10px/16px = 62.5%
+        width: 100%;
+        @media (max-width: ${sizes.desktop + "px"}) {
+            overflow-x: hidden;
+        }
         @media only screen and  (max-width: ${devices.large}) {
             font-size: 50%;
         }
@@ -34,42 +38,18 @@ export const GlobalStyle = createGlobalStyle`
         font-size: 14px;
     }
     body {
-        font-weight: 200;
+        width: 100%;
+        
+        font-weight: 400;
         font-family: ${({ theme }) => theme.fonts.family.main};
         letter-spacing: 0.5 !important;
         font-size: 14px;
         line-height: 1.6;
         letter-spacing: 0.1px;
         color: ${({ theme }) => theme.colors.text.normal};
-        background-color: ${({ theme }) => theme.colors.primary};
-        background-size: cover;
-        background-repeat: no-repeat;
-        /* min-height: 100vh; */
-        max-width: 100%;
-        min-height:100%;
-        width: 100%;
-        height:100%;
-        @media (max-width: 768px) {
-            font-size: 14px;
+        @media (max-width: ${sizes.desktop + "px"}) {
+            overflow-x: hidden;
         }
-
-        @media (max-width: 480px) {
-            font-size: 12px;
-        }
-        ${media.mobile(`
-            font-size: 14px;
-        `)}
-
-        ${media.tablet(`
-            font-size: 14px;
-        `)}
-
-        ${media.desktop(`
-            font-size: 16px;
-        `)}
-        ${media.largeDesktop(`
-            font-size: 1px;
-        `)}
 
     }
     @media print {
