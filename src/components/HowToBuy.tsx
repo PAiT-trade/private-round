@@ -65,6 +65,7 @@ export const HowToBuy = () => {
 };
 const Container = styled.div`
   padding: 6.25rem 0;
+  width: 100%;
 `;
 
 const List = styled.ol`
@@ -78,7 +79,7 @@ const List = styled.ol`
 `;
 
 const ListItem = styled.li`
-  flex: 1 1 calc(33.33% - 1rem);
+  flex: 1 1 calc(33.3% - 1rem);
   min-width: 132px;
   box-sizing: border-box;
   display: flex;

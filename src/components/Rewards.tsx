@@ -63,7 +63,7 @@ const Card = styled.div`
   flex: 1 1 calc(20% - 1rem);
 
   @media (max-width: 768px) {
-    flex: 1 1 calc(50% - 1rem);
+    flex: 1 1 calc(50% - 2rem);
   }
 
   @media (max-width: 480px) {

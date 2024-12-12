@@ -63,6 +63,8 @@ const Card = styled.div`
     flex-direction: column;
     gap: 32px;
     padding: 24px 24px;
+    max-width: 100%;
+    width: 100%;
   }
 `;
 const CardImg = styled.img`
