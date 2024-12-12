@@ -285,7 +285,6 @@ export const NavLink = styled.a`
       height: 100%;
 
       div {
-        background-color: green !important;
         button.connect-button {
           width: 100%;
           height: 100%;

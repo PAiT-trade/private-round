@@ -3,7 +3,11 @@ import styled from "styled-components";
 import React from "react";
 import { AppState } from "@/types/app";
 import { ProgressBar } from "../PogressBar";
-import { MoveUpRightIcon, ShoppingBagIcon } from "lucide-react";
+import {
+  MessageCircleQuestion,
+  MoveUpRightIcon,
+  ShoppingBagIcon,
+} from "lucide-react";
 import { sizes } from "@/utils/media";
 import { DynamicWidget } from "@dynamic-labs/sdk-react-core";
 import { ConnectWalletButtonLabel, WalletConnect } from "../navbar";
@@ -48,10 +52,11 @@ export const BuyCard: React.FC<BuyCardProps> = ({
           <BuyCardHeaderAllocationValue>
             <BTextAllocation>
               <p>
-                {$state.allocation.remaining + " "}
-                updated every 24h
+                {formatNumber(Number($state.allocation.remaining))
+                  .toString()
+                  .split(".")[0] + " "}
+                updated every 24h <MessageCircleQuestion size={16} />
               </p>{" "}
-              <img src="/contact_support.svg" />
               <ToolTip>Use USDC on Solana for payment.</ToolTip>
             </BTextAllocation>
           </BuyCardHeaderAllocationValue>
