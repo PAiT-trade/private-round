@@ -46,7 +46,7 @@ const HeadingContent = styled.div<{
 
 const HeadingText = styled.h1<{ $color: string }>`
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
   color: ${({ $color }) => $color};
   margin: 0;
 
@@ -61,8 +61,8 @@ const HeadingText = styled.h1<{ $color: string }>`
 const SubHeading = styled.h2<{ $smwidth?: string }>`
   color: #fff;
   font-size: 56px;
-  font-weight: ${({ theme }) => 600};
-  font-family: "Mona Sans";
+  font-weight: ${({ theme }) => 600 + " !important"};
+  font-family: ${({ theme }) => theme.fonts.family.main + "Sans-serif"};
   letter-spacing: -1%;
   margin: 0;
   /* wrap text*/
@@ -73,7 +73,6 @@ const SubHeading = styled.h2<{ $smwidth?: string }>`
 
   @media (max-width: ${sizes.tablet + "px"}) {
     font-size: 32px;
-    font-weight: 600;
     line-height: 40px;
     letter-spacing: -1%;
     width: ${({ $smwidth }) => ($smwidth ? $smwidth : "320px !important")};

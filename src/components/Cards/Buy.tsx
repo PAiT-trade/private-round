@@ -69,7 +69,7 @@ export const BuyCard: React.FC<BuyCardProps> = ({
         />
 
         <BText
-          color="#FFFFFF4"
+          color="#FFFFFF80"
           style={{
             paddingBottom: "14px",
             width: "100%",
@@ -175,11 +175,11 @@ export const BuyCard: React.FC<BuyCardProps> = ({
             //   return;
             // }
 
-            // if (!$state.user.is_approved) {
-            //   toast.error("Please perform KYC verification to proceed.");
-            //   router.push("/kyc");
-            //   return;
-            // }
+            if (!$state.user.is_approved) {
+              toast.error("Please perform KYC verification to proceed.");
+              router.push("/kyc");
+              return;
+            }
 
             if ($state.isInValid) {
               toast.error(

@@ -259,10 +259,11 @@ export const FooterItem = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: #87939e;
+  color: white;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 700;
   font-family: "Monas Sans";
+  letter-spacing: 0%;
 `;
 
 export const Nav = styled.ul``;
@@ -274,7 +275,7 @@ export const NavItem = styled.li`
 export const NavLink = styled.a`
   font-size: 14px;
   font-weight: 200;
-  color: #ffffffb3;
+  color: ${({ theme }) => theme.colors.text.normal + " !important"};
 
   div#dynamic-widget {
     width: 100%;
