@@ -404,6 +404,7 @@ const FromGroup = styled.div`
   padding-top: 0.5rem;
   justify-content: space-between;
   align-items: flex-start;
+  width: 100%;
   @media (max-width: ${sizes.tablet + "px"}) {
     width: 100%;
   }
@@ -435,17 +436,18 @@ const FromControl = styled.div`
   height: 56px;
   background-color: #fff;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   padding: 0.2rem;
   border-radius: 4px;
   gap: 0.4rem;
+  width: 100%;
   @media (max-width: ${sizes.tablet + "px"}) {
     width: 100%;
   }
 `;
 const FromControlInput = styled.input`
-  width: 230px;
+  width: 100%;
   padding: 0.4rem;
   border: none;
   color: #0e0d0d;
