@@ -78,7 +78,15 @@ export const BuyCard: React.FC<BuyCardProps> = ({
             alignItems: "center",
           }}
         >
-          <span style={{ color: "#FFFFFF80 !important", fontWeight: "bold" }}>
+          <span
+            style={{
+              color: "#FFFFFF80 !important",
+              fontWeight: "bold",
+              letterSpacing: "-1%",
+              fontSize: "14px",
+              fontFamily: "Mona Sans",
+            }}
+          >
             1 $PAiT = {$state.priceOfPait} USDC
           </span>
         </BText>
@@ -305,7 +313,7 @@ const Card = styled.div`
     min-width: 100%;
     height: 100%;
     gap: 0px;
-    margin-bottom: 32px;
+    margin-bottom: 48px;
   }
 `;
 
@@ -331,10 +339,10 @@ const HeaderSubTitle = styled.div`
 `;
 const SubHeader = styled.h4`
   font-size: 16px;
-  line-height: 32px;
-  font-family: "Mona Sans";
+  letter-spacing: 0%;
+  font-family: ${({ theme }) => theme.fonts.family.main};
   color: ${({ theme }) => theme.colors.text.normal};
-  font-weight: ${({ theme }) => 600};
+  font-weight: ${({ theme }) => theme.fonts.weights.normal};
 
   @media (max-width: ${sizes.tablet + "px"}) {
     line-height: 28px;
@@ -401,20 +409,26 @@ const FromGroup = styled.div`
   }
 `;
 const FromLabel = styled.div`
-  font-weight: 600;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0%;
   font-family: ${({ theme }) => theme.fonts.family.main};
   display: flex;
   gap: 0.4rem;
   align-items: center;
   margin-bottom: 8px;
   span {
-    font-weight: 600;
+    font-weight: 700;
     line-height: 0;
-    font-size: 16px;
+    font-size: 14px;
+    letter-spacing: 0%;
     display: flex;
     align-items: center;
     font-family: ${({ theme }) => theme.fonts.family.main};
+  }
+  img {
+    width: 13.46px;
+    height: 15.83px;
   }
 `;
 const FromControl = styled.div`

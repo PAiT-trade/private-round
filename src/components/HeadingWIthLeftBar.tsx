@@ -61,15 +61,15 @@ const HeadingText = styled.h1<{ $color: string }>`
 const SubHeading = styled.h2<{ $smwidth?: string }>`
   color: #fff;
   font-size: 56px;
-  font-weight: ${({ theme }) => 400};
+  font-weight: ${({ theme }) => 600};
   font-family: "Mona Sans";
+  letter-spacing: -1%;
   margin: 0;
-
   /* wrap text*/
   flex: 1 1;
   word-wrap: break-word;
   margin: 0;
-  line-height: 1.5;
+  line-height: 60px;
 
   @media (max-width: ${sizes.tablet + "px"}) {
     font-size: 32px;

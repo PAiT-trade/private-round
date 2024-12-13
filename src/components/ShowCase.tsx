@@ -145,14 +145,15 @@ const Button = styled.button<{ $bgcolor?: string }>`
   align-items: center;
   justify-content: center;
   border: none;
-  padding: 0.7rem 1.6rem;
+  padding: 18px 32px;
   cursor: pointer;
   border-radius: 4px;
   font-size: 14px;
+  width: 167px;
   height: 55px;
   font-family: ${({ theme }) => theme.fonts.family.main};
   color: #070b15;
-  font-weight: ${({ theme }) => 300};
+  font-weight: ${({ theme }) => 400};
 
   @media (max-width: ${sizes.tablet + "px"}) {
     width: 100%;

@@ -28,6 +28,7 @@ const Wrapper = styled.div`
     max-width: 100%;
     width: 100%;
     align-self: center;
+    margin-bottom: 48px !important;
   }
 `;
 
@@ -118,19 +119,22 @@ const ButtonContainer = styled.div`
   gap: 16px;
   align-items: center;
 
-  button {
+  a {
     &:first-child {
       width: 142px;
+      height: 55px;
     }
     &:last-child {
       width: 185px;
+      height: 60px;
+      padding: 0 32px;
     }
   }
   @media (max-width: ${sizes.tablet + "px"}) {
     margin: 0;
     align-content: center;
     justify-content: space-between;
-    width: 100%;
+    width: 100% !important;
     margin-bottom: 32px !important;
   }
 `;
@@ -210,7 +214,13 @@ const Countdown = styled.div`
 `;
 
 // pass Date time in numbers
-const getTimeRemaining = (targetTime: number) => {
+const getTimeRemaining = (
+  targetTime: number
+): {
+  days: string;
+  hours: string;
+  minutes: string;
+} => {
   const now = new Date().getTime();
   const difference = targetTime - now;
 
@@ -219,9 +229,9 @@ const getTimeRemaining = (targetTime: number) => {
   const minutes = Math.floor((difference / (1000 * 60)) % 60);
 
   return {
-    days: days > 0 ? days : 0,
-    hours: hours > 0 ? hours : 0,
-    minutes: minutes > 0 ? minutes : 0,
+    days: days > 0 ? (days < 10 ? `0${days}` : `${days}`) : "0",
+    hours: hours > 0 ? `${hours}` : "0",
+    minutes: minutes > 0 ? `${minutes}` : "0",
   };
 };
 
@@ -269,10 +279,10 @@ const PreSale: React.FC<PreSaleProps> = ({ $remainingtime }) => {
           </ButtonWallet>
         </Button>
 
-        <Button style={{ height: "60px" }} $bgcolor="#fff" href="#how-to-buy">
+        <Button $bgcolor="#fff" href="#how-to-buy">
           <ButtonWallet>
-            <CirclePlayIcon size={24} />
-            <span>How to buy ?</span>
+            <CirclePlayIcon size={20} />
+            <span>How to buy?</span>
           </ButtonWallet>
         </Button>
       </ButtonContainer>

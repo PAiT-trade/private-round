@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     *::before,
     *::after {
         box-sizing: inherit;
+       
     }
     a  {
         text-decoration: none;
@@ -22,6 +23,7 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-size: 65.5% ; // 1rem = 10px , 10px/16px = 62.5%
         width: 100%;
+        overflow-x: hidden !important;
         @media (max-width: ${sizes.desktop + "px"}) {
             overflow-x: hidden;
         }
