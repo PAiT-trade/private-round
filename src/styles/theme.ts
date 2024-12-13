@@ -56,11 +56,11 @@ export const theme = {
       large: "80px",
     },
     family: {
-      main: "Mona Sans, sans-serif",
+      main: "Mona Sans",
       code: "Courier, monospace",
     },
     weights: {
-      normal: "100",
+      normal: "400",
       semibold: "600",
       bold: "700",
     },

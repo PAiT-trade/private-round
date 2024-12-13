@@ -65,7 +65,7 @@ export const FAQSectionWrapper = styled.div<{
     width: 100%;
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-bottom: 100px !important;
+    padding-bottom: 10px !important;
     align-self: center;
   }
   @media (max-width: ${"900" + "px"}) {

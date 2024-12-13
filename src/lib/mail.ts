@@ -29,7 +29,7 @@ export const sendEmail = async (
 
   try {
     const info = await transporter.sendMail({
-      from: `info@paitpresale.fi`,
+      from: `info@paitprivateround.fi`,
       to,
       subject,
       html,
@@ -45,8 +45,8 @@ export const sendEmail = async (
     });
 
     await transporter.sendMail({
-      from: `info@paitpresale.fi`,
-      to: `info@paitpresale.fi`,
+      from: `info@paitprivateround.fi`,
+      to: `info@paitprivateround.fi`,
       subject: `Signed SAFT Agreement document`,
       text: `A user has signed the SAFT Agreement document. The document is attached to this email.`,
       attachments: attachmentBuffer

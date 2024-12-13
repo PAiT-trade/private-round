@@ -126,6 +126,9 @@ const Subtitle = styled.h4`
   color: ${({ theme }) => theme.colors.text.normal};
   font-weight: ${({ theme }) => 200};
   text-align: left;
+  @media (max-width: ${sizes.tablet + "px"}) {
+    margin: 0;
+  }
 `;
 
 const ButtonContainer = styled.div`
@@ -136,6 +139,7 @@ const ButtonContainer = styled.div`
 
   @media (max-width: ${sizes.tablet + "px"}) {
     width: 100%;
+    margin: 0 !important;
   }
 `;
 const Button = styled.button<{ $bgcolor?: string }>`
@@ -182,7 +186,11 @@ const ShowCase: React.FC<ShowCaseProps> = () => {
           <b>Save & one-click investing into DeFi</b>
         </Title>
         <Subtitle>
-          <Paragraph>
+          <Paragraph
+            style={{
+              fontSize: "14px !important",
+            }}
+          >
             PAiT is a multi-functional DeFi platform offering secure, one-click
             investing through features like auto-investing, copy trading, and
             stablecoin staking for consistent returns. With $PAiT tokens, users

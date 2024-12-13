@@ -14,6 +14,7 @@ const FAQContainer = styled.div`
   @media (max-width: ${sizes.tablet + "px"}) {
     width: 100%;
     padding: 20px 0;
+    margin-top: 10px;
   }
 `;
 

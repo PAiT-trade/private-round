@@ -549,11 +549,7 @@ export default function Home() {
         </FloatingBackgrounds>
       </SectionWrapper>
       {/* Show case */}
-      <SectionWrapper
-        $paddingtop="100px"
-        $bg="transparent !important"
-        style={{ marginBottom: "100px !important" }}
-      >
+      <SectionWrapper $paddingtop="100px" $bg="transparent !important">
         <FloatingBackgrounds $showRight={true} $showLeft={true}>
           <ManageContent>
             <ShowCase />
