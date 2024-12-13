@@ -529,7 +529,7 @@ export default function Home() {
           $color="#ADA5D1"
           $subtitlewidth="550px !important"
           $smwidth="300px !important"
-          $subtitle="Share with friends, earn rewards?"
+          $subtitle="Share with friends, earn rewards!"
         />
         <Rewards />
       </SectionWrapper>
