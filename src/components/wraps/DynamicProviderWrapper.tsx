@@ -128,4 +128,89 @@ const customCSS = `
             }
         } 
     }
+
+  .wallet-list__search-container {
+      padding: 0 1.5rem .5rem !important;
+  }
+  .scroll-section {
+    overflow: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    --light-scrollbar-color: #adb0be69;
+    --dark-scrollbar-color: #7f829433;
+  }
+  .list-tile {
+      background-color: #24272e;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding:.75rem;
+      gap: .625rem;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 .0625rem .125rem rgba(24, 39, 75, .04);
+      transition-property: all;
+      transition-duration: .15s;
+      transition-timing-function: ease-out;
+  }
+
+  .modal {
+    max-width: 370px !important; 
+    width: 100% !important;
+    position: fixed;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    box-sizing: border-box; 
+  }
+
+  @media (max-width: 640px) {
+    .modal {
+      bottom: auto;
+      left: 50% !important; 
+      max-width: 80% !important;
+    }
+  }
+
+  .wallet-list__container {
+   min-height: 23.5rem !important;
+  }
+  .wallet-list__scroll-container {
+    min-height: 23rem !important;
+   }
+
+  .vertical-accordion__container {
+  }
+
+   .accordion-item.accordion-item--full-height {
+    height: 100% !important;
+   }
+  .modal-card.modal-card--sharp-mobile-bottom-radius.modal-card--radius-default {
+  }
+
+  .dynamic-footer.dynamic-footer__top-border  a span{
+    font-size: 14px !important;
+  }
+
+  .dynamic-footer.dynamic-footer__top-border a svg {
+  width: 20px !important; /* Change to your desired width */
+  height: auto !important; /* Maintain aspect ratio */
+}
+  .wallet-list__scroll-container button {
+    padding: 12px 12px !important;
+  }
+  .list-tile__children  span  {
+    font-size: 14px !important;
+    font-family: 'Mona Sans', sans-serif !important;
+    letter-spacing: 0 !important;
+    font-weight: 300 !important;
+    line-height: 28px !important;
+  }
+
+  p.typography--body-small  {
+    font-size: 11px !important;
+  }
 `;
