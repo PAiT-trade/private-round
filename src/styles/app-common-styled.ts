@@ -51,27 +51,26 @@ export const FAQSectionWrapper = styled.div<{
   $height?: string;
 }>`
   background-color: ${({ $bg }) => ($bg ? $bg : "#080b14")};
-  padding: 0 12rem;
+  padding: 0 6rem;
   display: flex;
   align-items: center;
   width: 100%;
   height: ${({ $height }) => ($height ? $height : "100%")};
-  &:not(:last-child) {
-    padding-top: ${({ $paddingtop }) => ($paddingtop ? $paddingtop : "1rem")};
-  }
+  padding-top: ${({ $paddingtop }) => ($paddingtop ? $paddingtop : "1rem")};
   flex-direction: column;
 
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
     max-width: 100%;
     width: 100%;
-    padding: 1rem !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 100px !important;
     align-self: center;
   }
   @media (max-width: ${"900" + "px"}) {
     max-width: 100%;
     width: 100%;
-    padding: 1rem !important;
     align-self: center;
   }
 `;
@@ -267,6 +266,10 @@ export const Wrapping = styled.div`
       width: 100%;
     }
   }
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    margin-bottom: 48px !important;
+  }
 `;
 
 export const MinWrapp = styled.div`
@@ -376,8 +379,7 @@ export const FloatingBackgroundOnlyRight = styled.div`
   /* Conditionally apply sizes */
   background-size: 426px 400px;
 
-  @media (max-width: ${sizes.mobile + "px"}) {
-    /* background-image: none; */
+  /* @media (max-width: ${sizes.mobile + "px"}) {
     display: none;
-  }
+  } */
 `;

@@ -342,7 +342,16 @@ export const CopyrightLink = styled.a`
   line-height: 0%;
   font-family: "Monas Sans";
   color: ${({ theme }) => theme.colors.text.normal + " !important"};
-  font-weight: ${({ theme }) => 400};
+  font-weight: ${({ theme }) => 200};
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 0%;
+    font-family: "Monas Sans";
+    color: ${({ theme }) => theme.colors.text.normal + " !important"};
+    font-weight: ${({ theme }) => 400};
+  }
 `;
 
 const ReadAgreement = styled.div`

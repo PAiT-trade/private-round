@@ -562,10 +562,10 @@ export default function Home() {
       </SectionWrapper>
 
       <FAQSectionWrapper
-        $paddingtop="100px"
+        $paddingtop="50px"
         $bg="transparent !important"
         style={{
-          paddingBottom: "60px",
+          paddingBottom: "30px",
           backgroundImage: 'url("/radial-bg.svg")',
           backgroundPosition: `bottom`,
           backgroundSize: `auto 300px`,
@@ -578,8 +578,9 @@ export default function Home() {
             <HeadingWithBar
               $title="FAQ"
               $color="#ADA5D1"
-              $subtitlewidth="45rem"
+              $subtitlewidth="467px"
               $subtitle="Everything you need to know."
+              $smwidth="280px !important"
             />
             <FAQSection />
           </ManageContent>
