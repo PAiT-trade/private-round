@@ -39,6 +39,7 @@ import {
   ASSOCIATED_TOKEN_PROGRAM_ID,
 } from "@solana/spl-token";
 import { BackgroundImage } from "@/components/BackgroundImage";
+import { VideoPlayer } from "@/components/Video";
 
 export default function Home() {
   const { connected, publicKey } = useAnalyzedWallet();
@@ -506,7 +507,7 @@ export default function Home() {
                 $buyPait={sendUSDC}
                 $calculateAmountInPait={calculateAmountInPait}
               />
-              <ShowCaseImg src="/float-showcase.svg" />
+              <VideoPlayer width="100%" height="209.77px" borderRadius="8px" />
             </FlexContainer>
           </MinWrapp>
         </HeaderWrapper>
