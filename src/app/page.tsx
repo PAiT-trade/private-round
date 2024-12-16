@@ -514,7 +514,7 @@ export default function Home() {
             <HeadingWithBar
               $title="INSTRUCTION"
               $color="#ADA5D1"
-              $subtitlewidth="635px !important"
+              $subtitlewidth="628px !important"
               $smwidth="347px !important"
               $subtitle="How to acquire tokens in the private round?"
             />

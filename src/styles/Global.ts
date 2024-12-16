@@ -42,7 +42,7 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         
         font-weight: 400;
-        font-family: ${({ theme }) => theme.fonts.family.main + "Sans-serif"};
+        font-family: ${({ theme }) => theme.fonts.family.main};
         font-optical-sizing: auto;
         font-weight: 400;
         font-style: normal;

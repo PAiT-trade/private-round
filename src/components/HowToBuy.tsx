@@ -125,9 +125,11 @@ const ListContentItem = styled.p`
   color: ${({ theme }) => theme.colors.text.normal};
   font-weight: ${({ theme }) => theme.fonts.weights.normal};
   font-family: ${({ theme }) => theme.fonts.family.main};
+  letter-spacing: 0%;
   span {
     color: #95fce9;
     padding: 0 0.3rem;
+    letter-spacing: inherit;
     font-family: inherit;
     font-weight: inherit;
   }
@@ -135,7 +137,7 @@ const ListContentItem = styled.p`
 const ListContentItemHeader = styled.p`
   color: white;
   margin-bottom: 0.6rem;
-  font-family: ${({ theme }) => theme.fonts.family.main};
-  font-weight: ${({ theme }) => 400};
   font-size: 20px;
+  font-family: ${({ theme }) => theme.fonts.family.main};
+  font-weight: ${({ theme }) => 600};
 `;

@@ -78,8 +78,9 @@ const CardTitle = styled.h3`
   padding-top: 2.8rem;
   padding-bottom: 8px;
   font-size: 20px;
-  font-weight: ${({ theme }) => 400};
+  font-weight: ${({ theme }) => theme.fonts.weights.semibold};
   color: ${({ theme }) => theme.colors.text.white};
+  letter-spacing: 0%;
 `;
 const CardContent = styled.div`
   width: 100%;
@@ -88,5 +89,6 @@ const CardContentParagraph = styled.p`
   font-size: 16px;
   font-family: ${({ theme }) => theme.fonts.family.main};
   color: ${({ theme }) => theme.colors.text.normal};
+  line-height: 32px;
   font-weight: ${({ theme }) => theme.fonts.weights.normal};
 `;

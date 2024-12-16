@@ -191,7 +191,9 @@ const ShowCase: React.FC<ShowCaseProps> = () => {
         <Subtitle>
           <Paragraph
             style={{
-              fontSize: "14px !important",
+              fontSize: "16px !important",
+              letterSpacing: "0% !important",
+              lineHeight: "32px  !important",
             }}
           >
             PAiT is a multi-functional DeFi platform offering secure, one-click
