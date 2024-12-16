@@ -30,9 +30,8 @@ const Question = styled.div`
   display: flex;
   justify-content: space-between;
   font-size: 16px;
-  font-family: ${({ theme }) => theme.fonts.family.main};
   color: ${({ theme }) => theme.colors.text.white};
-  font-weight: ${({ theme }) => 300};
+  font-weight: ${({ theme }) => theme.fonts.weights.normal};
   font-family: ${({ theme }) => theme.fonts.family.main};
   align-items: center;
   cursor: pointer;

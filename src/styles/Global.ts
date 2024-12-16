@@ -43,6 +43,7 @@ export const GlobalStyle = createGlobalStyle`
         
         font-weight: 400;
         font-family: ${({ theme }) => theme.fonts.family.main};
+        background-color: ${({ theme }) => theme.colors.bg};
         font-optical-sizing: auto;
         font-weight: 400;
         font-style: normal;
@@ -51,9 +52,10 @@ export const GlobalStyle = createGlobalStyle`
         line-height: 1.6;
         letter-spacing: 0.1px;
         color: ${({ theme }) => theme.colors.text.normal};
-        @media (max-width: ${sizes.desktop + "px"}) {
+        /* @media (max-width: ${sizes.desktop + "px"}) {
             overflow-x: hidden;
-        }
+        } */
+        overflow-x: hidden;
 
    
     }
