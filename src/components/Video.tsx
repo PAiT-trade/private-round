@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { StyledVideo } from "./Footer";
 import styled from "styled-components";
+import { sizes } from "@/utils/media";
 
 interface Props {
   width: string;
@@ -82,4 +83,8 @@ const Wrapper = styled.div`
   background-color: transparent;
   border: 8px solid #fff;
   border-radius: 8px;
+  @media (min-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+    display: none;
+  }
 `;
