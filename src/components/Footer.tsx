@@ -93,7 +93,12 @@ export const Footer = () => {
                   <NavLink href="#" onClick={() => setShowVideo(!showVideo)}>
                     Watch video tutorial
                   </NavLink>
-                  <NavLink href="#">Contact</NavLink>
+                  <NavLink
+                    href="mailto:info@paitprivateround.fi"
+                    target="_blank"
+                  >
+                    Contact
+                  </NavLink>
                 </NavItem>
               </Nav>
             </FooterItem>
@@ -365,7 +370,7 @@ const ReadAgreement = styled.div`
   }
 `;
 
-const VideoContainer = styled.div`
+export const VideoContainer = styled.div`
   position: relative;
   width: 100%;
   max-width: 800px;
@@ -375,7 +380,7 @@ const VideoContainer = styled.div`
   overflow: hidden;
 `;
 
-const VideoTitle = styled.h3`
+export const VideoTitle = styled.h3`
   font-size: 16px;
   font-weight: 700;
   color: #fff;
@@ -386,14 +391,14 @@ const VideoTitle = styled.h3`
   }
 `;
 
-const StyledVideo = styled.video`
+export const StyledVideo = styled.video`
   width: 100%;
   height: auto;
   background-color: #000;
   border-radius: 8px;
 `;
 
-const Controls = styled.div`
+export const Controls = styled.div`
   position: absolute;
   bottom: 10px;
   left: 10px;
@@ -408,7 +413,7 @@ const Controls = styled.div`
   z-index: 2;
 `;
 
-const PlayButton = styled.button`
+export const PlayButton = styled.button`
   position: absolute;
   display: flex;
   justify-content: center;
@@ -430,7 +435,7 @@ const PlayButton = styled.button`
   }
 `;
 
-const ProgressBar = styled.input`
+export const ProgressBar = styled.input`
   flex: 1;
   margin: 0 10px;
   -webkit-appearance: none;
@@ -450,7 +455,7 @@ const ProgressBar = styled.input`
   }
 `;
 
-const VolumeControl = styled.input`
+export const VolumeControl = styled.input`
   width: 100px;
   -webkit-appearance: none;
   appearance: none;
@@ -469,7 +474,7 @@ const VolumeControl = styled.input`
   }
 `;
 
-const VideLink = styled.a`
+export const VideLink = styled.a`
   font-size: 14px;
   color: "#5ed9d2 !important";
   border-bottom: "2px solid #5ed9d2";

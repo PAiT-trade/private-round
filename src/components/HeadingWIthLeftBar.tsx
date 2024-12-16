@@ -62,7 +62,7 @@ const SubHeading = styled.h2<{ $smwidth?: string }>`
   color: #fff;
   font-size: 56px;
   font-weight: ${({ theme }) => 600 + " !important"};
-  font-family: ${({ theme }) => theme.fonts.family.main + "Sans-serif"};
+  font-family: ${({ theme }) => theme.fonts.family.main};
   letter-spacing: -1%;
   margin: 0;
   /* wrap text*/

@@ -176,6 +176,9 @@ const ButtonSection = styled.span`
 interface ShowCaseProps {}
 
 const ShowCase: React.FC<ShowCaseProps> = () => {
+  function learnMoreLink(_link: string) {
+    window.open(_link, "_blank");
+  }
   return (
     <ContentWrap>
       <Wrapper>
@@ -188,7 +191,9 @@ const ShowCase: React.FC<ShowCaseProps> = () => {
         <Subtitle>
           <Paragraph
             style={{
-              fontSize: "14px !important",
+              fontSize: "16px !important",
+              letterSpacing: "0% !important",
+              lineHeight: "32px  !important",
             }}
           >
             PAiT is a multi-functional DeFi platform offering secure, one-click
@@ -199,7 +204,10 @@ const ShowCase: React.FC<ShowCaseProps> = () => {
           </Paragraph>
         </Subtitle>
         <ButtonContainer>
-          <Button $bgcolor="#7F7BBE">
+          <Button
+            onClick={() => learnMoreLink("https://pait.fi")}
+            $bgcolor="#7F7BBE"
+          >
             <ButtonSection>
               <span>Learn more</span>
               <MoveUpRightIcon size={12} />

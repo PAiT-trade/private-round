@@ -155,7 +155,12 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                 </NavItemLink>
               </NavItem>
               <NavItem>
-                <NavItemLink>Contact</NavItemLink>
+                <NavItemLink
+                  href="mailto:info@paitprivateround.fi"
+                  target="_blank"
+                >
+                  Contact
+                </NavItemLink>
               </NavItem>
             </NavItems>
           </Navs>

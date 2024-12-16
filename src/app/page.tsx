@@ -39,6 +39,7 @@ import {
   ASSOCIATED_TOKEN_PROGRAM_ID,
 } from "@solana/spl-token";
 import { BackgroundImage } from "@/components/BackgroundImage";
+import { VideoPlayer } from "@/components/Video";
 
 export default function Home() {
   const { connected, publicKey } = useAnalyzedWallet();
@@ -443,19 +444,24 @@ export default function Home() {
     try {
       const signer = await primaryWallet.getSigner();
 
-      await signer.signAndSendTransaction(transaction);
-      const response = await createNewPurchase({
-        user_id: state.user?.id,
-        pait_tokens: Number(state.amountInPait),
-        usdc_amount: Number(state.amountInUsd),
-        usedReferral: state.referralCode ? state.referralCode : "",
-      });
+      const tx = await signer.signAndSendTransaction(transaction);
+      if (tx.signature) {
+        const response = await createNewPurchase({
+          user_id: state.user?.id,
+          pait_tokens: Number(state.amountInPait),
+          usdc_amount: Number(state.amountInUsd),
+          usedReferral: state.referralCode ? state.referralCode : "",
+        });
 
-      localStorage.removeItem("referral");
+        localStorage.removeItem("referral");
 
-      if (response.status === "success") {
-        router.push(`/sign/${response?.purchase?.id}`);
-        console.log("Transaction sent successfully:");
+        if (response.status === "success") {
+          router.push(`/sign/${response?.purchase?.id}`);
+          console.log("Transaction sent successfully:");
+        }
+      } else {
+        setIsLoading(false);
+        toast.error("Transaction failed");
       }
       // console.log("USDC transaction sent:", txid);
     } catch (error: unknown) {
@@ -501,7 +507,7 @@ export default function Home() {
                 $buyPait={sendUSDC}
                 $calculateAmountInPait={calculateAmountInPait}
               />
-              <ShowCaseImg src="/float-showcase.svg" />
+              <VideoPlayer width="100%" height="209.77px" borderRadius="8px" />
             </FlexContainer>
           </MinWrapp>
         </HeaderWrapper>
@@ -514,7 +520,7 @@ export default function Home() {
             <HeadingWithBar
               $title="INSTRUCTION"
               $color="#ADA5D1"
-              $subtitlewidth="635px !important"
+              $subtitlewidth="628px !important"
               $smwidth="347px !important"
               $subtitle="How to acquire tokens in the private round?"
             />

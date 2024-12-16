@@ -74,8 +74,8 @@ const CardImg = styled.img`
 const CardTitle = styled.h3`
   color: white;
   font-family: ${({ theme }) => theme.fonts.family.main};
-  font-weight: ${({ theme }) => 400};
-
+  font-weight: ${({ theme }) => theme.fonts.weights.semibold};
+  letter-spacing: 0%;
   padding-bottom: 8px;
   font-size: 20px;
   margin-bottom: 0.6rem;
@@ -86,9 +86,13 @@ const CardContent = styled.div`
 const CardContentParagraph = styled.p`
   font-size: 16px;
   font-family: ${({ theme }) => theme.fonts.family.main};
-  color: ${({ theme }) => theme.colors.text.normal};
+  color: ${({ theme }) => theme.colors.text.less_50};
   font-weight: ${({ theme }) => theme.fonts.weights.normal};
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 304px;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 100%;
+  }
 `;

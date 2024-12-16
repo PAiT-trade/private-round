@@ -56,7 +56,7 @@ export const theme = {
       large: "80px",
     },
     family: {
-      main: "Mona Sans",
+      main: "Mona Sans, sans-serif",
       code: "Courier, monospace",
     },
     weights: {
