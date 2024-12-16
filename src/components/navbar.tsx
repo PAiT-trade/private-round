@@ -141,27 +141,38 @@ export const NavSection = () => {
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
+    const elementHeight = document.documentElement.scrollHeight;
+    const viewportHeight = window.innerHeight;
 
-    if (currentScrollY > lastScrollY && currentScrollY > 50) {
-      // Hide header when scrolling down
+    // if (currentScrollY > lastScrollY && currentScrollY > 100) {
+    //   // Hide header when scrolling down
+    //   setIsActive(false);
+    // } else {
+    //   // Show header when scrolling up
+    //   // setIsActive(true);
+    // }
+
+    if (elementHeight > viewportHeight * 3 + currentScrollY) {
+      // Restrict scrolling
+      document.body.style.overflow = "hidden";
       setIsActive(false);
     } else {
-      // Show header when scrolling up
-      // setIsActive(true);
+      // Allow scrolling
+      document.body.style.overflow = "auto";
+      setIsActive(true);
     }
-
     setLastScrollY(currentScrollY);
   };
 
   const router = useRouter();
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [lastScrollY]);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [lastScrollY]);
   return (
     <>
       <MobileNav $isActive={isActive} $setIActive={setShow} />
@@ -195,7 +206,11 @@ export const NavSection = () => {
             </NavItemLink>
           </NavItem>
         </NavItems>
-        <NavActions>
+        <NavActions
+          onClick={() => {
+            setIsActive(!isActive);
+          }}
+        >
           <DynamicWidget
             innerButtonComponent={
               <WalletConnect>
