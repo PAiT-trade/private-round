@@ -443,19 +443,24 @@ export default function Home() {
     try {
       const signer = await primaryWallet.getSigner();
 
-      await signer.signAndSendTransaction(transaction);
-      const response = await createNewPurchase({
-        user_id: state.user?.id,
-        pait_tokens: Number(state.amountInPait),
-        usdc_amount: Number(state.amountInUsd),
-        usedReferral: state.referralCode ? state.referralCode : "",
-      });
+      const tx = await signer.signAndSendTransaction(transaction);
+      if (tx.signature) {
+        const response = await createNewPurchase({
+          user_id: state.user?.id,
+          pait_tokens: Number(state.amountInPait),
+          usdc_amount: Number(state.amountInUsd),
+          usedReferral: state.referralCode ? state.referralCode : "",
+        });
 
-      localStorage.removeItem("referral");
+        localStorage.removeItem("referral");
 
-      if (response.status === "success") {
-        router.push(`/sign/${response?.purchase?.id}`);
-        console.log("Transaction sent successfully:");
+        if (response.status === "success") {
+          router.push(`/sign/${response?.purchase?.id}`);
+          console.log("Transaction sent successfully:");
+        }
+      } else {
+        setIsLoading(false);
+        toast.error("Transaction failed");
       }
       // console.log("USDC transaction sent:", txid);
     } catch (error: unknown) {
