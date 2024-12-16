@@ -190,7 +190,9 @@ export const NavSection = () => {
             </NavItemLink>
           </NavItem>
           <NavItem>
-            <NavItemLink href="#">Contact</NavItemLink>
+            <NavItemLink href="mailto:info@paitprivateround.fi" target="_blank">
+              Contact
+            </NavItemLink>
           </NavItem>
         </NavItems>
         <NavActions>

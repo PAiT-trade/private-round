@@ -93,7 +93,12 @@ export const Footer = () => {
                   <NavLink href="#" onClick={() => setShowVideo(!showVideo)}>
                     Watch video tutorial
                   </NavLink>
-                  <NavLink href="#">Contact</NavLink>
+                  <NavLink
+                    href="mailto:info@paitprivateround.fi"
+                    target="_blank"
+                  >
+                    Contact
+                  </NavLink>
                 </NavItem>
               </Nav>
             </FooterItem>

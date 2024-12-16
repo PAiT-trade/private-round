@@ -272,7 +272,11 @@ const PreSale: React.FC<PreSaleProps> = ({ $remainingtime }) => {
         </Paragraph>
       </Subtitle>
       <ButtonContainer style={{ paddingBottom: "48px" }}>
-        <Button $bgcolor="#7F7BBE" href="#">
+        <Button
+          href="mailto:info@paitprivateround.fi"
+          target="_blank"
+          $bgcolor="#7F7BBE"
+        >
           <ButtonWallet>
             <span>Contact</span>
             <MoveUpRightIcon size={12} />
