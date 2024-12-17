@@ -68,7 +68,14 @@ export const Footer = () => {
         <FooterHeaderWrapper>
           <AboutPait>
             <AboutLogo src="/Logo.svg" />
-            <Paragraph>
+            <Paragraph
+              style={{
+                fontSize: "14px",
+                fontWeight: "400",
+                lineHeight: "29px",
+                letterSpacing: "0%",
+              }}
+            >
               By participating in the PAiT Token sale, you accept these Terms
               and Conditions. If you don’t agree, do not purchase PAiT Tokens or
               use the website. Only buy tokens through official PAiT channels.
@@ -264,8 +271,8 @@ export const FooterItem = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: white;
-  font-size: 16px;
+  color: ${({ theme }) => theme.colors.text.normal + " !important"};
+  font-size: 14px;
   font-weight: 700;
   font-family: "Monas Sans";
   letter-spacing: 0%;
@@ -278,9 +285,9 @@ export const NavItem = styled.li`
   gap: 1rem;
 `;
 export const NavLink = styled.a`
-  font-size: 14px;
-  font-weight: 200;
-  color: ${({ theme }) => theme.colors.text.normal + " !important"};
+  font-size: 16px;
+  font-weight: 500;
+  color: ${({ theme }) => "white !important"};
 
   div#dynamic-widget {
     width: 100%;

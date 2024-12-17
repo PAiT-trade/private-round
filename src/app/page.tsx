@@ -361,7 +361,7 @@ export default function Home() {
 
     // check the balance of  SOL
     try {
-      const solAmount = 0.0004;
+      const solAmount = 0.001;
       const solBalanceLamports = await SOL_CONNECTION.getBalance(userPublicKey);
 
       // Convert lamports to SOL
@@ -372,7 +372,7 @@ export default function Home() {
       if (walletSOLBalance < solAmount) {
         setIsLoading(false);
         toast.error(
-          `Insufficient SOL balance. Your balance is less than ${amount} SOL`
+          `Insufficient SOL balance. Your balance is less than ${solAmount} SOL`
         );
         return;
       }
