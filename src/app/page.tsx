@@ -359,6 +359,32 @@ export default function Home() {
       return;
     }
 
+    // check the balance of  SOL
+    try {
+      const solAmount = 0.0004;
+      const solBalanceLamports = await SOL_CONNECTION.getBalance(userPublicKey);
+
+      // Convert lamports to SOL
+      const walletSOLBalance = solBalanceLamports / Math.pow(10, 9);
+
+      console.log("SOL Balance:", walletSOLBalance);
+
+      if (walletSOLBalance < solAmount) {
+        setIsLoading(false);
+        toast.error(
+          `Insufficient SOL balance. Your balance is less than ${amount} SOL`
+        );
+        return;
+      }
+    } catch (error) {
+      console.log(
+        "Error finalizing the transactions, you have insufficient SOL"
+      );
+      throw new Error(
+        "Error finalizing the transactions, you have insufficient SOL"
+      );
+    }
+
     try {
       // Get balance of the first USDC account
       const usdcAccountInfo = await getAccount(
