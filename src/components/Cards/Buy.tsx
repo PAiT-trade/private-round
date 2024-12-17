@@ -55,9 +55,10 @@ export const BuyCard: React.FC<BuyCardProps> = ({
                 {formatNumber(Number($state.allocation.remaining))
                   .toString()
                   .split(".")[0] + " "}
-                updated every 24h <MessageCircleQuestion size={16} />
+                updated every 24h
+                {/* <MessageCircleQuestion size={16} /> */}
               </p>{" "}
-              <ToolTip>Use USDC on Solana for payment.</ToolTip>
+              {/* <ToolTip>Use USDC on Solana for payment.</ToolTip> */}
             </BTextAllocation>
           </BuyCardHeaderAllocationValue>
         </BuyCardHeaderAllocationHeader>
@@ -95,7 +96,7 @@ export const BuyCard: React.FC<BuyCardProps> = ({
           <FromGroup>
             <FromLabel>
               <span>Pay with $USDC</span>
-              <img src="/contact_support.svg" />
+              {/* <img src="/contact_support.svg" /> */}
             </FromLabel>
             <FromControl>
               <FromControlInput
