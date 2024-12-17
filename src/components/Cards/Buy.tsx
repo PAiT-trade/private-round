@@ -95,7 +95,10 @@ export const BuyCard: React.FC<BuyCardProps> = ({
         <FormWrapper>
           <FromGroup>
             <FromLabel>
-              <span>Pay with $USDC</span>
+              Pay with $USDC
+              {/* <span>
+
+              </span> */}
               {/* <img src="/contact_support.svg" /> */}
             </FromLabel>
             <FromControl>
@@ -176,11 +179,11 @@ export const BuyCard: React.FC<BuyCardProps> = ({
             //   return;
             // }
 
-            if (!$state.user.is_approved) {
-              toast.error("Please perform KYC verification to proceed.");
-              router.push("/kyc");
-              return;
-            }
+            // if (!$state.user.is_approved) {
+            //   toast.error("Please perform KYC verification to proceed.");
+            //   router.push("/kyc");
+            //   return;
+            // }
 
             if ($state.isInValid) {
               toast.error(
