@@ -301,10 +301,9 @@ const Card = styled.div`
   min-width: 519px;
   color: #fff;
   padding: 32px 12px 32px 12px;
-  background-color: #1e1e1e;
-  /* background-color: transparent; */
-  backdrop-filter: blur(8%);
-  -webkit-backdrop-filter: blur(8%);
+  background-color: rgba(36, 37, 37, 0.3);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -450,6 +449,10 @@ const FromControl = styled.div`
   @media (max-width: ${sizes.tablet + "px"}) {
     width: 100%;
   }
+
+  div {
+    background-color: red;
+  }
 `;
 const FromControlInput = styled.input`
   width: 100%;
@@ -464,6 +467,7 @@ const FromControlInput = styled.input`
 const FromControlIcon = styled.img`
   width: 30px;
   height: 30px;
+  margin-right: 16px;
 `;
 
 const BuyNow = styled.button`
