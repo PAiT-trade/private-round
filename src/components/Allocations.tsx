@@ -19,7 +19,7 @@ export const Allocations = () => {
         <CardContent>
           <CardTitle>Unlock schedule.</CardTitle>
           <CardContentParagraph>
-            10% at TGE, 3 months cliff, linear vesting 18 months
+            10% at TGE, 3 months cliff, linear vesting 18 months.
           </CardContentParagraph>
         </CardContent>
       </Card>

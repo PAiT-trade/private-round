@@ -300,8 +300,9 @@ const ToolTip = styled.b`
 const Card = styled.div`
   min-width: 519px;
   color: #fff;
-  padding: 32px 12px 12px 12px;
+  padding: 32px 12px 32px 12px;
   background-color: #1e1e1e;
+  /* background-color: transparent; */
   backdrop-filter: blur(8%);
   -webkit-backdrop-filter: blur(8%);
   display: flex;
@@ -458,10 +459,11 @@ const FromControlInput = styled.input`
   font-size: 14px;
   background-color: #fff;
   outline-width: 0;
+  font-size: 18px !important;
 `;
 const FromControlIcon = styled.img`
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 `;
 
 const BuyNow = styled.button`
