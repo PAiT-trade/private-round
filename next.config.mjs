@@ -49,7 +49,7 @@ const nextConfig = {
 
   webpack: (config, { isServer }) => {
     config.module.rules.push({
-      test: /prisma\.ts/,
+      test: /prisma\.cjs/,
       use: "null-loader",
       resolve: {
         fullySpecified: false,

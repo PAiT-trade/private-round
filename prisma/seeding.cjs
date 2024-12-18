@@ -1,5 +1,5 @@
-import { PrismaClient } from "@prisma/client";
-import fs from "fs";
+const { PrismaClient } = require("@prisma/client");
+const fs = require("fs");
 // const { randomUUID } = require("crypto");
 
 const db = new PrismaClient();
