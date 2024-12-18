@@ -31,7 +31,7 @@ const ShowCaseImgWrapper = styled.div`
 `;
 const ShowCaseImg = styled.img`
   align-self: center;
-  width: 260px;
+  width: 280px;
   height: 567px;
   border: 1px solid #3f4040;
   border-radius: 40px;
@@ -186,7 +186,8 @@ const ShowCase: React.FC<ShowCaseProps> = () => {
           <b>
             What is <span>PAiT</span>?
           </b>
-          <b>Save & one-click investing into DeFi</b>
+          <b>Save & one-click</b>
+          <b> investing into DeFi</b>
         </Title>
         <Subtitle>
           <Paragraph
@@ -194,6 +195,7 @@ const ShowCase: React.FC<ShowCaseProps> = () => {
               fontSize: "16px !important",
               letterSpacing: "0% !important",
               lineHeight: "32px  !important",
+              fontWeight: "300 !important",
             }}
           >
             PAiT is a multi-functional DeFi platform offering secure, one-click
@@ -206,7 +208,7 @@ const ShowCase: React.FC<ShowCaseProps> = () => {
         <ButtonContainer>
           <Button
             onClick={() => learnMoreLink("https://pait.fi")}
-            $bgcolor="#7F7BBE"
+            $bgcolor="#ADA5D1"
           >
             <ButtonSection>
               <span>Learn more</span>
@@ -216,13 +218,14 @@ const ShowCase: React.FC<ShowCaseProps> = () => {
         </ButtonContainer>
       </Wrapper>
       <ShowCaseImgWrapper>
-        <ShowCaseImg src="/showcase-img.png" />
+        <ShowCaseImg src="/iphone-preview.png" />
       </ShowCaseImgWrapper>
       <MTitle>
         <b>
           What is <span>PAiT</span>?
         </b>
-        <b>Save & one-click investing into DeFi</b>
+        <b>Save & one-click</b>
+        <b> investing into DeFi</b>
       </MTitle>
     </ContentWrap>
   );

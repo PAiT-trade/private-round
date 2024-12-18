@@ -40,7 +40,7 @@ export const Rewards = () => {
         <CardContent>
           <CardContentParagraph>
             All referral tokens will be unlocked during the Token Generation
-            Event(TGE)
+            Event (TGE).
           </CardContentParagraph>
         </CardContent>
       </Card>
