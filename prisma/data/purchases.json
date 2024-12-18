@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "user_id": 14,
+    "pait_tokens": "6250",
+    "usdc_amount": "1000",
+    "used_referral": "",
+    "created_at": "2024-11-04T13:07:21.521Z"
+  },
+  {
+    "id": 2,
+    "user_id": 15,
+    "pait_tokens": "12500",
+    "usdc_amount": "2000",
+    "used_referral": "6132d931-0812-4a93-9c5d-114f43553709",
+    "created_at": "2024-11-04T18:06:26.803Z"
+  },
+  {
+    "id": 3,
+    "user_id": 4,
+    "pait_tokens": "12.5",
+    "usdc_amount": "2",
+    "used_referral": "",
+    "created_at": "2024-11-05T12:14:51.474Z"
+  },
+  {
+    "id": 4,
+    "user_id": 20,
+    "pait_tokens": "6250",
+    "usdc_amount": "1000",
+    "used_referral": "9b6cb981-d64a-4abb-8f81-dd681983e894",
+    "created_at": "2024-11-05T20:26:39.350Z"
+  },
+  {
+    "id": 5,
+    "user_id": 26,
+    "pait_tokens": "6250",
+    "usdc_amount": "1000",
+    "used_referral": "",
+    "created_at": "2024-11-17T14:54:47.480Z"
+  },
+  {
+    "id": 6,
+    "user_id": 27,
+    "pait_tokens": "6500",
+    "usdc_amount": "1040",
+    "used_referral": "",
+    "created_at": "2024-11-22T11:54:03.683Z"
+  },
+  {
+    "id": 7,
+    "user_id": 28,
+    "pait_tokens": "6250",
+    "usdc_amount": "1000",
+    "used_referral": "3d27df4e-2b9c-4d08-87a4-44929bbe75f1",
+    "created_at": "2024-11-23T15:44:49.090Z"
+  },
+  {
+    "id": 8,
+    "user_id": 29,
+    "pait_tokens": "6875",
+    "usdc_amount": "1100",
+    "used_referral": "",
+    "created_at": "2024-11-30T17:58:11.450Z"
+  }
+]

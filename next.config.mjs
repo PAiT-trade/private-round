@@ -1,3 +1,5 @@
+import { use } from "react";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   compiler: {
@@ -43,6 +45,20 @@ const nextConfig = {
     MAIL_PASSWORD: process.env.MAIL_PASSWORD,
     ENVIROMENT_ID: process.env.ENVIROMENT_ID,
     API_URL: process.env.API_URL,
+  },
+
+  webpack: (config, { isServer }) => {
+    config.module.rules.push({
+      test: /prisma\.cjs/,
+      use: "null-loader",
+      resolve: {
+        fullySpecified: false,
+      },
+    });
+    if (!isServer) {
+      config.resolve.fallback.fs = false;
+    }
+    return config;
   },
 };
 
