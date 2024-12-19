@@ -124,7 +124,7 @@ const customCSS = `
         height: 100% !important;
     }
     .connect-button{
-        width:100% !important;
+        width: 100% !important;
         height: 55px !important;
         border:none;  
         border-radius: 4px !important;   
@@ -202,10 +202,10 @@ const customCSS = `
   }
 
   .wallet-list__container {
-   min-height: 23.5rem !important;
+   min-height: 22.5rem !important;
   }
   .wallet-list__scroll-container {
-    min-height: 23rem !important;
+    min-height: 20rem !important;
    }
 
   .vertical-accordion__container {
