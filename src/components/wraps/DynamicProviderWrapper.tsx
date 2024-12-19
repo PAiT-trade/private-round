@@ -3,10 +3,14 @@ import React from "react";
 import {
   DynamicContextProvider,
   SortWallets,
+  FilterChain,
+  RemoveWallets,
 } from "@dynamic-labs/sdk-react-core";
 import { DynamicWagmiConnector } from "@dynamic-labs/wagmi-connector";
 import { SolanaWalletConnectors } from "@dynamic-labs/solana";
 import { createConfig, WagmiProvider } from "wagmi";
+import { pipe } from "@dynamic-labs/utils";
+import { EthereumIcon, SolanaIcon } from "@dynamic-labs/iconic";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { http } from "viem";
 import { mainnet } from "viem/chains";
@@ -19,6 +23,16 @@ const config = createConfig({
   },
 });
 const queryClient = new QueryClient();
+/**
+ *  SortWallets([
+          "phantomevm",
+          "coinbasesolana",
+          "soflare",
+          "okxsolana",
+        ])
+ * @param param0 
+ * @returns 
+ */
 
 export const DynamicProviderWrapper: React.FC<{
   children: React.ReactNode;
@@ -35,16 +49,28 @@ export const DynamicProviderWrapper: React.FC<{
         detectNewWalletsForLinking: true,
         recommendedWallets: [
           { walletKey: "phantomevm", label: "Popular" },
-          { walletKey: "coinbasesolana" },
           { walletKey: "soflare" },
-          { walletKey: "okxsolana" },
         ],
-        walletsFilter: SortWallets([
-          "phantomevm",
-          "coinbasesolana",
-          "soflare",
-          "okxsolana",
-        ]),
+        walletsFilter: pipe(FilterChain("SOL"))
+          .pipe(
+            RemoveWallets([
+              "backpacksol",
+              "bitgetwalletsol",
+              "bravesol",
+              "coin98sol",
+              "exodussol",
+              "exodussol",
+              "glow",
+              "magicedensol",
+              "mathwalletsol",
+              "nightlysol",
+              "okxsolana",
+              "onekeysol",
+              "fallbackconnector",
+            ])
+          )
+          .pipe(SortWallets(["phantomevm", "coinbasesolana", "soflare"])),
+
         appName: "PAiT",
         appLogoUrl: "https://pait-interface-prod.vercel.app/logo.svg",
         initialAuthenticationMode: "connect-and-sign",
@@ -98,7 +124,7 @@ const customCSS = `
         height: 100% !important;
     }
     .connect-button{
-        width:100% !important;
+        width: 100% !important;
         height: 55px !important;
         border:none;  
         border-radius: 4px !important;   
@@ -176,10 +202,10 @@ const customCSS = `
   }
 
   .wallet-list__container {
-   min-height: 23.5rem !important;
+   min-height: 22.5rem !important;
   }
   .wallet-list__scroll-container {
-    min-height: 23rem !important;
+    min-height: 20rem !important;
    }
 
   .vertical-accordion__container {
