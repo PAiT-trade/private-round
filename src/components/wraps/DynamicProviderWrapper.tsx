@@ -54,23 +54,23 @@ export const DynamicProviderWrapper: React.FC<{
         walletsFilter: pipe(FilterChain("SOL"))
           .pipe(
             RemoveWallets([
-              "back-pack",
-              "bitget",
+              "backpacksol",
+              "bitgetwalletsol",
+              "bravesol",
+              "coin98sol",
+              "exodussol",
+              "exodussol",
               "glow",
-              "coin98",
-              "brave",
-              "exodus",
-              "magiceden",
+              "magicedensol",
+              "mathwalletsol",
+              "nightlysol",
+              "okxsolana",
+              "onekeysol",
+              "fallbackconnector",
             ])
           )
-          .pipe(
-            SortWallets([
-              "phantomevm",
-              "coinbasesolana",
-              "soflare",
-              "okxsolana",
-            ])
-          ),
+          .pipe(SortWallets(["phantomevm", "coinbasesolana", "soflare"])),
+
         appName: "PAiT",
         appLogoUrl: "https://pait-interface-prod.vercel.app/logo.svg",
         initialAuthenticationMode: "connect-and-sign",
