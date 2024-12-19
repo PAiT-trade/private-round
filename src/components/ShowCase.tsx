@@ -33,7 +33,6 @@ const ShowCaseImg = styled.img`
   align-self: center;
   width: 280px;
   height: 567px;
-  border: 1px solid #3f4040;
   border-radius: 40px;
 
   @media (max-width: ${sizes.tablet + "px"}) {
