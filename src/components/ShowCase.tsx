@@ -31,12 +31,12 @@ const ShowCaseImgWrapper = styled.div`
 `;
 const ShowCaseImg = styled.img`
   align-self: center;
-  width: 280px;
+  width: 278px;
   height: 567px;
   border-radius: 40px;
 
   @media (max-width: ${sizes.tablet + "px"}) {
-    width: 250px;
+    width: 280px;
     padding: 1.5rem;
   }
 `;
@@ -217,7 +217,7 @@ const ShowCase: React.FC<ShowCaseProps> = () => {
         </ButtonContainer>
       </Wrapper>
       <ShowCaseImgWrapper>
-        <ShowCaseImg src="/iphone-preview.png" />
+        <ShowCaseImg src="/preview-iphone.svg" />
       </ShowCaseImgWrapper>
       <MTitle>
         <b>
