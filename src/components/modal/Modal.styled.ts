@@ -1,4 +1,5 @@
 import { devices } from "@/styles/common";
+import { sizes } from "@/utils/media";
 import styled from "styled-components";
 
 export const ModalOverlary = styled.div`
@@ -25,8 +26,15 @@ export const Modal = styled.div<ModalProps>`
   box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.25);
   color: #fff;
   width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   @media ${devices.mobile} {
-    max-width: 95%;
+    max-width: 98%;
+  }
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 95% !important;
   }
 `;
 

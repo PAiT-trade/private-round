@@ -34,17 +34,19 @@ export const ModalSection: React.FC<ModalSectionProps> = ({
     isOpen && (
       <ModalOverlary>
         <Modal bg="dark">
-          <ModalHeader>
-            <ModalTitle>{title}</ModalTitle>
-            <ModalCloseIcon
-              onClick={() => {
-                setIsOpen(!isOpen);
-              }}
-            >
-              <CircleXIcon size={24} />
-            </ModalCloseIcon>
-          </ModalHeader>
-          <ModalBody>{children}</ModalBody>
+          <div>
+            <ModalHeader>
+              <ModalTitle>{title}</ModalTitle>
+              <ModalCloseIcon
+                onClick={() => {
+                  setIsOpen(!isOpen);
+                }}
+              >
+                <CircleXIcon size={24} />
+              </ModalCloseIcon>
+            </ModalHeader>
+            <ModalBody>{children}</ModalBody>
+          </div>
         </Modal>
       </ModalOverlary>
     )
