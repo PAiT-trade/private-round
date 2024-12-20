@@ -3,7 +3,6 @@ const fs = require("fs");
 // const { randomUUID } = require("crypto");
 
 const db = new PrismaClient();
-console.log(`${__dirname}`);
 
 async function main() {
   const users = JSON.parse(
@@ -18,6 +17,10 @@ async function main() {
       const response = await db.user.create({
         data: { ...user },
       });
+
+      console.log(
+        `User: ${response.name} -  https://privateround.pait.fi/?referral=${response.referral}`
+      );
     } else {
       console.log("User already exists");
     }
