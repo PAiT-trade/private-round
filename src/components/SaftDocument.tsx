@@ -819,7 +819,7 @@ const SignaturePad: React.FC<SignaturePadProps> = ({
           )}
         </DocumentContainer>
       </div>
-      {showSignature && (
+      {showSignature && !isOpen && (
         <Container>
           <Button onClick={clear} style={{ border: "2px solid red" }}>
             CLEAR
@@ -1030,12 +1030,12 @@ const WrapContent = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding: 20px;
+  padding: 10px;
 `;
 
 const Wraps = styled.div`
   border-radius: 8px;
-  padding: 15px;
+  padding: 10px;
   width: 100%;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -1050,7 +1050,7 @@ const Wraps = styled.div`
 const HeadingPage = styled.h3`
   font-size: 18px;
   color: #fff;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   text-align: center;
 `;
 
