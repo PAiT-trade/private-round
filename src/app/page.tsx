@@ -87,8 +87,8 @@ export default function Home() {
       setState((prevState) => ({
         ...prevState,
         allocation: {
-          remaining: result.allocation ? result.allocation.remaining : 1956000,
-          total: 2000000,
+          remaining: result.allocation ? result.allocation.remaining : 956000,
+          total: 1000000,
         },
       }));
     } catch (error) {}
