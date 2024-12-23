@@ -34,7 +34,7 @@ const FloatHeader = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 8px 8px;
+  padding: 3px 3px;
   gap: 1rem;
 `;
 
