@@ -277,7 +277,7 @@ export const Wrapping = styled.div`
 `;
 
 export const MinWrapp = styled.div`
-  width: 100%;
+  width: 87%;
   background: linear-gradient(
       to bottom right,
       rgba(15, 15, 15, 0.1),
@@ -286,7 +286,7 @@ export const MinWrapp = styled.div`
     url("/header-cover.png");
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 0 12rem !important;
+  /* padding: 0 12rem !important; */
   padding-bottom: 12rem;
   height: 100%;
   display: flex;
