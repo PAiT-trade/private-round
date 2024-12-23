@@ -7,6 +7,7 @@ import { SectionWrapper } from "@/styles/app-common-styled";
 import { Footer, StyledVideo } from "../Footer";
 import { Toaster, ToastBar } from "react-hot-toast";
 import { useRef, useState } from "react";
+import { MaximizeIcon, MinusIcon } from "lucide-react";
 
 interface BaseLayoutProps {
   children: React.ReactNode;
@@ -29,10 +30,19 @@ const BottomRightCorner = styled.div`
   }
 `;
 
+const FloatHeader = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 8px 8px;
+  gap: 1rem;
+`;
+
 const FloatShowCase = styled.img``;
 
 export const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => {
   const [showVideo, setShowVideo] = useState<boolean>(false);
+  const [minimized, setMinimized] = useState<boolean>(false);
 
   // Videos
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -88,17 +98,35 @@ export const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => {
         </SectionWrapper>
 
         <BottomRightCorner>
-          <StyledVideo
-            style={{ width: "236px", height: "148px", borderRadius: "8px" }}
-            ref={videoRef}
-            onTimeUpdate={updateProgress}
-            onClick={handlePlayPause}
-            controls={true}
-            muted={false}
-          >
-            <source src="/cleaned_video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </StyledVideo>
+          <FloatHeader>
+            <MinusIcon
+              size={16}
+              color="#fff"
+              onClick={() => {
+                setMinimized(!minimized);
+              }}
+            />
+            <MaximizeIcon
+              size={15}
+              color="#fff"
+              onClick={() => {
+                setMinimized(!minimized);
+              }}
+            />
+          </FloatHeader>
+          {!minimized && (
+            <StyledVideo
+              style={{ width: "236px", height: "148px", borderRadius: "8px" }}
+              ref={videoRef}
+              onTimeUpdate={updateProgress}
+              onClick={handlePlayPause}
+              controls={true}
+              muted={false}
+            >
+              <source src="/cleaned_video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </StyledVideo>
+          )}
         </BottomRightCorner>
       </Wrapper>
       <Toaster
