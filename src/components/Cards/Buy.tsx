@@ -494,7 +494,7 @@ const FromControlInput = styled.input`
 const FromControlIcon = styled.img`
   width: 30px;
   height: 30px;
-  /* margin-right: 16px; */
+  margin-right: 16px;
 `;
 
 const WrappingButton = styled.div`
