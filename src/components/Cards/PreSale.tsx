@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  padding: 32px 12px 32px 12px;
 
   p {
     width: 450px;
@@ -32,8 +33,9 @@ const Wrapper = styled.div`
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
     max-width: 100%;
+    padding: 0 !important;
     width: 100%;
-    align-self: center;
+    padding: 10px !important;
     margin-bottom: 48px !important;
   }
 `;
@@ -133,14 +135,12 @@ const ButtonContainer = styled.div`
     &:last-child {
       width: 185px;
       height: 60px;
-      padding: 0 32px;
     }
   }
   @media (max-width: ${sizes.tablet + "px"}) {
     margin: 0;
     align-content: center;
     justify-content: space-between;
-    width: 100% !important;
     margin-bottom: 32px !important;
   }
 `;
@@ -162,7 +162,7 @@ const Button = styled.a<{ $bgcolor?: string }>`
     width: 164px;
 
     &:last-child {
-      width: 163px;
+      width: 158px;
     }
   }
 `;

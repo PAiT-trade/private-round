@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
+        box-sizing: border-box;
     }
     *,
     *::before,
@@ -19,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
         
     }
     html {
-        box-sizing: border-box;
+        box-sizing: inherit;
         font-size: 65.5% ; // 1rem = 10px , 10px/16px = 62.5%
         width: 100%;
         overflow-x: hidden !important;

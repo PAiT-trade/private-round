@@ -468,7 +468,9 @@ export default function Home() {
 
     try {
       const signer = await primaryWallet.getSigner();
-      await signer.signAndSendTransaction(transaction);
+      const tx = await signer.signAndSendTransaction(transaction);
+
+      // const receipt = await SOL_CONNECTION.getTransaction(tx.signature);
       const response = await createNewPurchase({
         user_id: state.user?.id,
         pait_tokens: Number(state.amountInPait),
@@ -480,18 +482,11 @@ export default function Home() {
 
       if (response.status === "success") {
         router.push(`/sign/${response?.purchase?.id}`);
-        setIsLoading(false);
         console.log("Transaction sent successfully:");
+      } else {
+        toast.error("Transaction failed or response status not success.");
       }
-      // if (tx.signature) {
-
-      // } else {
-      //   setIsLoading(false);
-      //   toast.error("Transaction failed");
-      // }
-      // console.log("USDC transaction sent:", txid);
     } catch (error: unknown) {
-      setIsLoading(false);
       if (error instanceof Error) {
         console.error("Error during transaction:", error);
         toast.error(
@@ -499,8 +494,10 @@ export default function Home() {
         );
       } else {
         console.error("Unexpected error:", error);
-        toast.error("Failed to buy PAit token");
+        toast.error("Failed to buy PAiT token");
       }
+    } finally {
+      setIsLoading(false); // Ensure it's always called
     }
   }, [connected, publicKey, state]);
 
@@ -513,11 +510,6 @@ export default function Home() {
           backgroundSize: `auto 272px`,
           backgroundRepeat: "no-repeat",
           width: "100%",
-          // zIndex: 100,
-
-          // [`@media (max-width: ${sizes.tablet}px)`]: {
-          //   display: "none",
-          // },
         }}
       >
         <HeaderWrapper>
@@ -634,6 +626,7 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   color: white;
+  /* padding: 0 12rem 0 12rem; */
   width: 1440px;
   width: 100%;
   height: 100%;
@@ -659,6 +652,8 @@ const FlexContainer = styled.div`
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
     flex-direction: column;
+    align-items: center;
+
     padding: 8px 16px !important;
     gap: 2rem;
   }

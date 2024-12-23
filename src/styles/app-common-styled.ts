@@ -246,16 +246,20 @@ export const ConnectWalletButtonExtends = styled.div`
 `;
 
 export const Wrapping = styled.div`
-  /* background-color: #0e111b; */
+  /* background-color: red; */
+  /* height: 20vh; */
   /* min-height: 900px; */
   /* mobile and tablet */
+
+  /* margin: 0 12rem; */
+
   min-width: 100% !important;
   @media (max-width: ${sizes.desktop + "px"}) {
     min-width: 100% !important;
     margin: 0;
     max-width: 100%;
     width: 100%;
-    /* padding: 32px 0; */
+    padding: 32px 0;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -273,7 +277,7 @@ export const Wrapping = styled.div`
 `;
 
 export const MinWrapp = styled.div`
-  width: 100%;
+  width: 87%;
   background: linear-gradient(
       to bottom right,
       rgba(15, 15, 15, 0.1),
@@ -282,7 +286,7 @@ export const MinWrapp = styled.div`
     url("/header-cover.png");
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 0px 12rem;
+  /* padding: 0 12rem !important; */
   padding-bottom: 12rem;
   height: 100%;
   display: flex;
@@ -295,7 +299,7 @@ export const MinWrapp = styled.div`
     margin: 0;
     gap: 3rem;
     max-width: 100%;
-    padding: 0px 0px 32px 0px;
+    padding: 0px 0px 32px 0px !important;
     display: flex;
     justify-content: center;
     align-items: center;
