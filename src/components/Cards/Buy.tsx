@@ -46,7 +46,11 @@ export const BuyCard: React.FC<BuyCardProps> = ({
 
       <BuyCardHeaderAllocationWrapper>
         <BuyCardHeaderAllocationHeader>
-          <BuyCardHeaderAllocationLabel>
+          <BuyCardHeaderAllocationLabel
+            style={{
+              paddingLeft: "12px",
+            }}
+          >
             <BText>Remaining allocation:</BText>
           </BuyCardHeaderAllocationLabel>
           <BuyCardHeaderAllocationValue>
@@ -146,79 +150,81 @@ export const BuyCard: React.FC<BuyCardProps> = ({
           </FromGroup>
         </FormWrapper>
       </BuyCardHeaderAllocationWrapper>
-      {$isConnected ? (
-        <BuyNow
-          onClick={async () => {
-            console.log(`isConnected: ${$isConnected}`);
-            console.log(`user: ${$state.user}`);
-            console.log(
-              `Amounts: ${$state.amountInPait} ${$state.amountInUsd}`
-            );
-            console.log(
-              `user.is_approved: ${
-                $state.user ? $state.user.is_approved : "No user"
-              }`
-            );
-
-            if (!$isConnected) {
-              console.log("Wallet NOT CONNECTED.");
-              return;
-            }
-
-            if (!$state.user) {
-              console.log("USER not found.");
-              return;
-            }
-            // TODO:  to uncomment them
-            // if (
-            //   !$state.user.is_approved &&
-            //   process.env.NODE_ENV !== "development"
-            // ) {
-            //   toast.error("Please perform KYC verification to proceed.");
-            //   router.push("/kyc");
-            //   return;
-            // }
-
-            if (!$state.user.is_approved) {
-              toast.error("Please perform KYC verification to proceed.");
-              router.push("/kyc");
-              return;
-            }
-
-            if ($state.isInValid) {
-              toast.error(
-                `The minimum amount is : ${formatNumber(
-                  Number($state.mininumAmount)
-                )} & maximum amount is: ${formatNumber(
-                  Number($state.maximumAmount)
-                )}. Please change to continue!!!`
+      <WrappingButton>
+        {$isConnected ? (
+          <BuyNow
+            onClick={async () => {
+              console.log(`isConnected: ${$isConnected}`);
+              console.log(`user: ${$state.user}`);
+              console.log(
+                `Amounts: ${$state.amountInPait} ${$state.amountInUsd}`
               );
-              return;
-            }
+              console.log(
+                `user.is_approved: ${
+                  $state.user ? $state.user.is_approved : "No user"
+                }`
+              );
 
-            console.log("Calling buyPait...");
-            await $buyPait();
-          }}
-        >
-          <BuyNowWallet>
-            <span>Buy PAiT</span>
-            <ShoppingBagIcon size={15} />
-          </BuyNowWallet>
-        </BuyNow>
-      ) : (
-        <BuyNow>
-          <DynamicWidget
-            innerButtonComponent={
-              <WalletConnect>
-                <ConnectWalletButtonLabel>
-                  Connect Wallet
-                </ConnectWalletButtonLabel>
-                <MoveUpRightIcon size={8} />
-              </WalletConnect>
-            }
-          />
-        </BuyNow>
-      )}
+              if (!$isConnected) {
+                console.log("Wallet NOT CONNECTED.");
+                return;
+              }
+
+              if (!$state.user) {
+                console.log("USER not found.");
+                return;
+              }
+              // TODO:  to uncomment them
+              // if (
+              //   !$state.user.is_approved &&
+              //   process.env.NODE_ENV !== "development"
+              // ) {
+              //   toast.error("Please perform KYC verification to proceed.");
+              //   router.push("/kyc");
+              //   return;
+              // }
+
+              if (!$state.user.is_approved) {
+                toast.error("Please perform KYC verification to proceed.");
+                router.push("/kyc");
+                return;
+              }
+
+              if ($state.isInValid) {
+                toast.error(
+                  `The minimum amount is : ${formatNumber(
+                    Number($state.mininumAmount)
+                  )} & maximum amount is: ${formatNumber(
+                    Number($state.maximumAmount)
+                  )}. Please change to continue!!!`
+                );
+                return;
+              }
+
+              console.log("Calling buyPait...");
+              await $buyPait();
+            }}
+          >
+            <BuyNowWallet>
+              <span>Buy PAiT</span>
+              <ShoppingBagIcon size={15} />
+            </BuyNowWallet>
+          </BuyNow>
+        ) : (
+          <BuyNow>
+            <DynamicWidget
+              innerButtonComponent={
+                <WalletConnect>
+                  <ConnectWalletButtonLabel>
+                    Connect Wallet
+                  </ConnectWalletButtonLabel>
+                  <MoveUpRightIcon size={8} />
+                </WalletConnect>
+              }
+            />
+          </BuyNow>
+        )}
+      </WrappingButton>
     </Card>
   );
 };
@@ -301,6 +307,8 @@ const Card = styled.div`
   min-width: 519px;
   color: #fff;
   padding: 32px 12px 32px 12px;
+  padding-top: 32px;
+  padding-bottom: 32px;
   background-color: rgba(36, 37, 37, 0.3);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
@@ -311,6 +319,7 @@ const Card = styled.div`
   border-radius: 8px;
 
   @media (min-width: 768px) and (max-width: 1090px) {
+    padding: 0;
     min-width: 375px !important;
   }
 
@@ -321,6 +330,7 @@ const Card = styled.div`
     min-width: 100%;
     height: 100%;
     gap: 0px;
+    padding: 0 !important;
     margin-bottom: 48px;
   }
 `;
@@ -333,6 +343,8 @@ const Header = styled.h2`
   font-weight: ${({ theme }) => theme.fonts.weights.semibold};
   line-height: 28px;
   margin-bottom: 1.2rem;
+  padding-left: 12px;
+  padding-right: 12px;
 
   @media (max-width: ${sizes.tablet + "px"}) {
     width: 100%;
@@ -344,6 +356,8 @@ const Header = styled.h2`
 
 const HeaderSubTitle = styled.div`
   width: 100%;
+  padding-left: 12px;
+  padding-right: 12px;
 `;
 const SubHeader = styled.h4`
   font-size: 16px;
@@ -374,6 +388,10 @@ const BuyCardHeaderAllocationHeader = styled.div`
   /* gap: 8px; */
   justify-content: space-between;
   width: 100%;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 99%;
+  }
 `;
 const BuyCardHeaderAllocationLabel = styled.div`
   width: 100%;
@@ -397,9 +415,13 @@ const FormWrapper = styled.div`
   justify-content: space-between;
   gap: 1rem;
   width: 100%;
+  padding-left: 12px;
+  padding-right: 12px;
+  /* padding-right: 16px !important; */
   @media (max-width: ${sizes.tablet + "px"}) {
     flex-direction: column;
-    width: 100%;
+    align-items: flex-start;
+    width: 95% !important;
     gap: 20px;
     &:last-child {
       margin-bottom: 20px;
@@ -415,6 +437,7 @@ const FromGroup = styled.div`
   width: 100%;
   @media (max-width: ${sizes.tablet + "px"}) {
     width: 100%;
+    align-items: flex-start;
   }
 `;
 const FromLabel = styled.div`
@@ -471,7 +494,20 @@ const FromControlInput = styled.input`
 const FromControlIcon = styled.img`
   width: 30px;
   height: 30px;
-  margin-right: 16px;
+  /* margin-right: 16px; */
+`;
+
+const WrappingButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* padding: 12px; */
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 96%;
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+  }
 `;
 
 const BuyNow = styled.button`
@@ -486,8 +522,8 @@ const BuyNow = styled.button`
   border-radius: 4px;
 
   div#dynamic-widget {
-    width: 100%;
-    height: 100%;
+    /* width: 100%; */
+    /* height: 100%; */
   }
 `;
 

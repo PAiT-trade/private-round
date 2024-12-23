@@ -1,3 +1,4 @@
+import { sizes } from "@/utils/media";
 import React from "react";
 import styled from "styled-components";
 
@@ -20,6 +21,10 @@ const ProgressBarContainer = styled.div`
   border-radius: 10px;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 95%;
+  }
 `;
 
 const Progress = styled.div<{ $progress: number }>`

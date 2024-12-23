@@ -654,6 +654,8 @@ const FlexContainer = styled.div`
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
     flex-direction: column;
+    align-items: center;
+
     padding: 8px 16px !important;
     gap: 2rem;
   }
