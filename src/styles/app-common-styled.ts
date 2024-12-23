@@ -18,18 +18,14 @@ export const SectionWrapper = styled.div<{
   padding: 0 12rem;
   display: flex;
   align-items: center;
-  width: 100%;
   height: ${({ $height }) => ($height ? $height : "100%")};
   &:not(:last-child) {
     padding-top: ${({ $paddingtop }) => ($paddingtop ? $paddingtop : "1rem")};
   }
-
   &:nth-child(1) {
     margin-top: ${({ $margintop }) => ($margintop ? $margintop : "1rem")};
   }
-
   flex-direction: column;
-
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
     max-width: 100%;

@@ -59,7 +59,7 @@ const Card = styled.div`
   border: 1px solid #ffffff1a;
   border-radius: 8px;
   padding: 24px;
-  /* max-width: 18.875rem; */
+  /* width: 302px; */
   flex: 1 1 calc(20% - 1rem);
 
   @media (max-width: 768px) {
