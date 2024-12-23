@@ -45,6 +45,9 @@ export const ModalHeader = styled.div`
 export const ModalTitle = styled.h2`
   margin: 0;
   font-size: 1.5rem;
+  align-self: center;
+  width: 100%;
+  text-align: center;
   @media ${devices.mobile} {
     font-size: 14px;
   }
