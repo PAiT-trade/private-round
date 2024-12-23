@@ -87,7 +87,7 @@ export const AnalyzeConnectWalletProvider: React.FC<
           console.log("Setting in context", validWallet);
         })
         .catch((error) => {
-          console.log("Analyze -> Error:", error);
+          // console.log("Analyze -> Error:", error);
         });
     }
   }, [isConnected, primaryWallet, validWallet]);
