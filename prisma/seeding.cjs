@@ -44,23 +44,6 @@ async function main() {
     }
   }
   // save pruchases
-  const allocations = JSON.parse(
-    fs.readFileSync(`${__dirname}/data/allocations.json`, "utf-8")
-  );
-  // save allocations
-
-  for (const allocation of allocations) {
-    const exists = await db.allocation.findFirst({
-      where: { id: allocation.id },
-    });
-    if (!exists) {
-      const response = await db.allocation.create({
-        data: { ...allocation },
-      });
-    } else {
-      console.log("Allocation already exists");
-    }
-  }
 
   console.log("Succesfully seeded data");
 }

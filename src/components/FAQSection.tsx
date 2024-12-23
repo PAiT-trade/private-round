@@ -68,7 +68,7 @@ export const FAQSection = () => {
     {
       question: "What is $PAiT, and why should I invest in it?",
       answer:
-        "$PAiT simplifies dApps, making blockchain accessible to everyone. It’s an innovative project with strong growth potential.",
+        "Join PAiT.fi early to secure discounted tokens and capitalize on its high-growth DeFi potential.",
     },
     {
       question: "What is the price of $PAiT tokens during the private round?",

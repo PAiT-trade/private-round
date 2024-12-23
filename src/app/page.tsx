@@ -56,11 +56,11 @@ export default function Home() {
 
   const [state, setState] = useState<AppState>({
     allocation: {
-      remaining: 1946000,
-      total: 2000000,
+      remaining: 956000,
+      total: 1000000,
     },
     priceOfPait: "0.16",
-    remainingTime: "2024-12-21",
+    remainingTime: "2024-12-31",
     allowReferral: false,
     symbol: "USDC",
     inputValue: "",

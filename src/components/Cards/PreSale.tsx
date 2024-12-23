@@ -267,7 +267,7 @@ const PreSale: React.FC<PreSaleProps> = ({ $remainingtime }) => {
       <Subtitle style={{ paddingBottom: "40px" }}>
         <Paragraph>
           Join the PAiT Private Round to secure exclusive tokens and earn
-          rewards. Act fast—only 2,000,000 tokens are available with a
+          rewards. Act fast—only 1,000,000 tokens are available with a
           structured unlock schedule!
         </Paragraph>
       </Subtitle>
