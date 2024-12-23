@@ -3,7 +3,6 @@ const fs = require("fs");
 // const { randomUUID } = require("crypto");
 
 const db = new PrismaClient();
-console.log(`${__dirname}`);
 
 async function main() {
   const users = JSON.parse(
@@ -18,6 +17,10 @@ async function main() {
       const response = await db.user.create({
         data: { ...user },
       });
+
+      console.log(
+        `User: ${response.name} -  https://privateround.pait.fi/?referral=${response.referral}`
+      );
     } else {
       console.log("User already exists");
     }
@@ -41,23 +44,6 @@ async function main() {
     }
   }
   // save pruchases
-  const allocations = JSON.parse(
-    fs.readFileSync(`${__dirname}/data/allocations.json`, "utf-8")
-  );
-  // save allocations
-
-  for (const allocation of allocations) {
-    const exists = await db.allocation.findFirst({
-      where: { id: allocation.id },
-    });
-    if (!exists) {
-      const response = await db.allocation.create({
-        data: { ...allocation },
-      });
-    } else {
-      console.log("Allocation already exists");
-    }
-  }
 
   console.log("Succesfully seeded data");
 }
