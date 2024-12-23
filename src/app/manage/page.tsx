@@ -9,10 +9,12 @@ import { NotAuthorized } from "@/components/NotAuthorized";
 import { toast } from "react-hot-toast";
 import {
   MenuConnectButton,
+  OtherPagesWrapper,
   PagesWrapper,
   PageTitle,
   SectionWrapper,
   Wrapping,
+  WrapsIt,
 } from "@/styles/app-common-styled";
 import { NavSection } from "@/components/navbar";
 
@@ -62,52 +64,56 @@ export default function KYC() {
   };
 
   return (
-    <SectionWrapper>
-      <Wrapping>
-        <NavSection />
-        <PagesWrapper style={{ padding: "30px !important" }}>
-          {connected ? (
-            <div style={{ padding: "1rem" }}>
-              {isAuthorized ? (
-                <>
-                  <Container>
-                    <PageTitle>PAiT Allocations </PageTitle>
+    <OtherPagesWrapper>
+      <WrapsIt>
+        <Wrapping>
+          <NavSection />
+          <PagesWrapper style={{ padding: "30px !important" }}>
+            {connected ? (
+              <div style={{ padding: "1rem" }}>
+                {isAuthorized ? (
+                  <>
+                    <Container>
+                      <PageTitle>PAiT Allocations </PageTitle>
 
-                    <WrapController>
-                      <WrapLabel>New Remaining</WrapLabel>
-                      <WrapInput
-                        value={remaining}
-                        onChange={(e) => {
-                          setRemaining(Number(e.target.value));
-                        }}
-                      />
-                      <Button onClick={() => updateAllocation()}>Submit</Button>
-                    </WrapController>
-                  </Container>
-                </>
-              ) : (
-                <NotAuthorized />
-              )}
-            </div>
-          ) : (
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                zIndex: 100,
-              }}
-            >
-              <DynamicWidget
-                innerButtonComponent={
-                  <MenuConnectButton>Connect Wallet</MenuConnectButton>
-                }
-              />
-            </div>
-          )}
-        </PagesWrapper>
-      </Wrapping>
-    </SectionWrapper>
+                      <WrapController>
+                        <WrapLabel>New Remaining</WrapLabel>
+                        <WrapInput
+                          value={remaining}
+                          onChange={(e) => {
+                            setRemaining(Number(e.target.value));
+                          }}
+                        />
+                        <Button onClick={() => updateAllocation()}>
+                          Submit
+                        </Button>
+                      </WrapController>
+                    </Container>
+                  </>
+                ) : (
+                  <NotAuthorized />
+                )}
+              </div>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  zIndex: 100,
+                }}
+              >
+                <DynamicWidget
+                  innerButtonComponent={
+                    <MenuConnectButton>Connect Wallet</MenuConnectButton>
+                  }
+                />
+              </div>
+            )}
+          </PagesWrapper>
+        </Wrapping>
+      </WrapsIt>
+    </OtherPagesWrapper>
   );
 }
 

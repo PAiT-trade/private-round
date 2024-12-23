@@ -125,6 +125,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
           <MenuIcon
             size={24}
             onClick={() => $setIActive()}
+            color="#fff"
             style={{ cursor: "pointer" }}
           />
         )}
