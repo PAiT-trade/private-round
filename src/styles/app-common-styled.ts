@@ -276,8 +276,50 @@ export const Wrapping = styled.div`
   }
 `;
 
+// export const MinWrapp = styled.div`
+//   width: 100%;
+//   background: linear-gradient(
+//       to bottom right,
+//       rgba(15, 15, 15, 0.1),
+//       rgba(55, 55, 55, 0.9)
+//     ),
+//     url("/header-cover.png");
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   padding: 12rem;
+//   padding-bottom: 12rem;
+//   height: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   gap: 8rem;
+//   /* mobile and tablet */
+//   @media (max-width: ${sizes.desktop + "px"}) {
+//     min-width: 100% !important;
+//     margin: 0;
+//     gap: 3rem;
+//     max-width: 100%;
+//     padding: 0px 0px 32px 0px !important;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     align-content: center;
+//     flex-direction: column;
+//     background: linear-gradient(
+//         to bottom right,
+//         rgba(0, 0, 0, 0.1),
+//         rgba(0, 0, 0, 0.9)
+//       ),
+//       url("/header-cover.png");
+
+//     & > {
+//       width: 100%;
+//     }
+//   }
+// `;
+
 export const MinWrapp = styled.div`
-  width: 87%;
+  width: 100%;
   background: linear-gradient(
       to bottom right,
       rgba(15, 15, 15, 0.1),
@@ -286,20 +328,21 @@ export const MinWrapp = styled.div`
     url("/header-cover.png");
   background-size: cover;
   background-repeat: no-repeat;
-  /* padding: 0 12rem !important; */
-  padding-bottom: 12rem;
+  padding: 0 12rem; /* Combined shorthand */
+  padding-bottom: 12rem; /* Combined shorthand */
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 8rem;
-  /* mobile and tablet */
-  @media (max-width: ${sizes.desktop + "px"}) {
-    min-width: 100% !important;
+
+  /* Mobile and tablet styles */
+  @media (max-width: ${sizes.desktop}px) {
+    min-width: 100%;
     margin: 0;
     gap: 3rem;
     max-width: 100%;
-    padding: 0px 0px 32px 0px !important;
+    padding: 0 0 32px 0; /* Adjust padding */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -312,7 +355,7 @@ export const MinWrapp = styled.div`
       ),
       url("/header-cover.png");
 
-    & > {
+    & > * {
       width: 100%;
     }
   }

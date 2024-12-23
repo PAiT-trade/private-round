@@ -514,19 +514,25 @@ export default function Home() {
       >
         <HeaderWrapper>
           <MinWrapp>
-            <NavSection />
-            <FlexContainer>
-              <PreSale $remainingtime={state.remainingTime} />
-              <BuyCard
-                $state={state}
-                $setState={setState}
-                $isConnected={connected}
-                $amounts={minAmounts}
-                $buyPait={sendUSDC}
-                $calculateAmountInPait={calculateAmountInPait}
-              />
-              <VideoPlayer width="100%" height="209.77px" borderRadius="8px" />
-            </FlexContainer>
+            <WrapsIt>
+              <NavSection />
+              <FlexContainer>
+                <PreSale $remainingtime={state.remainingTime} />
+                <BuyCard
+                  $state={state}
+                  $setState={setState}
+                  $isConnected={connected}
+                  $amounts={minAmounts}
+                  $buyPait={sendUSDC}
+                  $calculateAmountInPait={calculateAmountInPait}
+                />
+                <VideoPlayer
+                  width="100%"
+                  height="209.77px"
+                  borderRadius="8px"
+                />
+              </FlexContainer>
+            </WrapsIt>
           </MinWrapp>
         </HeaderWrapper>
       </Wrapping>
@@ -610,6 +616,15 @@ export default function Home() {
   );
 }
 
+const WrapsIt = styled.div`
+  margin: 0 12rem;
+  width: 87%;
+  @media (max-width: ${sizes.tablet + "px"}) {
+    margin: 0 1rem;
+    width: 100%;
+  }
+`;
+
 const Page = styled.div`
   background-color: ${({ theme }) => theme.colors.bg};
   color: ${({ theme }) => theme.colors.text.white};
@@ -626,7 +641,6 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   color: white;
-  /* padding: 0 12rem 0 12rem; */
   width: 1440px;
   width: 100%;
   height: 100%;
