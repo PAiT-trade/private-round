@@ -152,9 +152,11 @@ export default function Home() {
 
   useEffect(() => {
     const setAllocations = async () => {
+      setIsLoading(true);
       await getAllocation();
     };
     setAllocations();
+    setIsLoading(false);
   }, [state.allocation.remaining]);
 
   useEffect(() => {

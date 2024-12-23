@@ -29,12 +29,9 @@ export const Modal = styled.div<ModalProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  @media ${devices.mobile} {
-    max-width: 98%;
-  }
-
   @media (max-width: ${sizes.tablet + "px"}) {
-    width: 95% !important;
+    margin-top: 5rem;
+    width: 89% !important;
   }
 `;
 
