@@ -9,10 +9,8 @@ import { HowToBuy } from "@/components/HowToBuy";
 import { NavSection } from "@/components/navbar";
 import { Rewards } from "@/components/Rewards";
 import ShowCase from "@/components/ShowCase";
-import { Footer } from "@/components/Footer";
 import {
   FAQSectionWrapper,
-  FloatingBackgroundOnlyLeft,
   FloatingBackgroundOnlyRight,
   FloatingBackgrounds,
   ManageContent,
