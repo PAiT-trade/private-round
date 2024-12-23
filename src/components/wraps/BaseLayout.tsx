@@ -100,20 +100,23 @@ export const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => {
 
         <BottomRightCorner>
           <FloatHeader>
-            <MinusIcon
-              size={16}
-              color="#fff"
-              onClick={() => {
-                setMinimized(!minimized);
-              }}
-            />
-            <MaximizeIcon
-              size={15}
-              color="#fff"
-              onClick={() => {
-                setMinimized(!minimized);
-              }}
-            />
+            {minimized ? (
+              <MinusIcon
+                size={16}
+                color="#fff"
+                onClick={() => {
+                  setMinimized(!minimized);
+                }}
+              />
+            ) : (
+              <MaximizeIcon
+                size={15}
+                color="#fff"
+                onClick={() => {
+                  setMinimized(!minimized);
+                }}
+              />
+            )}
           </FloatHeader>
           {!minimized && (
             <StyledVideo
