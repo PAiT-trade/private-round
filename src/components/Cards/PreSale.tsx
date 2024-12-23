@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   @media (max-width: ${sizes.tablet + "px"}) {
     max-width: 100%;
     width: 100%;
-    align-self: center;
+    padding: 10px !important;
     margin-bottom: 48px !important;
   }
 `;

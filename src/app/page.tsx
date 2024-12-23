@@ -513,11 +513,6 @@ export default function Home() {
           backgroundSize: `auto 272px`,
           backgroundRepeat: "no-repeat",
           width: "100%",
-          // zIndex: 100,
-
-          // [`@media (max-width: ${sizes.tablet}px)`]: {
-          //   display: "none",
-          // },
         }}
       >
         <HeaderWrapper>
