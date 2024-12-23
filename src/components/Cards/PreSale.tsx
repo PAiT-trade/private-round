@@ -143,9 +143,10 @@ const ButtonContainer = styled.div`
   }
   @media (max-width: ${sizes.tablet + "px"}) {
     margin: 0;
-    padding-left: 12px !important;
+    padding-left: 4px !important;
     align-content: center;
     justify-content: space-between;
+    gap: 6px;
     margin-bottom: 32px !important;
   }
 `;
