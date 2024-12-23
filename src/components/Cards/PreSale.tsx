@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 32px 12px 32px 12px;
+  padding: 32px 12px 32px 12px !important;
 
   p {
     width: 450px;
@@ -33,7 +33,6 @@ const Wrapper = styled.div`
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
     max-width: 100%;
-    padding: 0 !important;
     width: 100%;
     padding: 10px !important;
     margin-bottom: 48px !important;
@@ -56,6 +55,7 @@ const LiveBadge = styled.div`
 
   @media (max-width: ${sizes.tablet + "px"}) {
     margin-bottom: 12px !important;
+    padding-left: 12px !important;
   }
 `;
 
@@ -73,7 +73,7 @@ const Title = styled.h1`
   gap: 0;
   text-align: left;
   margin: 0 !important;
-  padding: 0 !important;
+
   span {
     color: #8cd2cf;
   }
@@ -93,6 +93,7 @@ const Title = styled.h1`
     font-weight: ${({ theme }) => theme.fonts.weights.semibold};
   }
   @media (max-width: ${sizes.tablet + "px"}) {
+    padding-left: 12px !important;
     font-size: 40px;
     line-height: 48px;
     letter-spacing: -0.05em;
@@ -110,9 +111,12 @@ const Subtitle = styled.h4`
   font-family: ${({ theme }) => theme.fonts.family.main};
 
   @media (max-width: ${sizes.tablet + "px"}) {
-    margin: 0;
     padding: 0 !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    margin: 0;
     margin-bottom: 32px !important;
+    width: 100% !important;
     p {
       font-weight: 400;
       font-size: 16px;
@@ -139,8 +143,10 @@ const ButtonContainer = styled.div`
   }
   @media (max-width: ${sizes.tablet + "px"}) {
     margin: 0;
+    padding-left: 4px !important;
     align-content: center;
     justify-content: space-between;
+    gap: 6px;
     margin-bottom: 32px !important;
   }
 `;
@@ -214,8 +220,9 @@ const Countdown = styled.div`
     }
   }
   @media (max-width: ${sizes.tablet + "px"}) {
-    margin-top: -32px !important;
     padding: 0 !important;
+    margin-top: -32px !important;
+    padding-left: 12px !important;
   }
 `;
 
