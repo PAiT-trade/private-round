@@ -33,7 +33,7 @@ export const get_analysis = async (
 
     return data;
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     return null;
   }
 };

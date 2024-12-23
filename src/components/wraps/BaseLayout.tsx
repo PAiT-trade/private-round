@@ -16,6 +16,7 @@ interface BaseLayoutProps {
 const BottomRightCorner = styled.div`
   margin: 0;
   position: fixed;
+  background-color: #000;
   bottom: 0;
   right: 0;
   margin: 4.5rem;
