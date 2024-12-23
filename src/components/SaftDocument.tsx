@@ -12,6 +12,7 @@ import { ModalSection } from "@/components/modal/Modal";
 import axios from "axios";
 import { useLoading } from "@/context/loading-context";
 import { devices } from "@/styles/common";
+import { sizes } from "@/utils/media";
 
 interface SignaturePadProps {
   onSave?: (url: string) => void;
@@ -880,7 +881,7 @@ const Spacing = styled.div`
 
 const Container = styled.div`
   max-width: 100%;
-  width: 100%;
+  width: 97.7%;
   margin: 0 auto;
   padding: 20px;
   font-size: 18px;
@@ -901,6 +902,10 @@ const Container = styled.div`
     width: 100%;
     font-size: 18px;
     background-color: transparent;
+  }
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 90%;
   }
 `;
 
