@@ -310,6 +310,10 @@ const Card = styled.div`
   gap: 24px;
   border-radius: 8px;
 
+  @media (min-width: 768px) and (max-width: 1090px) {
+    min-width: 375px !important;
+  }
+
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
     max-width: 100% !important;

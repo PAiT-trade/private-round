@@ -83,6 +83,7 @@ const Wrapper = styled.div`
   background-color: transparent;
   border: 8px solid #fff;
   border-radius: 8px;
+  width: 100%;
   @media (min-width: ${sizes.tablet + "px"}) {
     width: 100%;
     display: none;

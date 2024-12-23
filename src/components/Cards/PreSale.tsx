@@ -17,11 +17,17 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+
   p {
     width: 450px;
-    @media (max-width: ${sizes.tablet + "px"}) {
+    @media (max-width: ${sizes.desktop + "px"}) {
       width: 100%;
     }
+  }
+
+  @media (min-width: 768px) and (max-width: 1090px) {
+    min-width: 375px !important;
+    padding-left: 10px !important;
   }
   /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
