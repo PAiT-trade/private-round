@@ -100,7 +100,7 @@ export const BaseLayout: React.FC<BaseLayoutProps> = ({ children }) => {
 
         <BottomRightCorner>
           <FloatHeader>
-            {minimized ? (
+            {!minimized ? (
               <MinusIcon
                 size={16}
                 color="#fff"
