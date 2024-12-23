@@ -625,8 +625,7 @@ const SignaturePad: React.FC<SignaturePadProps> = ({
                 copy on each device.
               </Paragraph>
               <Subtitle>7. LIMITATIONS OF LIABILITY</Subtitle>
-              <br />
-              <Paragraph>
+              <Paragraph style={{ paddingTop: "2px" }}>
                 7.1. The Company and its affiliates or contractors shall not be
                 liable for any direct, indirect, or other damages for loss of
                 profits, goodwill, use, or information, even if advised of the
