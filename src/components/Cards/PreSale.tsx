@@ -8,6 +8,7 @@ import { LeftBar } from "../HeadingWIthLeftBar";
 
 const Wrapper = styled.div`
   max-width: 737px;
+  width: 100%;
   backdrop-filter: blur(60%);
   -webkit-backdrop-filter: blur(60%);
   color: #fff;
@@ -127,9 +128,10 @@ const Subtitle = styled.h4`
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   gap: 16px;
-  align-items: center;
+  width: 100%;
+  align-items: flex-start;
 
   a {
     &:first-child {
@@ -142,12 +144,17 @@ const ButtonContainer = styled.div`
     }
   }
   @media (max-width: ${sizes.tablet + "px"}) {
-    margin: 0;
-    padding-left: 4px !important;
+    max-width: 100%;
+    width: 94%;
+    display: flex;
+    align-self: center;
+    align-items: center;
     align-content: center;
     justify-content: space-between;
     gap: 6px;
     margin-bottom: 32px !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
   }
 `;
 const Button = styled.a<{ $bgcolor?: string }>`

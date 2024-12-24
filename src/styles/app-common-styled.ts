@@ -14,30 +14,26 @@ export const SectionWrapper = styled.div<{
   $margintop?: string;
   $height?: string;
 }>`
-  background-color: ${({ $bg }) => ($bg ? $bg : "#080b14")};
   padding: 0 12rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   height: ${({ $height }) => ($height ? $height : "100%")};
+  flex-direction: column;
+  background-color: ${({ $bg }) => ($bg ? $bg : "#080b14")};
+
+  max-width: 100%;
   &:not(:last-child) {
     padding-top: ${({ $paddingtop }) => ($paddingtop ? $paddingtop : "1rem")};
   }
   &:nth-child(1) {
     margin-top: ${({ $margintop }) => ($margintop ? $margintop : "1rem")};
   }
-  flex-direction: column;
-  /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
+    padding: 0 16px;
     max-width: 100%;
-    width: 100%;
-    padding: 1rem !important;
-    align-self: center;
-  }
-  @media (max-width: ${"900" + "px"}) {
-    max-width: 100%;
-    width: 100%;
-    padding: 1rem !important;
-    align-self: center;
+    padding: 1rem;
+    justify-content: center;
   }
 `;
 
@@ -371,8 +367,8 @@ export const MinWrapp = styled.div`
     url("/header-cover.png");
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 0 12rem; /* Combined shorthand */
-  padding-bottom: 12rem; /* Combined shorthand */
+  padding: 0 12rem;
+  padding-bottom: 12rem;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -408,6 +404,7 @@ export const FloatingBackgrounds = styled.div<{
   $showRight?: boolean;
   $showLeft?: boolean;
 }>`
+  max-width: 100%;
   width: 100%;
   height: 100%;
   background-color: rgba(8, 11, 20, 0.7);
@@ -429,15 +426,21 @@ export const FloatingBackgrounds = styled.div<{
   background-size: ${({ $showRight }) => ($showRight ? "400px 400px" : "unset")},
     ${({ $showLeft }) => ($showLeft ? "350px 350px" : "unset")};
 
-  @media (max-width: ${sizes.mobile + "px"}) {
-    /* background-image: none; */
+  @media (max-width: ${sizes.tablet + "px"}) {
+    max-width: 100%;
+    padding: 0 16px;
+    max-width: 100%;
+    padding: 1rem;
   }
 `;
 
 export const ManageContent = styled.div`
   height: 100%;
-  width: 100%;
   z-index: -1;
+  @media (max-width: ${sizes.tablet + "px"}) {
+    flex-direction: column;
+    padding: 8px;
+  }
 `;
 
 export const FloatingBackgroundOnlyLeft = styled.div`

@@ -652,6 +652,7 @@ const HeaderWrapper = styled.div`
   }
   @media (max-width: ${sizes.tablet + "px"}) {
     /* padding: 1rem; */
+    width: 100%;
   }
 `;
 
@@ -667,17 +668,8 @@ const FlexContainer = styled.div`
   @media (max-width: ${sizes.tablet + "px"}) {
     flex-direction: column;
     align-items: center;
-
-    padding: 8px 16px !important;
+    width: 100%;
+    /* padding: 8px 16px !important; */
     gap: 2rem;
-  }
-`;
-
-const ShowCaseImg = styled.img`
-  width: 100%;
-  display: none;
-  /* mobile and tablet */
-  @media (max-width: ${sizes.mobile + "px"}) {
-    display: block;
   }
 `;

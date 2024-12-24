@@ -323,7 +323,6 @@ const Card = styled.div`
     min-width: 375px !important;
   }
 
-  /* mobile and tablet */
   @media (max-width: ${sizes.tablet + "px"}) {
     max-width: 100% !important;
     width: 100% !important;
