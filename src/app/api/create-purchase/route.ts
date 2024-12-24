@@ -9,17 +9,36 @@ export async function POST(req: Request) {
 
   const referralCode = randomUUID();
 
-  // Define referral percentages for first and second level
+  // Define referral percentages
   const USDC_PERCENTAGE_LVL1 = 0.05; // 5% USDC for Level 1
   const PAIT_PERCENTAGE_LVL1 = 0.025; // 2.5% PAiT tokens for Level 1
   const PAIT_PERCENTAGE_LVL2 = 0.025; // 2.5% PAiT tokens for Level 2 (only after third referral)
 
   try {
-    // Fetch the user making the purchase
-    let user = await prisma.user.findUnique({
-      where: {
-        id: Number(data.user_id),
-      },
+    // Input validation
+    if (!data.user_id || isNaN(Number(data.user_id))) {
+      return NextResponse.json({
+        status: "error",
+        purchase: null,
+        message: "Invalid user ID provided",
+      });
+    }
+
+    if (
+      !data.usdc_amount ||
+      !data.pait_tokens ||
+      isNaN(data.usdc_amount) ||
+      isNaN(data.pait_tokens)
+    ) {
+      return NextResponse.json({
+        status: "error",
+        purchase: null,
+        message: "Invalid token or amount values",
+      });
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { id: Number(data.user_id) },
     });
 
     if (!user) {
@@ -30,7 +49,7 @@ export async function POST(req: Request) {
       });
     }
 
-    // Check if the user has a referral code, assign one if it's null, undefined, or empty string
+    // Assign a referral code to the user if they don't have one
     if (!user.referral || user.referral === "" || user.referral === null) {
       await prisma.user.update({
         where: { id: user.id },
@@ -39,87 +58,106 @@ export async function POST(req: Request) {
       user.referral = referralCode; // Update local reference
     }
 
-    const referrer = await prisma.user.findFirst({
-      where: {
-        referral: data.usedReferral,
-      },
-    });
+    // Validate referral code
+    if (data.usedReferral && typeof data.usedReferral !== "string") {
+      return NextResponse.json({
+        status: "error",
+        purchase: null,
+        message: "Invalid referral code provided",
+      });
+    }
 
-    // If no referrer exists, create the purchase without referral rewards
-    if (!referrer) {
+    const referrer = data.usedReferral
+      ? await prisma.user.findFirst({
+          where: { referral: data.usedReferral },
+        })
+      : null;
+
+    // Start a transaction
+    const result = await prisma.$transaction(async (prisma) => {
+      // If no referrer exists, create purchase without rewards
+      if (!referrer) {
+        const purchase = await prisma.purchase.create({
+          data: {
+            user_id: Number(data.user_id),
+            pait_tokens: Number(data.pait_tokens),
+            usdc_amount: Number(data.usdc_amount),
+            used_referral: "",
+          },
+        });
+        return { purchase, rewards: null };
+      }
+
+      // Level 1 rewards
+      const usdcEarningsLvl1 = Number(data.usdc_amount) * USDC_PERCENTAGE_LVL1;
+      const paitEarningsLvl1 = Number(data.pait_tokens) * PAIT_PERCENTAGE_LVL1;
+
+      await prisma.user.update({
+        where: { id: referrer.id },
+        data: {
+          direct_usdc: { increment: usdcEarningsLvl1 },
+          direct_pait: { increment: paitEarningsLvl1 },
+        },
+      });
+
+      // Level 2 rewards
+      let level2RewardData = null;
+
+      if (referrer.referral) {
+        const secondLevelReferrer = await prisma.user.findFirst({
+          where: { referral: referrer.referral },
+        });
+
+        if (secondLevelReferrer) {
+          const userPurchases = await prisma.purchase.count({
+            where: { used_referral: referrer.referral },
+          });
+
+          if (userPurchases >= 3) {
+            const paitEarningsLvl2 =
+              Number(data.pait_tokens) * PAIT_PERCENTAGE_LVL2;
+            await prisma.user.update({
+              where: { id: secondLevelReferrer.id },
+              data: {
+                direct_pait: { increment: paitEarningsLvl2 },
+              },
+            });
+
+            level2RewardData = {
+              referrerId: secondLevelReferrer.id,
+              paitReward: paitEarningsLvl2,
+            };
+          }
+        }
+      }
+
+      // Create purchase record
       const purchase = await prisma.purchase.create({
         data: {
           user_id: Number(data.user_id),
           pait_tokens: Number(data.pait_tokens),
           usdc_amount: Number(data.usdc_amount),
-          used_referral: "",
+          used_referral: data.usedReferral || "",
         },
       });
 
-      return NextResponse.json({
-        status: "success",
-        purchase: purchase,
-        message: "Purchase created successfully",
-      });
-    }
-
-    // Referrer exists, calculate earnings for Level 1
-    const usdcEarningsLvl1 = Number(data.usdc_amount) * USDC_PERCENTAGE_LVL1;
-    const paitEarningsLvl1 = Number(data.pait_tokens) * PAIT_PERCENTAGE_LVL1;
-
-    // Update Level 1 referrer's earnings
-    await prisma.user.update({
-      where: { id: referrer.id },
-      data: {
-        direct_usdc: { increment: usdcEarningsLvl1 },
-        direct_pait: { increment: paitEarningsLvl1 },
-      },
-    });
-
-    // Check for a second-level referrer
-    const secondLevelReferrer = await prisma.user.findFirst({
-      where: { referral: referrer.referral },
-    });
-
-    if (secondLevelReferrer) {
-      // Reward the top-level referrer after the third referral
-      const userPurchases = await prisma.purchase.count({
-        where: {
-          used_referral: referrer.referral,
+      return {
+        purchase,
+        rewards: {
+          lvl1: { usdc: usdcEarningsLvl1, pait: paitEarningsLvl1 },
+          lvl2: level2RewardData,
         },
-      });
-
-      if (userPurchases >= 3) {
-        const paitEarningsLvl2 =
-          Number(data.pait_tokens) * PAIT_PERCENTAGE_LVL2;
-
-        // Update second-level referrer's earnings for third referral and beyond
-        await prisma.user.update({
-          where: { id: secondLevelReferrer.id },
-          data: {
-            direct_pait: { increment: paitEarningsLvl2 },
-          },
-        });
-      }
-    }
-
-    // Create the purchase record
-    const purchase = await prisma.purchase.create({
-      data: {
-        user_id: Number(data.user_id),
-        pait_tokens: Number(data.pait_tokens),
-        usdc_amount: Number(data.usdc_amount),
-        used_referral: data.usedReferral,
-      },
+      };
     });
 
     return NextResponse.json({
       status: "success",
-      purchase: purchase,
+      purchase: result.purchase,
+      rewards: result.rewards,
       message: "Purchase created successfully with referral rewards",
     });
   } catch (error) {
-    console.log("Create Purchase Error: ", error);
+    console.error("Create Purchase Error: ", error);
     return NextResponse.json({
       status: "error",
       purchase: null,
