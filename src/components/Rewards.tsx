@@ -1,4 +1,5 @@
 "use client";
+import { sizes } from "@/utils/media";
 import styled from "styled-components";
 
 export const Rewards = () => {
@@ -52,6 +53,13 @@ const Container = styled.div`
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
+  width: 100%;
+  @media (max-width: ${sizes.tablet + "px"}) {
+    width: 95%;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Card = styled.div`
@@ -60,6 +68,7 @@ const Card = styled.div`
   border-radius: 8px;
   padding: 24px;
   /* width: 302px; */
+  width: 100%;
   flex: 1 1 calc(20% - 1rem);
 
   @media (max-width: 768px) {

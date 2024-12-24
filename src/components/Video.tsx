@@ -87,6 +87,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   align-content: center;
+  margin: 0 10px;
   @media (min-width: ${sizes.tablet + "px"}) {
     width: 100%;
     display: none;
