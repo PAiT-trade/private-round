@@ -341,7 +341,7 @@ const SignaturePad: React.FC<SignaturePadProps> = ({
   }, [isOpen]);
 
   return (
-    <>
+    <Wrappering>
       <ModalSection
         title="Purchase Confirmation"
         setIsOpen={() => {
@@ -770,6 +770,7 @@ const SignaturePad: React.FC<SignaturePadProps> = ({
               11.12. In case of a conflict between a translated version of this
               Agreement and the <br />
               <br />
+              <br />
               <br /> English version, the English version prevails.
             </Paragraph>
 
@@ -864,7 +865,7 @@ const SignaturePad: React.FC<SignaturePadProps> = ({
           </Button>
         </Container>
       )}
-    </>
+    </Wrappering>
   );
 };
 
@@ -879,9 +880,11 @@ const Spacing = styled.div`
   } */
 `;
 
+const Wrappering = styled.div`
+  width: 100%;
+`;
+
 const Container = styled.div`
-  max-width: 100%;
-  width: 97.7%;
   margin: 0 auto;
   padding: 20px;
   font-size: 18px;
