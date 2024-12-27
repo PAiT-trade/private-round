@@ -503,15 +503,7 @@ export default function Home() {
 
   return (
     <Page>
-      <Wrapping
-        style={{
-          backgroundImage: 'url("/top-bottom-bg.svg")',
-          backgroundPosition: `center bottom`,
-          backgroundSize: `auto 272px`,
-          backgroundRepeat: "no-repeat",
-          width: "100%",
-        }}
-      >
+      <WrappingApp>
         <HeaderWrapper>
           <MinWrapp>
             <WrapsIt>
@@ -535,7 +527,7 @@ export default function Home() {
             </WrapsIt>
           </MinWrapp>
         </HeaderWrapper>
-      </Wrapping>
+      </WrappingApp>
 
       {/* Instructions Section */}
       <SectionWrapper id="how-to-buy" $paddingtop="100px">
@@ -671,5 +663,35 @@ const FlexContainer = styled.div`
     width: 100%;
     /* padding: 8px 16px !important; */
     gap: 2rem;
+  }
+`;
+
+export const WrappingApp = styled.div`
+  min-width: 100% !important;
+  background-image: url("/top-bottom-bg.svg");
+  background-position: center bottom;
+  background-size: auto 272px;
+  background-repeat: no-repeat;
+  width: "100%";
+  @media (max-width: ${sizes.desktop + "px"}) {
+    min-width: 100% !important;
+    margin: 0;
+    width: 100%;
+    padding: 32px 0;
+
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+
+    & > {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: ${sizes.tablet + "px"}) {
+    margin-bottom: 48px !important;
+    background-image: none !important;
   }
 `;
