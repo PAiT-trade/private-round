@@ -4,14 +4,11 @@ import { Readable } from "stream";
 
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_HOST!,
-  port: 587,
-  secure: false,
-  tls: {
-    rejectUnauthorized: false,
-  },
+  port: 465,
+  secure: true, // Use true for port 465
   auth: {
     user: process.env.MAIL_USER!,
-    pass: process.env.MAIL_PASSWORD!,
+    pass: `e6rAL34$TWDGvurFEaZ#`,
   },
 });
 
@@ -22,6 +19,10 @@ export const sendEmail = async (
   html?: string,
   attachement?: File
 ) => {
+  console.log({
+    user: process.env.MAIL_USER!,
+    pass: process.env.MAIL_PASSWORD!,
+  });
   // Convert File to Buffer if provided
   const attachmentBuffer = attachement ? await fileToBuffer(attachement) : null;
   // Compress the buffer

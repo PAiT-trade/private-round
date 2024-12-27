@@ -771,6 +771,7 @@ const SignaturePad: React.FC<SignaturePadProps> = ({
               Agreement and the <br />
               <br />
               <br />
+              <br />
               <br /> English version, the English version prevails.
             </Paragraph>
 
@@ -1022,7 +1023,7 @@ const SignatureContainer = styled.div`
   page-break-inside: avoid;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 18px;
 
   @media (min-width: 600px) {
