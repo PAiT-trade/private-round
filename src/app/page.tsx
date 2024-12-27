@@ -666,7 +666,7 @@ const FlexContainer = styled.div`
   }
 `;
 
-export const WrappingApp = styled.div`
+const WrappingApp = styled.div`
   min-width: 100% !important;
   background-image: url("/top-bottom-bg.svg");
   background-position: center bottom;
