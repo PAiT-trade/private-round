@@ -73,21 +73,26 @@ export async function POST(req: Request) {
         })
       : null;
 
-    // Start a transaction
-    const result = await prisma.$transaction(async (prisma) => {
-      // If no referrer exists, create purchase without rewards
-      if (!referrer) {
-        const purchase = await prisma.purchase.create({
-          data: {
-            user_id: Number(data.user_id),
-            pait_tokens: Number(data.pait_tokens),
-            usdc_amount: Number(data.usdc_amount),
-            used_referral: "",
-          },
-        });
-        return { purchase, rewards: null };
-      }
+    // Create purchase without rewards if no referral code is used
+    if (!referrer) {
+      const purchase = await prisma.purchase.create({
+        data: {
+          user_id: Number(data.user_id),
+          pait_tokens: Number(data.pait_tokens),
+          usdc_amount: Number(data.usdc_amount),
+          used_referral: "",
+        },
+      });
+      return NextResponse.json({
+        status: "success",
+        purchase,
+        rewards: null,
+        message: "Purchase created successfully without referral rewards",
+      });
+    }
 
+    // Start a transaction for referral rewards
+    const result = await prisma.$transaction(async (prisma) => {
       // Level 1 rewards
       const usdcEarningsLvl1 = Number(data.usdc_amount) * USDC_PERCENTAGE_LVL1;
       const paitEarningsLvl1 = Number(data.pait_tokens) * PAIT_PERCENTAGE_LVL1;
