@@ -1028,6 +1028,7 @@ const SignatureContainer = styled.div`
 
   @media (min-width: 600px) {
     flex-direction: row;
+    align-items: center;
     justify-content: space-around;
     gap: 2rem;
   }
