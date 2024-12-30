@@ -36,7 +36,7 @@ export async function POST(req: Request) {
         message: "Invalid token or amount values",
       });
     }
-
+    // the user who us trying to make a purchase
     const user = await prisma.user.findUnique({
       where: { id: Number(data.user_id) },
     });
@@ -49,6 +49,7 @@ export async function POST(req: Request) {
       });
     }
 
+    // If this user does not have a referral code, assign one
     // Assign a referral code to the user if they don't have one
     if (!user.referral || user.referral === "" || user.referral === null) {
       await prisma.user.update({
@@ -67,6 +68,7 @@ export async function POST(req: Request) {
       });
     }
 
+    // Check if the referral code is valid  and  get the first referrer
     const referrer = data.usedReferral
       ? await prisma.user.findFirst({
           where: { referral: data.usedReferral },
@@ -93,22 +95,22 @@ export async function POST(req: Request) {
 
     // Start a transaction for referral rewards
     const result = await prisma.$transaction(async (prisma) => {
-      // Level 1 rewards
       const usdcEarningsLvl1 = Number(data.usdc_amount) * USDC_PERCENTAGE_LVL1;
       const paitEarningsLvl1 = Number(data.pait_tokens) * PAIT_PERCENTAGE_LVL1;
-
-      await prisma.user.update({
-        where: { id: referrer.id },
-        data: {
-          direct_usdc: { increment: usdcEarningsLvl1 },
-          direct_pait: { increment: paitEarningsLvl1 },
-        },
-      });
 
       // Level 2 rewards
       let level2RewardData = null;
 
       if (referrer.referral) {
+        // Level 1 rewards
+        await prisma.user.update({
+          where: { id: referrer.id },
+          data: {
+            direct_usdc: { increment: usdcEarningsLvl1 },
+            direct_pait: { increment: paitEarningsLvl1 },
+          },
+        });
+        // Level 2 rewards
         const secondLevelReferrer = await prisma.user.findFirst({
           where: { referral: referrer.referral },
         });
