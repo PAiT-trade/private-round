@@ -74,7 +74,7 @@ export const NavItemLink = styled.a`
 `;
 export const NavActions = styled.div`
   width: 91%;
-  margin-bottom: 12vh;
+  margin-bottom: 14vh;
 `;
 export const ConnectWalletButton = styled.div`
   height: 55px;
