@@ -73,7 +73,7 @@ export const NavItemLink = styled.a`
   font-size: 32px;
 `;
 export const NavActions = styled.div`
-  width: 100%;
+  width: 91%;
   margin-bottom: 12vh;
 `;
 export const ConnectWalletButton = styled.div`
